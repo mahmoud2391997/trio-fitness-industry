@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import React, { useEffect, useRef } from "react";
-import "../styles/globals.css";
 const stats = [
   {
     value: "96%",
