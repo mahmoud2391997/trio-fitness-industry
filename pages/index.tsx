@@ -85,9 +85,9 @@ export default function Home() {
       </main>
       <section
         id="about"
-        className="bg-white text-[#928c6b] flex  items-center justify-around h-[80vh]"
+        className="bg-white text-[#928c6b] flex  items-center justify-around h-[65vh]"
       >
-        <div className="flex flex-col space-y-4 items-start justify-around w-2/5">
+        <div className="flex flex-col space-y-4 items-start justify-around w-2/4">
           <h2 className="text-3xl font-bold">ABOUT US</h2>
           <p className="text-lg">
             Welcome to Trio fitness industry platform, where we offer a
@@ -100,18 +100,23 @@ export default function Home() {
             personal training experience ever.
           </p>
         </div>
-        <img ref={imageRef} src="image2-Photoroom.jpg" className="w-1/3 my-1" />
+        <img ref={imageRef} src="/image2-Photoroom.jpg" className="w-1/4 my-1" />
       </section>
       <section
         id="about"
-        className="bg-black text-[#928c6b] flex flex-col    items-center justify-around h-[40vh]"
+        className="bg-black text-[#928c6b] flex flex-col    items-center justify-around h-auto"
       >
-        <h2 className="text-3xl font-bold">MORE ABOUT COACH HASSAN MOHAMED</h2>
+        <h3 className="text-lg mt-4 mb-2">Certified Personal Trainer </h3>
+        <h2 className="text-3xl text-center font-bold mb-4">HASSAN MOHAMED</h2>
+        <h4 className="text-xl text-center mb-3">
+          Expert Body Building Coach And Nutritionist<br/> With Certificate Earned From <a href="https://www.nasm.org/" className=" underline">NASM</a>
+        </h4>
+        <img ref={imageRef} src="image.png" className="w-1/3 my-1" />
         <div className="bg-black text-white py-12 px-6">
           <div className=" mx-auto flex flex-wrap text-center h-full">
             {stats.map((stat, index) => (
               <React.Fragment key={index}>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center ">
                   <p className="text-4xl font-bold text-[#928c6b]">
                     {stat.value}
                   </p>
@@ -119,7 +124,7 @@ export default function Home() {
                   <p className="text-sm mt-1">{stat.description}</p>
                 </div>
                 {index < stats.length - 1 && (
-                  <div className="border-l border-[#928c6b] h-full mx-4"></div>
+                  <div className="border-l border-[#928c6b]  mx-4"></div>
                 )}
               </React.Fragment>
             ))}

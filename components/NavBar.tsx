@@ -2,18 +2,13 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <nav className="bg-black p-4 absolute z-20 w-full text-[#928c6b] flex justify-around items-center">
+    <nav className="bg-white p-4 absolute z-20 w-full text-[#928c6b] flex justify-around items-center">
       <div className="flex flex-col space-x-4 items-center">
         <img
-          src="/Screenshot 2024-12-30 at 11.41.36 AM.png"
-          className="w-24 h-16"
+          src="/logo.jpg"
+          className="w-40 h-20"
         />
-        <h1
-          className="text-xl font-bold"
-          style={{ fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif' }}
-        >
-          TRIO FITNESS INDUSTRY
-        </h1>
+      
       </div>
       <div className="flex text-lg font-semibold space-x-4 w-1/3 justify-around">
         <a href="#home" className=" hover:text-white">
