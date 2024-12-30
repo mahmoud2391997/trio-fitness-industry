@@ -1,7 +1,4 @@
 import React from "react";
-import { Roboto } from "next/font/google"; // Use Roboto as an alternative font
-
-const roboto = Roboto({ weight: "700" }); // Use appropriate weight for heavy font
 
 const NavBar = () => {
   return (
