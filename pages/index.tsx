@@ -1,5 +1,19 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import React, { useEffect, useRef } from "react";
+import {
+  FaAppleAlt,
+  FaDumbbell,
+  FaBook,
+  FaHeartbeat,
+  FaRunning,
+  FaWeight,
+  FaClipboardList,
+  FaUserShield,
+} from "react-icons/fa"; // Import icons
+import Slider from "react-slick"; // Import Slider component
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const stats = [
   {
     value: "96%",
@@ -32,6 +46,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const ServiceCard = ({ icon: Icon, title, description }) => (
+  <div className="flex flex-col w-5/6 items-center m-auto p-4 bg-gray-100 rounded-lg shadow-lg m-4">
+    <Icon className="text-6xl mb-4" />
+    <h3 className="text-xl font-semibold mb-2">{title}</h3>
+    <p className="text-center">{description}</p>
+  </div>
+);
+
 export default function Home() {
   const imageRef = useRef(null);
 
@@ -58,6 +80,32 @@ export default function Home() {
     };
   }, []);
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className={`${geistSans.variable} ${geistMono.variable}`}>
       <main className="relative w-full h-screen overflow-hidden row-start-2">
@@ -83,25 +131,7 @@ export default function Home() {
           </h1>
         </div>
       </main>
-      <section
-        id="about"
-        className="bg-white text-[#928c6b] flex  items-center justify-around h-[65vh]"
-      >
-        <div className="flex flex-col space-y-4 items-start justify-around w-2/4">
-          <h2 className="text-3xl font-bold">ABOUT US</h2>
-          <p className="text-lg">
-            Welcome to Trio fitness industry platform, where we offer a
-            comprehensive and personalized approach to fitness. Our platform
-            connects you with certified personal trainer coach HASSAN MOHAMED
-            who will create customized workout plans tailored to your goals and
-            fitness level. Whether you are looking to lose weight, build muscle,
-            or improve your overall health, our trainers are here to guide and
-            motivate you every step of the way. Join us and experience the best
-            personal training experience ever.
-          </p>
-        </div>
-        <img ref={imageRef} src="/image2-Photoroom.jpg" className="w-1/4 my-1" />
-      </section>
+     
       <section
         id="about"
         className="bg-black text-[#928c6b] flex flex-col    items-center justify-around h-auto"
@@ -109,7 +139,15 @@ export default function Home() {
         <h3 className="text-lg mt-4 mb-2">Certified Personal Trainer </h3>
         <h2 className="text-3xl text-center font-bold mb-4">HASSAN MOHAMED</h2>
         <h4 className="text-xl text-center mb-3">
-          Expert Body Building Coach And Nutritionist<br/> With Certificate Earned From <a href="https://www.nasm.org/" className=" underline">NASM</a>
+          Expert Body Building Coach And Nutritionist
+          <br /> With Certificate Earned From{" "}
+          <a
+            target="_blank"
+            href="https://www.nasm.org/"
+            className=" underline"
+          >
+            NASM
+          </a>
         </h4>
         <img ref={imageRef} src="image.png" className="w-1/3 my-1" />
         <div className="bg-black text-white py-12 px-6">
@@ -130,6 +168,78 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+      <section
+        id="about"
+        className="bg-white text-[#928c6b] flex  items-center justify-around h-[55vh]"
+      >
+        <div className="flex flex-col space-y-4 items-start justify-around w-2/4">
+          <h2 className="text-3xl font-bold">ABOUT US</h2>
+          <p className="text-lg">
+            Welcome to Trio fitness industry platform, where we offer a
+            comprehensive and personalized approach to fitness. Our platform
+            connects you with certified personal trainer coach HASSAN MOHAMED
+            who will create customized workout plans tailored to your goals and
+            fitness level. Whether you are looking to lose weight, build muscle,
+            or improve your overall health, our trainers are here to guide and
+            motivate you every step of the way. Join us and experience the best
+            personal training experience ever.
+          </p>
+        </div>
+        <img
+          ref={imageRef}
+          src="/image2-Photoroom.jpg"
+          className="w-1/4 my-1"
+        />
+      </section>
+      <section
+        id="services"
+        className="bg-black relative text-[#928c6b] max-w-full flex flex-col items-center justify-around h-auto  p-12"
+      >
+        <div className="h-5 absolute bottom-[22px]  bg-white w-1/6 m-auto rounded-xl"></div>
+        <h2 className="text-3xl font-bold mb-8">OUR SERVICES</h2>
+        <Slider {...sliderSettings} className="w-full text-[#928c6b] h-full  bg-black">
+          <ServiceCard
+            icon={FaAppleAlt}
+            title="Follow-Up Nutrition Programs"
+            description="Personalized nutrition plans to help you achieve your fitness goals."
+          />
+          <ServiceCard
+            icon={FaDumbbell}
+            title="Training Programs"
+            description="Customized workout plans tailored to your needs and fitness level."
+          />
+          <ServiceCard
+            icon={FaBook}
+            title="Books and Ebooks"
+            description="Access to a variety of fitness and nutrition books and ebooks."
+          />
+          <ServiceCard
+            icon={FaHeartbeat}
+            title="Track Client Medical History"
+            description="Comprehensive tracking of your medical history to ensure safe and effective training."
+          />
+          <ServiceCard
+            icon={FaRunning}
+            title="Fat Loss"
+            description="Effective programs designed to help you lose fat and maintain a healthy weight."
+          />
+          <ServiceCard
+            icon={FaWeight}
+            title="Building Muscles"
+            description="Specialized training plans to help you build muscle mass and strength."
+          />
+          <ServiceCard
+            icon={FaClipboardList}
+            title="Workout Plans"
+            description="Comprehensive workout plans tailored to your fitness goals."
+          />
+          <ServiceCard
+            icon={FaUserShield}
+            title="Private Gym Sessions"
+            description="Exclusive private gym sessions for personalized training."
+          />
+        </Slider>
       </section>
     </div>
   );

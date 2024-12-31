@@ -2,11 +2,11 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <nav className="bg-white p-4 absolute z-20 w-full text-[#928c6b] flex justify-around items-center">
+    <nav className="bg-white p-2 absolute z-20 w-full text-[#928c6b] flex justify-around items-center">
       <div className="flex flex-col space-x-4 items-center">
         <img
           src="/logo.jpg"
-          className="w-40 h-20"
+          className="h-16"
         />
       
       </div>
