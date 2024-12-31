@@ -47,7 +47,7 @@ const geistMono = Geist_Mono({
 });
 
 interface ServiceCardProps {
-  icon: React.ComponentType;
+  icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
 }
