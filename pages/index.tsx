@@ -52,10 +52,14 @@ interface ServiceCardProps {
   description: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description }) => (
-  <div className="flex flex-col w-5/6 items-center m-auto p-4 bg-gray-100 rounded-lg shadow-lg m-4">
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  icon: Icon,
+  title,
+  description,
+}) => (
+  <div className="flex flex-col w-5/6 items-center min-h-[400px] md:min-h-[240px] sm:min-h-[270px] justify-around mx-auto p-4 bg-gray-100 rounded-lg shadow-lg m-10">
     <Icon className="text-6xl mb-4" />
-    <h3 className="text-xl font-semibold mb-2">{title}</h3>
+    <h3 className="text-xl font-semibold mb-2 text-center">{title}</h3>
     <p className="text-center">{description}</p>
   </div>
 );
@@ -112,9 +116,15 @@ export default function Home() {
     ],
   };
 
+  const [showMore, setShowMore] = React.useState(false);
+
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
   return (
     <div className={`${geistSans.variable} ${geistMono.variable}`}>
-      <main className="relative w-full h-screen overflow-hidden row-start-2">
+      <main className="relative w-full h-[80vh] overflow-hidden row-start-2">
         <video
           autoPlay
           loop
@@ -129,20 +139,23 @@ export default function Home() {
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
-            className="text-7xl font-semibold leading-relaxed letter-spacing-[0.1em] "
-            style={{ fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif' }}
+            className="lg:text-7xl md:text-6xl text-3xl sm:text-5xl w-full font-semibold  "
+            style={{
+              fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
+              letterSpacing: "0.1em",
+              lineHeight: "2em",
+            }}
           >
-            THE BEST PERSONAL <br /> TRAINIG EXPERIENCE
-            <br /> EVER
+            THE BEST PERSONAL TRAINIG EXPERIENCE EVER
           </h1>
         </div>
       </main>
-     
+
       <section
         id="about"
-        className="bg-black text-[#928c6b] flex flex-col    items-center justify-around h-auto"
+        className="bg-black text-[#928c6b] flex flex-col py-4    items-center justify-around h-auto"
       >
-        <h3 className="text-lg mt-4 mb-2">Certified Personal Trainer </h3>
+        <h3 className="text-base mt-4 mb-2">Certified Personal Trainer </h3>
         <h2 className="text-3xl text-center font-bold mb-4">HASSAN MOHAMED</h2>
         <h4 className="text-xl text-center mb-3">
           Expert Body Building Coach And Nutritionist
@@ -155,21 +168,22 @@ export default function Home() {
             NASM
           </a>
         </h4>
-        <img ref={imageRef} src="image.png" className="w-1/3 my-1" />
+        <img
+          ref={imageRef}
+          src="image.png"
+          className="min-w-[240px] w-1/3 my-1"
+        />
         <div className="bg-black text-white py-12 px-6">
-          <div className=" mx-auto flex flex-wrap text-center h-full">
+          <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-center h-full">
             {stats.map((stat, index) => (
               <React.Fragment key={index}>
-                <div className="flex flex-col items-center ">
+                <div className="flex flex-col items-center border border-[#928c6b] p-4">
                   <p className="text-4xl font-bold text-[#928c6b]">
                     {stat.value}
                   </p>
                   <p className="text-lg font-semibold mt-2">{stat.title}</p>
                   <p className="text-sm mt-1">{stat.description}</p>
                 </div>
-                {index < stats.length - 1 && (
-                  <div className="border-l border-[#928c6b]  mx-4"></div>
-                )}
               </React.Fragment>
             ))}
           </div>
@@ -177,34 +191,50 @@ export default function Home() {
       </section>
       <section
         id="about"
-        className="bg-white text-[#928c6b] flex  items-center justify-around h-[55vh]"
+        className="bg-white text-[#928c6b] flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto p-8"
       >
-        <div className="flex flex-col space-y-4 items-start justify-around w-2/4">
-          <h2 className="text-3xl font-bold">ABOUT US</h2>
-          <p className="text-lg">
+        <div className="flex flex-col space-y-4 items-center md:items-start justify-around w-full md:w-2/4">
+          <h2 className="text-3xl text-center md:text-left font-bold">
+            ABOUT US
+          </h2>
+          <p className="text-lg text-center md:text-left">
             Welcome to Trio fitness industry platform, where we offer a
             comprehensive and personalized approach to fitness. Our platform
             connects you with certified personal trainer coach HASSAN MOHAMED
             who will create customized workout plans tailored to your goals and
-            fitness level. Whether you are looking to lose weight, build muscle,
-            or improve your overall health, our trainers are here to guide and
-            motivate you every step of the way. Join us and experience the best
-            personal training experience ever.
+            fitness level.
+            {showMore && (
+              <>
+                Whether you are looking to lose weight, build muscle, or improve
+                your overall health, our trainers are here to guide and motivate
+                you every step of the way. Join us and experience the best
+                personal training experience ever.
+              </>
+            )}
           </p>
+          <button
+            onClick={handleShowMore}
+            className="text-blue-500 underline mt-2"
+          >
+            {showMore ? "Show Less" : "Show More"}
+          </button>
         </div>
         <img
           ref={imageRef}
           src="/image2-Photoroom.jpg"
-          className="w-1/4 my-1"
+          className="md:w-[30%] w-full md:min-w-[350px] min-w-[240px] my-1"
         />
       </section>
       <section
         id="services"
         className="bg-black relative text-[#928c6b] max-w-full flex flex-col items-center justify-around h-auto  p-12"
       >
-        <div className="h-5 absolute bottom-[22px]  bg-white w-1/6 m-auto rounded-xl"></div>
-        <h2 className="text-3xl font-bold mb-8">OUR SERVICES</h2>
-        <Slider {...sliderSettings} className="w-full text-[#928c6b] h-full  bg-black">
+        <div className="sm:h-5 hidden sm:block h-10 absolute bottom-[22px]  bg-white w-[250px] m-auto rounded-xl"></div>
+        <h2 className="text-3xl text-center font-bold mb-8">OUR SERVICES</h2>
+        <Slider
+          {...sliderSettings}
+          className="w-full text-[#928c6b] h-full  bg-transparent"
+        >
           <ServiceCard
             icon={FaAppleAlt}
             title="Follow-Up Nutrition Programs"
