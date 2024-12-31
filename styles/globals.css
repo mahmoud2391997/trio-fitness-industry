@@ -13,7 +13,9 @@
     --foreground: #ededed;
   }
 }
-
+.no-scroll {
+  overflow-x: hidden;
+}
 @keyframes slideInFromRight {
   0% {
     transform: translateX(100%);

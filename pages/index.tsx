@@ -191,9 +191,9 @@ export default function Home() {
       </section>
       <section
         id="about"
-        className="bg-white text-[#928c6b] flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto p-8"
+        className="bg-white no-scroll text-[#928c6b] flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto p-8"
       >
-        <div className="flex flex-col space-y-4 items-center md:items-start justify-around w-full md:w-2/4">
+        <div className="flex flex-col space-y-4 items-center md:items-start justify-around w-full md:w-2/4  ">
           <h2 className="text-3xl text-center md:text-left font-bold">
             ABOUT US
           </h2>
@@ -222,7 +222,7 @@ export default function Home() {
         <img
           ref={imageRef}
           src="/image2-Photoroom.jpg"
-          className="md:w-[30%] w-full md:min-w-[350px] min-w-[240px] my-1"
+          className="md:w-[30%] w-full md:min-w-[350px] min-w-[240px] my-1 "
         />
       </section>
       <section

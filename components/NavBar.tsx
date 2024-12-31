@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
+// Add the following CSS class to your global CSS file or within a style tag
+/*
+
+*/
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    document.body.classList.toggle('no-scroll', !isOpen);
   };
 
   return (
