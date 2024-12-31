@@ -46,7 +46,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const ServiceCard = ({ icon: Icon, title, description }) => (
+interface ServiceCardProps {
+  icon: React.ComponentType;
+  title: string;
+  description: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description }) => (
   <div className="flex flex-col w-5/6 items-center m-auto p-4 bg-gray-100 rounded-lg shadow-lg m-4">
     <Icon className="text-6xl mb-4" />
     <h3 className="text-xl font-semibold mb-2">{title}</h3>
