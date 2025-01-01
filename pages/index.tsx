@@ -174,7 +174,7 @@ export default function Home() {
             NASM
           </a>
         </h4>
-        <Image
+        <img
           ref={imageRef}
           src="certficate.png"
           alt="Certificate"
