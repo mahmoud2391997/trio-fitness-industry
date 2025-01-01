@@ -14,7 +14,6 @@ import Slider from "react-slick"; // Import Slider component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PackageSection from "@/components/PackageSection";
-import Image from 'next/image';
 
 const stats = [
   {
