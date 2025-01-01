@@ -13,6 +13,7 @@ import {
 import Slider from "react-slick"; // Import Slider component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PackageSection from "@/components/PackageSection";
 
 const stats = [
   {
@@ -123,8 +124,16 @@ export default function Home() {
   };
 
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable}`}>
-      <main className="relative w-full h-[80vh] overflow-hidden row-start-2">
+    <div className={`${geistSans.variable} ${geistMono.variable} relative `}>
+    <div
+      className="w-full h-screen sticky top-0 z-[-1]"
+      style={{
+        backgroundImage:
+          "url('https://miamiirongym.com/wp-content/uploads/2013/08/composition_1.jpg')",
+        backgroundSize: "cover",
+      }}
+    ></div>
+          <main className="absolute top-0 w-full h-[100vh] overflow-hidden row-start-2">
         <video
           autoPlay
           loop
@@ -139,7 +148,7 @@ export default function Home() {
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
-            className="lg:text-7xl md:text-6xl text-3xl sm:text-5xl w-full font-semibold  "
+            className="lg:text-7xl md:text-6xl text-3xl sm:text-5xl font-semibold  w-4/6"
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "0.1em",
@@ -153,7 +162,7 @@ export default function Home() {
 
       <section
         id="about"
-        className="bg-black text-[#928c6b] flex flex-col py-4    items-center justify-around h-auto"
+        className="bg-black text-[#928c6b] flex flex-col py-4 z-20   items-center justify-around h-auto"
       >
         <h3 className="text-base mt-4 mb-2">Certified Personal Trainer </h3>
         <h2 className="text-3xl text-center font-bold mb-4">HASSAN MOHAMED</h2>
@@ -170,7 +179,7 @@ export default function Home() {
         </h4>
         <img
           ref={imageRef}
-          src="image.png"
+          src="certficate.png"
           className="min-w-[240px] w-1/3 my-1"
         />
         <div className="bg-black text-white py-12 px-6">
@@ -191,39 +200,23 @@ export default function Home() {
       </section>
       <section
         id="about"
-        className="bg-white no-scroll text-[#928c6b] flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto p-8"
+        className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto p-8"
       >
-        <div className="flex flex-col space-y-4 items-center md:items-start justify-around w-full md:w-2/4  ">
+        <div className="flex flex-col space-y-4 items-center  justify-around w-full md:w-2/4  ">
           <h2 className="text-3xl text-center md:text-left font-bold">
             ABOUT US
           </h2>
-          <p className="text-lg text-center md:text-left">
+          <p className="text-lg text-center ">
             Welcome to Trio fitness industry platform, where we offer a
             comprehensive and personalized approach to fitness. Our platform
             connects you with certified personal trainer coach HASSAN MOHAMED
             who will create customized workout plans tailored to your goals and
-            fitness level.
-            {showMore && (
-              <>
-                Whether you are looking to lose weight, build muscle, or improve
-                your overall health, our trainers are here to guide and motivate
-                you every step of the way. Join us and experience the best
-                personal training experience ever.
-              </>
-            )}
+            fitness level. Whether you are looking to lose weight, build muscle,
+            or improve your overall health, our trainers are here to guide and
+            motivate you every step of the way. Join us and experience the best
+            personal training experience ever.
           </p>
-          <button
-            onClick={handleShowMore}
-            className="text-blue-500 underline mt-2"
-          >
-            {showMore ? "Show Less" : "Show More"}
-          </button>
         </div>
-        <img
-          ref={imageRef}
-          src="/image2-Photoroom.jpg"
-          className="md:w-[30%] w-full md:min-w-[350px] min-w-[240px] my-1 "
-        />
       </section>
       <section
         id="services"
@@ -277,6 +270,7 @@ export default function Home() {
           />
         </Slider>
       </section>
+      <PackageSection />
     </div>
   );
 }

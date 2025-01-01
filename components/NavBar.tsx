@@ -11,27 +11,31 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    document.body.classList.toggle('no-scroll', !isOpen);
+    document.body.classList.toggle("no-scroll", !isOpen);
   };
 
   return (
-    <nav className="bg-white p-2 z-20 w-full text-[#928c6b] flex justify-around items-center">
-      <div className="flex items-center space-x-4">
-        <img src="/logo.jpg" className="h-16" />
-      </div>
-      <div className="hidden md:flex text-lg font-semibold space-x-4 w-1/3 justify-around">
-        <a href="#home" className="hover:text-white">
-          Home
-        </a>
-        <a href="#about" className="hover:text-white">
-          About
-        </a>
-        <a href="#services" className="hover:text-white">
-          Services
-        </a>
-        <a href="#contact" className="hover:text-white">
-          Contact
-        </a>
+    <nav
+      className="bg-transparent absolute top-0  pt-5 z-20 w-full text-[#928c6b] flex justify-around items-center "
+      style={{ backgroundColor: "gradient" }}
+    >
+      
+        <div className="flex items-center space-x-4">
+          <img src="/image.png" className=" max-w-24" />
+        </div>
+        <div className="hidden  md:flex text-xl font-semibold space-x-4 w-2/4 justify-around ">
+          <a href="#home" className="hover:text-white">
+            Home
+          </a>
+          <a href="#about" className="hover:text-white">
+            About
+          </a>
+          <a href="#services" className="hover:text-white">
+            Services
+          </a>
+          <a href="#contact" className="hover:text-white">
+            Contact
+          </a>
       </div>
       <div className="hidden md:block">
         <select className="bg-gray-800 hover:text-white border-none">
