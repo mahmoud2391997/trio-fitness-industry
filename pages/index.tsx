@@ -118,11 +118,7 @@ export default function Home() {
     ],
   };
 
-  const [showMore, setShowMore] = React.useState(false);
-
-  const handleShowMore = () => {
-    setShowMore(!showMore);
-  };
+  
 
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} relative `}>
