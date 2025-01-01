@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Image from "next/image";
 
 // Add the following CSS class to your global CSS file or within a style tag
 /*
-
+.no-scroll {
+  overflow-x: hidden;
+}
 */
 
 const NavBar = () => {
@@ -15,15 +18,12 @@ const NavBar = () => {
   };
 
   return (
-    <nav
-      className="bg-transparent absolute top-0  pt-5 z-20 w-full text-[#928c6b] flex justify-around items-center "
-      style={{ backgroundColor: "gradient" }}
-    >
-      
+    <nav className="bg-gradient-to-r from-black to-gray-800 p-2 z-20 w-full text-[#928c6b] flex justify-between items-center">
+      <div className="flex justify-start items-center w-2/3 ml-[4%]">
         <div className="flex items-center space-x-4">
-          <img src="/image.png" className=" max-w-24" />
+          <Image src="/blackLogo.png" alt="Logo" width={64} height={64} />
         </div>
-        <div className="hidden  md:flex text-xl font-semibold space-x-4 w-2/4 justify-around ">
+        <div className="hidden ml-10 md:flex text-xl font-semibold space-x-4 w-1/3 justify-around">
           <a href="#home" className="hover:text-white">
             Home
           </a>
@@ -36,6 +36,7 @@ const NavBar = () => {
           <a href="#contact" className="hover:text-white">
             Contact
           </a>
+        </div>
       </div>
       <div className="hidden md:block">
         <select className="bg-gray-800 hover:text-white border-none">

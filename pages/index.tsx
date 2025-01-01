@@ -14,6 +14,7 @@ import Slider from "react-slick"; // Import Slider component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PackageSection from "@/components/PackageSection";
+import Image from 'next/image';
 
 const stats = [
   {
@@ -66,7 +67,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 );
 
 export default function Home() {
-  const imageRef = useRef(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -177,9 +178,12 @@ export default function Home() {
             NASM
           </a>
         </h4>
-        <img
+        <Image
           ref={imageRef}
           src="certficate.png"
+          alt="Certificate"
+          width={500}
+          height={300}
           className="min-w-[240px] w-1/3 my-1"
         />
         <div className="bg-black text-white py-12 px-6">
