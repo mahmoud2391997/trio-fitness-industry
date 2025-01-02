@@ -14,6 +14,7 @@ import Slider from "react-slick"; // Import Slider component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PackageSection from "@/components/PackageSection";
+import ServicesCard from "@/components/servicesCard";
 
 const stats = [
   {
@@ -221,53 +222,25 @@ export default function Home() {
         id="services"
         className="bg-black relative text-[#928c6b] max-w-full flex flex-col items-center justify-around h-auto  p-12"
       >
-        <div className="sm:h-5 hidden sm:block h-10 absolute bottom-[22px]  bg-white w-[250px] m-auto rounded-xl"></div>
         <h2 className="text-3xl text-center font-bold mb-8">OUR SERVICES</h2>
-        <Slider
-          {...sliderSettings}
-          className="w-full text-[#928c6b] h-full  bg-transparent"
-        >
-          <ServiceCard
-            icon={FaAppleAlt}
-            title="Follow-Up Nutrition Programs"
-            description="Personalized nutrition plans to help you achieve your fitness goals."
+        <div className="grid grid-cols-1 gap-[2%] md:grid-cols-2 lg:grid-cols-3 w-full">
+          <ServicesCard
+            heading="FAT LOSS"
+            description="Achieving your fat loss goals is more than just working out, it's about creating a sustainable lifestyle. Our personalized fat loss training programs are designed to help you shed unwanted weight."
+            image="/fat-loss.jpg"
           />
-          <ServiceCard
-            icon={FaDumbbell}
-            title="Training Programs"
-            description="Customized workout plans tailored to your needs and fitness level."
+         
+          <ServicesCard
+            heading="BUILDING MUSCLES"
+            description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery, we ensure you achieve your muscle-building goals safely and efficiently."
+            image="/Frame_466-removebg-preview.png"
           />
-          <ServiceCard
-            icon={FaBook}
-            title="Books and Ebooks"
-            description="Access to a variety of fitness and nutrition books and ebooks."
+          <ServicesCard
+            heading="BUILDING MUSCLES"
+            description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery, we ensure you achieve your muscle-building goals safely and efficiently."
+            image="/Frame_468-removebg-preview.png"
           />
-          <ServiceCard
-            icon={FaHeartbeat}
-            title="Track Client Medical History"
-            description="Comprehensive tracking of your medical history to ensure safe and effective training."
-          />
-          <ServiceCard
-            icon={FaRunning}
-            title="Fat Loss"
-            description="Effective programs designed to help you lose fat and maintain a healthy weight."
-          />
-          <ServiceCard
-            icon={FaWeight}
-            title="Building Muscles"
-            description="Specialized training plans to help you build muscle mass and strength."
-          />
-          <ServiceCard
-            icon={FaClipboardList}
-            title="Workout Plans"
-            description="Comprehensive workout plans tailored to your fitness goals."
-          />
-          <ServiceCard
-            icon={FaUserShield}
-            title="Private Gym Sessions"
-            description="Exclusive private gym sessions for personalized training."
-          />
-        </Slider>
+    </div>
       </section>
       <PackageSection />
     </div>
