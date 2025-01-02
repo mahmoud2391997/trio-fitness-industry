@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Image from "next/image"; // Import Image from next/image
 
 // Add the following CSS class to your global CSS file or within a style tag
 /*
@@ -19,7 +20,7 @@ const NavBar = () => {
       className="bg-gradient-to-r from-black to-transparent absolute top-0 py-[1%] px-[5%] z-20 w-full text-[#928c6b] flex justify-between items-center"
     >
       <div className="flex justify-start  w-3/4 items-center space-x-4">
-      <img src="/image.png" className="max-w-24" />
+      <Image src="/image.png" alt="Logo" width={50} height={50} className="max-w-24" />
       <div className="hidden md:flex text-2xl justify-around w-4/6 font-semibold space-x-4">
       
       <a href="#about" className="hover:text-white">

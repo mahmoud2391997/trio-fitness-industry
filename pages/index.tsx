@@ -1,16 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import React, { useEffect, useRef } from "react";
-import {
-  FaAppleAlt,
-  FaDumbbell,
-  FaBook,
-  FaHeartbeat,
-  FaRunning,
-  FaWeight,
-  FaClipboardList,
-  FaUserShield,
-} from "react-icons/fa"; // Import icons
-import Slider from "react-slick"; // Import Slider component
+import Image from "next/image"; // Import Image from next/image
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PackageSection from "@/components/PackageSection";
@@ -48,24 +39,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-interface ServiceCardProps {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
-}
-
-const ServiceCard: React.FC<ServiceCardProps> = ({
-  icon: Icon,
-  title,
-  description,
-}) => (
-  <div className="flex flex-col w-5/6 items-center min-h-[400px] md:min-h-[240px] sm:min-h-[270px] justify-around mx-auto p-4 bg-gray-100 rounded-lg shadow-lg m-10">
-    <Icon className="text-6xl mb-4" />
-    <h3 className="text-xl font-semibold mb-2 text-center">{title}</h3>
-    <p className="text-center">{description}</p>
-  </div>
-);
-
 export default function Home() {
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -81,44 +54,18 @@ export default function Home() {
       { threshold: 0.1 }
     );
 
-    if (imageRef.current) {
-      observer.observe(imageRef.current);
+    const currentImageRef = imageRef.current; // Copy imageRef.current to a variable
+
+    if (currentImageRef) {
+      observer.observe(currentImageRef);
     }
 
     return () => {
-      if (imageRef.current) {
-        observer.unobserve(imageRef.current);
+      if (currentImageRef) {
+        observer.unobserve(currentImageRef);
       }
     };
   }, []);
-
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-  
 
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} relative `}>
@@ -174,9 +121,9 @@ export default function Home() {
             NASM
           </a>
         </h4>
-        <img
+        <Image
           ref={imageRef}
-          src="certficate.png"
+          src="/certficate.png"
           alt="Certificate"
           width={500}
           height={300}
