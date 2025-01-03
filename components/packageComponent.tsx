@@ -31,12 +31,12 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
         </div>
         <div className="h-auto rounded-lg my-3">
           <h4 className="text-sm text-center mb-2">Description</h4>
-          <h3 className="text-lg text-center text-white font-medium mb-2">
+          <h3 className="text-base text-center text-white font-medium mb-2">
             {packageDescription}
           </h3>
         </div>
         <h4 className="text-sm text-center font-bold mb-2">Features</h4>
-        <ul className="list-disc text-lg text-white list-inside">
+        <ul className="list-disc text-white list-inside">
           {packageDetails.map((detail, index) => (
             <li key={index}>{detail}</li>
           ))}

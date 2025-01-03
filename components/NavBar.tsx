@@ -17,8 +17,12 @@ const NavBar = () => {
   return (
     <nav className="bg-gradient-to-r from-black to-transparent absolute top-0 py-[1%] px-[5%] z-20 w-full text-[#928c6b] flex justify-between items-center">
       <div className="flex justify-start  w-3/4 items-center space-x-4">
-        <img src="/image.png" className="max-w-24" />
-        <div className="hidden md:flex text-2xl justify-around w-4/6 font-semibold space-x-4">
+      <div className="flex flex-col items-center ">
+
+        <img src="/image.png" className="w-24" />
+        <img src="/name.png" className="w-52 " />
+      </div>
+        <div className="hidden md:flex text-3xl justify-around w-4/6 font-semibold space-x-4">
           <a href="#about" className="hover:text-white">
             About
           </a>
