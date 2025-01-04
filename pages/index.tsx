@@ -72,9 +72,8 @@ export default function Home() {
     <div
       className="w-full h-screen sticky top-0 z-[-1]"
       style={{
-        backgroundImage:
-          "url('https://miamiirongym.com/wp-content/uploads/2013/08/composition_1.jpg')",
-        backgroundSize: "cover",
+      backgroundImage: 'url("/aboutUs.png")',
+      backgroundSize: "cover",
       }}
     ></div>
           <main className="absolute top-0 w-full h-[100vh] overflow-hidden row-start-2">
@@ -91,16 +90,23 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
-          <h1
-            className="lg:text-7xl md:text-6xl text-3xl sm:text-5xl font-semibold  w-4/6"
+            <h1
+            className="xl:text-7xl text-center lg:text-[62px] md:text-[57px] text-[35px] sm:text-6xl font-semibold h-4/6 mx-0 sm:m-auto w-full sm:w-4/6"
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "0.1em",
               lineHeight: "2em",
             }}
-          >
-            THE BEST PERSONAL TRAINIG EXPERIENCE EVER
-          </h1>
+            >
+            THE BEST PERSONAL TRAINING EXPERIENCE EVER
+            </h1>
+            <style jsx>{`
+            @media (max-width: 640px) {
+              h1 {
+              line-height: 3em;
+              }
+            }
+            `}</style>
         </div>
       </main>
 
@@ -189,19 +195,20 @@ export default function Home() {
           <ServicesCard
             heading="FAT LOSS"
             description="Achieving your fat loss goals is more than just working out, it's about creating a sustainable lifestyle. Our personalized fat loss training programs are designed to help you shed unwanted weight."
-            image="/fat-loss.jpg"
+            image="/service.png"
           />
          
           <ServicesCard
             heading="BUILDING MUSCLES"
-            description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery, we ensure you achieve your muscle-building goals safely and efficiently."
-            image="/Frame_466-removebg-preview.png"
+            description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery."
+            image="/service2.png"
           />
           <ServicesCard
             heading="BUILDING MUSCLES"
-            description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery, we ensure you achieve your muscle-building goals safely and efficiently."
-            image="/Frame_468-removebg-preview.png"
+            description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery."
+            image="/service3.png"
           />
+         
     </div>
       </section>
       <PackageSection />
