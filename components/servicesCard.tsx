@@ -12,17 +12,13 @@ const ServicesCard: React.FC<ServicesCardProps> = ({
   image,
 }) => {
   return (
-    <div className="flex flex-col md:flex-row items-center bg-gradient-to-b to-black from-gray-700 text-white p-4 rounded-lg shadow-lg h-auto w-auto mx-auto">
-      <div className="flex-1">
+    <div className="flex flex-row items-center relative bg-gradient-to-r  from-gray-800 to-transparent text-white pl-4 rounded-lg shadow-lg h-[40vh] w-full mx-auto">
+      <div className="w-2/3">
         <h1 className="text-2xl font-bold text-[#928c6b] mb-2">{heading}</h1>
-        <p className="text-sm leading-relaxed mb-4">{description}</p>
+        <p className="text-sm w-full leading-relaxed mb-4">{description}</p>
       </div>
-      <div className="mt-6 md:mt-0">
-        <img
-          src={image}
-          alt="Service"
-          className="h-80 rounded-lg"
-        />
+      <div className=" w-1/3 absolute bottom-0 right-0 md:mt-0 h-auto">
+        <img src={image} alt="Service" className="h-full rounded-lg" />
       </div>
     </div>
   );

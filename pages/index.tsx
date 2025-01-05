@@ -188,25 +188,25 @@ export default function Home() {
       </section>
       <section
         id="services"
-        className="bg-black relative text-[#928c6b] max-w-full flex flex-col items-center justify-around h-auto  p-12"
+        className="bg-black relative text-[#928c6b] max-w-full flex flex-col items-center justify-around h-auto py-12 px-2  sm:p-12"
       >
         <h2 className="text-3xl text-center font-bold mb-8">OUR SERVICES</h2>
         <div className="grid grid-cols-1 gap-[2%] md:grid-cols-2 lg:grid-cols-3 w-full">
           <ServicesCard
             heading="FAT LOSS"
             description="Achieving your fat loss goals is more than just working out, it's about creating a sustainable lifestyle. Our personalized fat loss training programs are designed to help you shed unwanted weight."
-            image="/service.png"
+            image="/fat-loss.jpg"
           />
          
           <ServicesCard
             heading="BUILDING MUSCLES"
             description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery."
-            image="/service2.png"
+            image="/Frame_466-removebg-preview.png"
           />
           <ServicesCard
             heading="BUILDING MUSCLES"
             description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery."
-            image="/service3.png"
+            image="/Frame_468-removebg-preview.png"
           />
          
     </div>
