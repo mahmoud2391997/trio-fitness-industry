@@ -53,6 +53,14 @@ const transformations = [
     image: "/transform1.jpg",
     description: "Michael's 5-month transformation",
   },
+  {
+    image: "/tranform4.jpg",
+    description: "Michael's 5-month transformation",
+  },
+  {
+    image: "/tranform5.jpg",
+    description: "Michael's 5-month transformation",
+  },
 ];
 
 interface TransformationCardProps {
@@ -64,15 +72,32 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
   image,
   description,
 }) => (
-  <div className="flex m-auto flex-col items-center w-[98%] p-4 pb-0  bg-gradient-to-b from-gray-800 to-black rounded-lg h-[65vh]">
-      <img
+  <div className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]">
+    <div className="relative w-full h-[90%]">
+      <Image
         src={image}
         alt={description}
-       
-        className="rounded-lg w-full h-[90%]"
+        layout="fill"
+        objectFit="contain"
+        className="rounded-lg"
       />
+    </div>
     <p className="text-center my-3">{description}</p>
   </div>
+);
+
+interface CustomArrowProps {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+}
+
+const CustomArrow: React.FC<CustomArrowProps> = ({ className, style, onClick }) => (
+  <div
+    className={className}
+    style={{ ...style, display: "block", background: "#928c6b", zIndex: 1 }}
+    onClick={onClick}
+  />
 );
 
 export default function Home() {
@@ -129,6 +154,8 @@ export default function Home() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    nextArrow: <CustomArrow className="slick-next" style={{ right: "10px", top: "50%" }} />,
+    prevArrow: <CustomArrow className="slick-prev" style={{ left: "10px", top: "50%" }} />,
     responsive: [
       {
         breakpoint: 1280,
@@ -151,6 +178,7 @@ export default function Home() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          arrows: false,
         },
       },
     ],
@@ -337,19 +365,20 @@ export default function Home() {
       {/* Add Transformations Section */}
       <section
         id="transformations"
-        className="bg-transparent  text-white flex flex-col items-center justify-around h-auto py-12 px-12 sm:p-12"
+        className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
         ref={aboutUsRef}
       >
         <h2 className="text-3xl text-center font-bold mb-8">TRANSFORMATIONS</h2>
         <Slider {...sliderSettings} className="w-full">
           {transformations.map((transformation, index) => (
-            <TransformationCard
-              key={index}
-              image={transformation.image}
-              description={transformation.description}
-            />
+        <TransformationCard
+          key={index}
+          image={transformation.image}
+          description={transformation.description}
+        />
           ))}
         </Slider>
+        <div className="w-40 rounded-lg h-4 bg-white mt-[7px]"></div>
       </section>
       <PackageSection />
     </div>
