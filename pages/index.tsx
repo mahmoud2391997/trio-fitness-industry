@@ -61,6 +61,10 @@ const transformations = [
     image: "/tranform5.jpg",
     description: "Michael's 5-month transformation",
   },
+  {
+    image: "/transform6.jpg",
+    description: "Michael's 5-month transformation",
+  },
 ];
 
 interface TransformationCardProps {
@@ -73,13 +77,13 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
   description,
 }) => (
   <div className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]">
-    <div className="relative w-full h-[90%]">
+    <div className="relative w-full h-[90%] ">
       <Image
         src={image}
         alt={description}
         layout="fill"
         objectFit="contain"
-        className="rounded-lg"
+        className="rounded-lg px-5"
       />
     </div>
     <p className="text-center my-3">{description}</p>
@@ -194,7 +198,7 @@ export default function Home() {
         }}
         id="background-image"
       ></div>
-      <main className="absolute top-0 w-full h-[100vh] overflow-hidden row-start-2">
+      <main className="absolute top-0 w-full h-[80vh] overflow-hidden row-start-2">
         <video
           autoPlay
           loop
@@ -227,11 +231,46 @@ export default function Home() {
           `}</style>
         </div>
       </main>
-
+      
+<div className="bg-black text-white absolute top-[80vh] py-[0.5vh] w-full h-[20vh] px-6">
+          <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-center h-full">
+            {stats.map((stat, index) => (
+              <React.Fragment key={index}>
+                <div className="flex flex-col items-center border border-[#928c6b] p-4">
+                  <p className="text-4xl font-bold text-[#928c6b]">
+                    {stat.value}
+                  </p>
+                  <p className="text-lg font-semibold mt-2">{stat.title}</p>
+                  <p className="text-sm mt-1">{stat.description}</p>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+        <section
+        id="about"
+        className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto p-8"
+      >
+        <div className="flex flex-col space-y-4 items-center  justify-around w-full md:w-2/4  ">
+          <h2 className="text-3xl text-center md:text-left font-bold">
+            ABOUT US
+          </h2>
+          <p className="text-lg text-center ">
+            Welcome to Trio fitness industry platform, where we offer a
+            comprehensive and personalized approach to fitness. Our platform
+            connects you with certified personal trainer coach HASSAN MOHAMED
+            who will create customized workout plans tailored to your goals and
+            fitness level. Whether you are looking to lose weight, build muscle,
+            or improve your overall health, our trainers are here to guide and
+            motivate you every step of the way. Join us and experience the best
+            personal training experience ever.
+          </p>
+        </div>
+      </section>
       <section
         id="about"
         ref={aboutUsRef}
-        className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20   items-center justify-around h-auto"
+        className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20   items-center justify-around h-screen"
       >
         <h3 className="text-base mt-4 mb-2">Certified Personal Trainer </h3>
         <h2 className="text-3xl text-center font-bold mb-4">HASSAN MOHAMED</h2>
@@ -301,45 +340,28 @@ export default function Home() {
           height={300}
           className="min-w-[240px] w-1/3 my-1"
         />
-        <div className="bg-black text-white py-12 px-6">
-          <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-center h-full">
-            {stats.map((stat, index) => (
-              <React.Fragment key={index}>
-                <div className="flex flex-col items-center border border-[#928c6b] p-4">
-                  <p className="text-4xl font-bold text-[#928c6b]">
-                    {stat.value}
-                  </p>
-                  <p className="text-lg font-semibold mt-2">{stat.title}</p>
-                  <p className="text-sm mt-1">{stat.description}</p>
-                </div>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
+       
       </section>
       <section
-        id="about"
-        className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto p-8"
+        id="transformations"
+        className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
+        ref={aboutUsRef}
       >
-        <div className="flex flex-col space-y-4 items-center  justify-around w-full md:w-2/4  ">
-          <h2 className="text-3xl text-center md:text-left font-bold">
-            ABOUT US
-          </h2>
-          <p className="text-lg text-center ">
-            Welcome to Trio fitness industry platform, where we offer a
-            comprehensive and personalized approach to fitness. Our platform
-            connects you with certified personal trainer coach HASSAN MOHAMED
-            who will create customized workout plans tailored to your goals and
-            fitness level. Whether you are looking to lose weight, build muscle,
-            or improve your overall health, our trainers are here to guide and
-            motivate you every step of the way. Join us and experience the best
-            personal training experience ever.
-          </p>
-        </div>
+        <h2 className="text-3xl text-center font-bold mb-8">TRANSFORMATIONS</h2>
+        <Slider {...sliderSettings} className="w-full">
+          {transformations.map((transformation, index) => (
+        <TransformationCard
+          key={index}
+          image={transformation.image}
+          description={transformation.description}
+        />
+          ))}
+        </Slider>
+        <div className="w-40 rounded-lg h-4 bg-white mt-[7px]"></div>
       </section>
       <section
         id="services"
-        className="bg-black relative text-[#928c6b] max-w-full flex flex-col items-center justify-around min-h-[100vh] py-12 px-2  sm:p-12"
+        className="bg-black relative text-[#928c6b] max-w-full flex flex-col items-center justify-around h-auto py-12 px-2  sm:p-12"
       >
         <h2 className="text-3xl text-center font-bold mb-8">OUR SERVICES</h2>
         <div className="grid grid-cols-1 gap-[2%] md:grid-cols-2 lg:grid-cols-3 w-full">
@@ -363,23 +385,7 @@ export default function Home() {
       </section>
 
       {/* Add Transformations Section */}
-      <section
-        id="transformations"
-        className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
-        ref={aboutUsRef}
-      >
-        <h2 className="text-3xl text-center font-bold mb-8">TRANSFORMATIONS</h2>
-        <Slider {...sliderSettings} className="w-full">
-          {transformations.map((transformation, index) => (
-        <TransformationCard
-          key={index}
-          image={transformation.image}
-          description={transformation.description}
-        />
-          ))}
-        </Slider>
-        <div className="w-40 rounded-lg h-4 bg-white mt-[7px]"></div>
-      </section>
+     
       <PackageSection />
     </div>
   );

@@ -15,21 +15,28 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-black to-transparent absolute top-0 py-[1%] px-[5%] z-20 w-full text-[#928c6b] flex justify-between items-center">
-      <div className="flex justify-start  w-3/4 items-center space-x-4">
+    <nav className="bg-gradient-to-r h-[15vh] from-black to-transparent fixed top-0 py-[1%] px-[5%] z-20 w-full text-[#928c6b] flex justify-between items-center">
+      
+      <div className="flex justify-around  w-4/5 items-center space-x-4">
       <div className="flex flex-col items-center">
         <img src="/image.png" className="w-16 md:w-20 lg:w-24" />
         <img src="/name.png" className="w-32 md:w-40 lg:w-52" />
       </div>
-        <div className="hidden md:flex text-3xl justify-around w-4/6 font-semibold space-x-4">
+        <div className="hidden md:flex text-2xl justify-around w-full font-semibold space-x-4">
           <a href="#about" className="hover:text-white">
             About
+          </a>
+          <a href="#transformations" className="hover:text-white">
+            Transformations
           </a>
           <a href="#services" className="hover:text-white">
             Services
           </a>
-          <a href="#contact" className="hover:text-white">
-            Contact
+          <a href="#transformations" className="hover:text-white">
+            Packages
+          </a>
+          <a href="#transformations" className="hover:text-white">
+            Reviews
           </a>
         </div>
       </div>
