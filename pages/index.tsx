@@ -286,7 +286,7 @@ const Home : React.FC<Props> =({setNavBg  })=> {
       <section
         id="about"
         ref={aboutUsRef}
-        className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20   items-center justify-around h-auto"
+        className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-auto"
       >
         <div className="flex  flex-col items-center">
         <img src="/image.png" className="w-28 lg:w-32" />

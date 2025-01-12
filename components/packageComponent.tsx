@@ -14,7 +14,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
   background,
 }) => {
   return (
-    <div className="relative p-4 pb-16 rounded-xl h-full text-gray-900 shadow-md">
+    <div className="relative h-[100vh] p-4 pb-16 rounded-xl  text-gray-900 shadow-md">
       <div
         className="absolute inset-0 bg-cover bg-center rounded-xl"
         style={{

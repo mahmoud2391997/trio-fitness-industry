@@ -30,7 +30,7 @@ const PackageSection: React.FC = () => {
   return (
     <section className="package-section bg-black text-[#928c6b] p-3 sm:p-12 h-auto">
       <h2 className="text-2xl text-center font-bold mb-6">OUR FITNESS PACKAGES</h2>
-      <div className="packages  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-[100vh] gap-6">
+      <div className="packages  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-auto gap-6">
         {packages.map((pkg) => (
           <PackageComponent
             key={pkg.id}
