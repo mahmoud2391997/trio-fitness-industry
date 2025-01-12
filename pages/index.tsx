@@ -43,27 +43,27 @@ const geistMono = Geist_Mono({
 const transformations = [
   {
     image: "/transform2.jpg",
-    description: "John's 6-month transformation",
+    description: "6-Week transformation",
   },
   {
     image: "/tranform3.jpg",
-    description: "Emily's 4-month transformation",
+    description: "10-Week transformation",
   },
   {
     image: "/transform1.jpg",
-    description: "Michael's 5-month transformation",
+    description: "From 69kg to 96 kg transformation",
   },
   {
     image: "/tranform4.jpg",
-    description: "Michael's 5-month transformation",
+    description: "6-Week transformation",
   },
   {
     image: "/tranform5.jpg",
-    description: "Michael's 5-month transformation",
+    description: "6-Week transformation",
   },
   {
     image: "/transform6.jpg",
-    description: "Michael's 5-month transformation",
+    description: "1-month transformation",
   },
 ];
 
@@ -99,14 +99,17 @@ interface CustomArrowProps {
 const CustomArrow: React.FC<CustomArrowProps> = ({ className, style, onClick }) => (
   <div
     className={className}
-    style={{ ...style, display: "block", background: "#928c6b", zIndex: 1 }}
+    style={{ ...style, display: "block", zIndex: 1 }}
     onClick={onClick}
   />
 );
-
-export default function Home() {
+interface Props {
+  setNavBg: (value: string) => void;
+}
+const Home : React.FC<Props> =({setNavBg  })=> {
   const imageRef = useRef<HTMLImageElement>(null);
   const aboutUsRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
   const [bgImage, setBgImage] = useState("/aboutUs.png");
 
   useEffect(() => {
@@ -140,8 +143,20 @@ export default function Home() {
         const rect = aboutUsRef.current.getBoundingClientRect();
         if (rect.top <= window.innerHeight) {
           setBgImage("/tranformBg.jpg");
+          
         } else {
           setBgImage("/aboutUs.png");
+        }
+       
+      }
+      if (videoRef.current) {
+        const rect = videoRef.current.getBoundingClientRect();
+       
+        if (rect.top <= window.innerHeight) {
+          setNavBg("bg-black");
+          
+        } else {
+          setNavBg("bg-gradient-to-r  from-black to-transparent");
         }
       }
     };
@@ -189,7 +204,7 @@ export default function Home() {
   };
 
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable} relative `}>
+    <div className={`${geistSans.variable} ${geistMono.variable} relative `} >
       <div
         className="w-full h-screen sticky top-0 z-[-1]"
         style={{
@@ -198,7 +213,7 @@ export default function Home() {
         }}
         id="background-image"
       ></div>
-      <main className="absolute top-0 w-full h-[80vh] overflow-hidden row-start-2">
+      <main className="absolute top-0 w-full h-[100vh] overflow-hidden row-start-2">
         <video
           autoPlay
           loop
@@ -213,11 +228,11 @@ export default function Home() {
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
-            className="xl:text-7xl text-center lg:text-[62px] md:text-[57px] text-[35px] sm:text-6xl font-semibold h-4/6 mx-0 sm:m-auto w-full sm:w-4/6"
+            className="xl:text-7xl text-center h-[80vh] lg:text-[62px] md:text-[57px] text-[30px] pt-[15vh] sm:pt-0   sm:text-6xl font-semibold my-auto mx-0 sm:m-auto w-4/6 "
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "0.1em",
-              lineHeight: "2em",
+              lineHeight: "2.1em",
             }}
           >
             THE BEST PERSONAL TRAINING EXPERIENCE EVER
@@ -232,8 +247,8 @@ export default function Home() {
         </div>
       </main>
       
-<div className="bg-black text-white absolute top-[80vh] py-[0.5vh] w-full h-[20vh] px-6">
-          <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-center h-full">
+<div   className="bg-black text-white  flex justify-center items-center py-[2vh] w-full  px-6">
+          <div className=" m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
             {stats.map((stat, index) => (
               <React.Fragment key={index}>
                 <div className="flex flex-col items-center border border-[#928c6b] p-4">
@@ -248,10 +263,11 @@ export default function Home() {
           </div>
         </div>
         <section
+        ref={videoRef}
         id="about"
         className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto p-8"
       >
-        <div className="flex flex-col space-y-4 items-center  justify-around w-full md:w-2/4  ">
+        <div className="flex flex-col space-y-4 items-center min-h-[50vh] justify-evenly w-full md:w-2/4  ">
           <h2 className="text-3xl text-center md:text-left font-bold">
             ABOUT US
           </h2>
@@ -270,8 +286,12 @@ export default function Home() {
       <section
         id="about"
         ref={aboutUsRef}
-        className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20   items-center justify-around h-screen"
+        className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20   items-center justify-around h-auto"
       >
+        <div className="flex  flex-col items-center">
+        <img src="/image.png" className="w-28 lg:w-32" />
+        <img src="/name.png" className="w-48 lg:w-60" />
+      </div>
         <h3 className="text-base mt-4 mb-2">Certified Personal Trainer </h3>
         <h2 className="text-3xl text-center font-bold mb-4">HASSAN MOHAMED</h2>
         <h4 className="text-xl text-center mb-3 w-auto">
@@ -390,3 +410,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home;
