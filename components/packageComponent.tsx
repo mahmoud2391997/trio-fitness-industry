@@ -11,7 +11,6 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
   packageName,
   packageDetails,
   packageDescription,
-  background,
 }) => {
   return (
     <div className="relative h-[85vh] p-2 pb-16 rounded-xl  text-gray-900 shadow-md">

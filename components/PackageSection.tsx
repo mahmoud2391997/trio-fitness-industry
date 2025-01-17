@@ -1,6 +1,5 @@
 import React from "react";
 
-import PackageComponent from "./packageComponent";
 import PackageCard from "./packageCard";
 const PackageSection: React.FC = () => {
   const packages = [
