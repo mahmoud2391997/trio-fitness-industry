@@ -228,7 +228,7 @@ const Home : React.FC<Props> =({setNavBg  })=> {
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
-            className="xl:text-7xl text-center h-[80vh] lg:text-[62px] md:text-[57px] text-[30px] pt-[15vh] sm:pt-0   sm:text-6xl font-semibold my-auto mx-0 sm:m-auto w-4/6 "
+            className="xl:text-7xl text-center h-[65vh] lg:text-[62px] md:text-6xl  text-[34px] pt-[15vh] sm:pt-0  w-5/6 sm:text-5xl font-semibold my-auto mx-0 sm:m-auto sm:w-3/6 "
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "0.1em",
@@ -288,10 +288,7 @@ const Home : React.FC<Props> =({setNavBg  })=> {
         ref={aboutUsRef}
         className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-auto"
       >
-        <div className="flex  flex-col items-center">
-        <img src="/image.png" className="w-28 lg:w-32" />
-        <img src="/name.png" className="w-48 lg:w-60" />
-      </div>
+        <img src="/image.png" className="w-36 lg:w-48" />
         <h3 className="text-base mt-4 mb-2">Certified Personal Trainer </h3>
         <h2 className="text-3xl text-center font-bold mb-4">HASSAN MOHAMED</h2>
         <h4 className="text-xl text-center mb-3 w-auto">
@@ -367,7 +364,7 @@ const Home : React.FC<Props> =({setNavBg  })=> {
         className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
         ref={aboutUsRef}
       >
-        <h2 className="text-3xl text-center font-bold mb-8">TRANSFORMATIONS</h2>
+        <h2 className=" text-2xl sm:text-3xl text-center font-bold mb-8">TRANSFORMATIONS</h2>
         <Slider {...sliderSettings} className="w-full">
           {transformations.map((transformation, index) => (
         <TransformationCard

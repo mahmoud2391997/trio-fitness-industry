@@ -14,40 +14,31 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
   background,
 }) => {
   return (
-    <div className="relative h-[100vh] p-4 pb-16 rounded-xl  text-gray-900 shadow-md">
-      <div
-        className="absolute inset-0 bg-cover bg-center rounded-xl"
-        style={{
-          backgroundImage: `url(${background})`,
-          opacity: 0.7,
-        }}
-      ></div>
-      <div className="relative bg-white bg-opacity-70 flex flex-col justify-start p-4 rounded-xl h-full">
-        <div className="h-1/6 rounded-lg">
-          <h4 className="text-xl text-center font-bold mb-2">Package</h4>
-          <h2 className="text-3xl text-center text-black font-bold mb-2">
+    <div className="relative h-[85vh] p-2 pb-16 rounded-xl  text-gray-900 shadow-md">
+      
+      <div className="relative bg-white bg-opacity-85 flex flex-col justify-between p-4 rounded-xl h-full">
+        <div className="h-[15%] rounded-lg">
+          <h2 className="text-3xl sm:text-4xl text-center text-[#928c6b] font-bold mb-2">
             {packageName}
           </h2>
         </div>
-        <div className="h-2/6 rounded-lg my-3">
-          <h4 className="text-xl text-center font-bold mb-2">Description</h4>
-          <h3 className="text-xl text-center text-black font-medium mb-2">
+        <div className="h-[20%] rounded-lg my-3">
+          <h3 className="text-lg sm:text-xl text-center text-black font-semibold mb-2">
             {packageDescription}
           </h3>
         </div>
-        <h4 className="text-xl text-center font-bold mb-2">Features</h4>
-        <ul className="list-disc text-lg text-black list-inside h-1/2">
+        <ul className="list-disc text-base sm:text-lg   text-black font-medium list-inside h-[50%]">
           {packageDetails.map((detail, index) => (
             <li key={index}>{detail}</li>
           ))}
         </ul>
-      </div>
       <button
         style={{ width: "calc(100% - 32px)" }}
-        className="bg-[#928c6b] text-black w-full py-2 m-auto rounded-lg absolute bottom-3"
+        className="bg-[#928c6b] text-black w-full  py-2 m-auto rounded-lg absolute bottom-3"
       >
         Get Started
       </button>
+      </div>
     </div>
   );
 };
