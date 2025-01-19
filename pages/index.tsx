@@ -104,10 +104,8 @@ const CustomArrow: React.FC<CustomArrowProps> = ({ className, style, onClick }) 
     onClick={onClick}
   />
 );
-interface Props {
-  setNavBg: (value: string) => void;
-}
-const Home : React.FC<Props> =({setNavBg  })=> {
+
+const Home : React.FC =()=> {
   const imageRef = useRef<HTMLImageElement>(null);
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
@@ -150,16 +148,7 @@ const Home : React.FC<Props> =({setNavBg  })=> {
         }
        
       }
-      if (videoRef.current) {
-        const rect = videoRef.current.getBoundingClientRect();
-       
-        if (rect.top <= window.innerHeight) {
-          setNavBg("bg-gradient-to-r  from-black to-transparent");
-          
-        } else {
-          setNavBg("bg-black");
-        }
-      }
+      
     };
 
     window.addEventListener("scroll", handleScroll);

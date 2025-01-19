@@ -1,7 +1,6 @@
 import React from "react";
 
 import PackageCard from "./packageCard";
-import LimitedOffersSection from "./limitedOffersSection";
 const PackageSection: React.FC = () => {
   const packages = [
     {
