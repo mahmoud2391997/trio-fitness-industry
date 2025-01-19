@@ -14,21 +14,18 @@ const PackageCard: React.FC<PackageComponentProps> = ({
   return (
     <div
       key={key}
-      className="relative flex flex-col h-auto justify-start my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full"
+      className="relative  h-auto flex flex-col justify-start    bg-white shadow-sm border-2  border-black rounded-2xl w-full  "
     >
-      <div className="p-4 h-[100px] mb-1">
-        <h6 className="mb-2 text-slate-800 text-4xl text-center  font-semibold">
-          {packageName}
+      <div className="flex justify-center items-center max-h-[200px]  bg-black  w-[95%] mx-auto mt-6 rounded-b-full p-6">
+        <h6 className=" text-[#928c6b] text-3xl text-center font-semibold  my-4">
+          {packageName} Plan
         </h6>
       </div>
-      <div className="mt-6 flex justify-center items-center">
 
-      <button className="w-[40%] m-auto bg-[#928c6b] text-white h-10">SUBSCRIBE</button>
-      </div>
       <div className="p-4 mt-[5%]">
       <ul className=" text-base sm:text-lg text-black font-medium list-inside h-auto">
   {packageDetails.map((detail, index) => (
-    <li key={index} className="pl-5 relative">
+    <li key={index} className="pl-5 my-2 relative">
       <span className="absolute left-0 ">•</span>
       <p className="inline w-auto ">{detail}</p>
       <hr />
@@ -36,6 +33,10 @@ const PackageCard: React.FC<PackageComponentProps> = ({
   ))}
 </ul>
       </div>
+      <div className="w-full justify-center my-4 flex items-center">
+
+      <button className="w-[60%] mx-auto bg-[#928c6b] text-white h-10">SUBSCRIBE</button>
+</div>
     </div>
   );
 };

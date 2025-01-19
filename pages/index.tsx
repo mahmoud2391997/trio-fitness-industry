@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PackageSection from "@/components/PackageSection";
 import ServicesCard from "@/components/servicesCard";
+import LimitedOffersSection from "@/components/limitedOffersSection";
 
 const stats = [
   {
@@ -153,10 +154,10 @@ const Home : React.FC<Props> =({setNavBg  })=> {
         const rect = videoRef.current.getBoundingClientRect();
        
         if (rect.top <= window.innerHeight) {
-          setNavBg("bg-black");
+          setNavBg("bg-gradient-to-r  from-black to-transparent");
           
         } else {
-          setNavBg("bg-gradient-to-r  from-black to-transparent");
+          setNavBg("bg-black");
         }
       }
     };
@@ -404,6 +405,8 @@ const Home : React.FC<Props> =({setNavBg  })=> {
       {/* Add Transformations Section */}
      
       <PackageSection />
+      <LimitedOffersSection/>
+
     </div>
   );
 }

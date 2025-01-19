@@ -1,12 +1,13 @@
 import React from "react";
 
 import PackageCard from "./packageCard";
+import LimitedOffersSection from "./limitedOffersSection";
 const PackageSection: React.FC = () => {
   const packages = [
     {
       id: 1,
       background: "/diet.jpeg",
-      title: "Nutrition Package",
+      title: "Personalized Nutrition",
       details: [
         "Diet plan personalized nutrition coaching to help you reach your goals faster.",
         "Carbohydrates, fats and protein grams range",
@@ -19,7 +20,7 @@ const PackageSection: React.FC = () => {
     {
       id: 2,
       background: "/plan.jpg",
-      title: "Training & Nutrition Package",
+      title: "Customized Training & Nutrition",
       details: [
         "Advanced workout routines designed for maximum efficiency.",
 "A specifically tailored diet plan customized to your individual needs.",
@@ -34,7 +35,7 @@ const PackageSection: React.FC = () => {
     {
       id: 3,
       background: "/plan.jpg",
-      title: "General Gym Package",
+      title: "General Nutrition",
       details: [
         "Our Pro Plan offers advanced workouts and specifically tailored Diet plan to help you reach your goals faster.",
         "Workout name and shape",
@@ -47,9 +48,9 @@ const PackageSection: React.FC = () => {
   ];
   
   return (
-    <section className="package-section bg-black text-[#928c6b] p-3 sm:p-12 h-auto">
-      <h2 className="text-6xl text-center font-bold mb-6">SELECT THE PACKAGE THAT BEST FITS YOUR NEEDS</h2>
-      <div className="packages w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-auto gap-6 m-auto">
+    <section className="package-section bg-white text-[#928c6b] p-3 sm:p-12 h-auto">
+       <h2 className="xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center font-bold mb-6 text-[#928c6b]">DSELECT THE PACKAGE THAT BEST FITS YOUR NEEDS</h2>
+      <div className="packages w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-auto gap-5 m-auto">
         {packages.map((pkg) => (
           <PackageCard
             key={pkg.id}
@@ -58,6 +59,7 @@ const PackageSection: React.FC = () => {
           />
         ))}
       </div>
+
     </section>
   );
 };
