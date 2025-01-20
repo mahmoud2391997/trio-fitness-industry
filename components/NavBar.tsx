@@ -18,7 +18,8 @@ const NavBar : React.FC<NavBarProps> = ({navBg}) => {
   };
 
   return (
-    <nav className= {navBg +" h-[15vh] fixed top-0 py-[1%] px-[3.5%] z-20 w-full text-[#928c6b] flex justify-between items-center"}>
+    <nav className= {navBg +" h-[15vh] fixed top-0 py-[1%] px-[3.5%] z-20 w-full text-[#928c6b] flex justify-between items-center"}         style={{background:"url(/aboutbg.jpeg", backgroundSize:"cover"}}
+>
       
       <div className="flex justify-between  w-5/6 items-center space-x-4">
       <div className="flex flex-col items-center">
