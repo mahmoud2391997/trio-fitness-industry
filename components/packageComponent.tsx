@@ -18,7 +18,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
           </h2>
         </div>
         <div className="h-[70%] rounded-lg my-3">
-          {packageDescription.map((packagee)=>{return <h3 className="text-lg sm:text-2xl text-center text-white font-semibold mb-2">
+          {packageDescription.map((packagee,index)=>{return <h3 key={index} className="text-lg sm:text-2xl text-center text-white font-semibold mb-2">
             {packagee}
           </h3>})}
           
