@@ -110,7 +110,7 @@ const Home : React.FC =()=> {
   const imageRef = useRef<HTMLImageElement>(null);
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
-  const [bgImage, setBgImage] = useState("/aboutUs.png");
+  const [bgImage, setBgImage] = useState("/aboutUs");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -204,7 +204,7 @@ const Home : React.FC =()=> {
         }}
         id="background-image"
       ></div>
-      <main className="absolute top-0 w-full h-[100vh] overflow-hidden row-start-2">
+      <main className="mt-[15vh] absolute top-0 w-full h-[85vh] overflow-hidden row-start-2">
         <video
           autoPlay
           loop
@@ -321,13 +321,13 @@ const Home : React.FC =()=> {
         id="about"
         className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto py-20"
       >
-        <div     className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-full md:w-2/4  justify-evenly p-5"    style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
+        <div     className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-3/4 md:w-2/4  justify-evenly p-5"    style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
         >
 
-          <h2 className="text-3xl text-center md:text-left font-bold text-[#928c6b]">
+          <h2 className=" text-xl md:text-3xl my-5 text-center md:text-left font-bold text-[#928c6b]">
             ABOUT US
           </h2>
-          <p className="text-2xl text-center ">
+          <p className=" text-md md:text-xl text-center ">
             Welcome to Trio fitness industry platform, where we offer a
             comprehensive and personalized approach to fitness. Our platform
             connects you with certified personal trainer coach HASSAN MOHAMED
@@ -341,12 +341,12 @@ const Home : React.FC =()=> {
       </section>
       <section
         id="services"
-        className="bg-black relative text-[#928c6b] max-w-full flex h-[62.5vh] flex-col items-center justify-around py-12 px-2  sm:p-12"
+        className="bg-black relative text-[#928c6b] max-w-full flex h-auto min-h-[100vh] flex-col items-center justify-between   px-2  sm:p-8"
         style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
 
       >
         <h2 className="text-4xl text-center font-bold mb-8">OUR SERVICES</h2>
-        <div className="grid grid-cols-1 gap-[2%] md:grid-cols-2 lg:grid-cols-3 w-full">
+        <div className="flex justify-around flex-wrap gap-[2%] p-2 w-full">
           <ServicesCard
             heading="FAT LOSS"
             description="Achieving your fat loss goals is more than just working out, it's about creating a sustainable lifestyle. Our personalized fat loss training programs are designed to help you shed unwanted weight."
@@ -364,10 +364,7 @@ const Home : React.FC =()=> {
             image="/Frame_468-removebg-preview.png"
           />
         </div>
-      </section>
-      <div   className="bg-black text-white  flex justify-center items-center h-[22.5vh] py-[2vh] w-full  px-6"         style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
->
-          <div className=" m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
+         <div className=" m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
             {stats.map((stat, index) => (
               <React.Fragment key={index}>
                 <div className="flex flex-col items-center border border-[#928c6b] p-4">
@@ -380,7 +377,7 @@ const Home : React.FC =()=> {
               </React.Fragment>
             ))}
           </div>
-        </div>
+            </section>
         
       <section
         id="transformations"

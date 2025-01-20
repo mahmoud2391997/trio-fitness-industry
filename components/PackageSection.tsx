@@ -48,7 +48,7 @@ const PackageSection: React.FC = () => {
   
   return (
     <section className="package-section bg-white text-[#928c6b] p-3 sm:p-12 h-auto" style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
-       <h2 className="xl:text-5xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center w-[60%] m-auto font-bold mb-6 text-[#928c6b]">SELECT THE PACKAGE THAT BEST FITS YOUR NEEDS</h2>
+       <h2 className="xl:text-5xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center w-[60%] m-auto font-bold mb-10 text-[#928c6b]">SELECT THE PACKAGE THAT BEST FITS YOUR NEEDS</h2>
       <div className="packages w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-auto gap-5 m-auto">
         {packages.map((pkg) => (
           <PackageCard

@@ -13,7 +13,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
     <div className="relative min-h-[20vh] p-2 pb-16 rounded-xl  border border-white shadow-md">
       
         <div className="h-[35%] rounded-lg bg-white">
-          <h2 className="text-3xl sm:text-4xl text-center text-[#928c6b] font-bold mb-2">
+          <h2 className="text-2xl sm:text-4xl text-center text-[#928c6b] font-bold mb-2">
             {packageName}
           </h2>
         </div>
