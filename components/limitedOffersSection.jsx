@@ -17,7 +17,7 @@ function LimitedOffersSection() {
 ];
 
   return (
-    <div className='w-full bg-black text-white p-7'  style={{background:"url(/aboutbg.jpeg", backgroundSize:"cover"}}>
+    <div className='w-full bg-black text-white p-7'  style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
             <h2 className="xl:text-5xl w-[50%] m-auto lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center font-bold mb-6 text-[#928c6b]">DON'T MISS OUT OUR LIMITED-TIME OFFERS!</h2>
 
       <div className="packages w-[80%] grid grid-cols-1 md:grid-cols-2  h-auto gap-5 m-auto">

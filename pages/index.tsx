@@ -77,7 +77,7 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
   image,
   description,
 }) => (
-  <div className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]"         style={{background:"url(/aboutbg.jpeg", backgroundSize:"cover"}}
+  <div className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]"         style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
 >
     <div className="relative w-full h-[90%] ">
       <Image
@@ -241,7 +241,7 @@ const Home : React.FC =()=> {
         id="about"
         ref={aboutUsRef}
         className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-auto"
-        style={{background:"url(/aboutbg.jpeg", backgroundSize:"cover"}}
+        style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
       >
         <img src="/image.png" className="w-36 lg:w-48" />
         <h3 className="text-base mt-4 mb-2">Certified Personal Trainer </h3>
@@ -321,7 +321,7 @@ const Home : React.FC =()=> {
         id="about"
         className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto py-20"
       >
-        <div     className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-full md:w-2/4  justify-evenly p-5"    style={{background:"url(/aboutbg.jpeg", backgroundSize:"cover"}}
+        <div     className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-full md:w-2/4  justify-evenly p-5"    style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
         >
 
           <h2 className="text-3xl text-center md:text-left font-bold text-[#928c6b]">
@@ -342,7 +342,7 @@ const Home : React.FC =()=> {
       <section
         id="services"
         className="bg-black relative text-[#928c6b] max-w-full flex h-[62.5vh] flex-col items-center justify-around py-12 px-2  sm:p-12"
-        style={{background:"url(/aboutbg.jpeg", backgroundSize:"cover"}}
+        style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
 
       >
         <h2 className="text-4xl text-center font-bold mb-8">OUR SERVICES</h2>
@@ -365,7 +365,7 @@ const Home : React.FC =()=> {
           />
         </div>
       </section>
-      <div   className="bg-black text-white  flex justify-center items-center h-[22.5vh] py-[2vh] w-full  px-6"         style={{background:"url(/aboutbg.jpeg", backgroundSize:"cover"}}
+      <div   className="bg-black text-white  flex justify-center items-center h-[22.5vh] py-[2vh] w-full  px-6"         style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
 >
           <div className=" m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
             {stats.map((stat, index) => (
