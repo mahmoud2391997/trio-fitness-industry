@@ -19,7 +19,7 @@ function LimitedOffersSection() {
 
   return (
     <div className='w-full bg-black text-white sm:p-7'  style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
-            <h2 className="xl:text-4xl w-[70%] lg:w-[50%] m-auto lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center font-bold mb-6 text-[#928c6b]">DON'T MISS OUT OUR LIMITED-TIME OFFERS!</h2>
+            <h2 className="xl:text-4xl w-[70%] lg:w-[50%] m-auto lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center font-bold mb-6 text-[#928c6b]">DON&apos;T MISS OUT OUR LIMITED-TIME OFFERS!</h2>
 
       <div className="packages w-[90%] max-w-[400px] sm:w-[70%] md:w-[90%] md:max-w-screen-md xl:w-[70%] lg:max-w-screen-lg lg:w-[80%] grid grid-cols-1 md:grid-cols-2  h-auto gap-4 m-auto">
         {packages.map((pkg) => (
