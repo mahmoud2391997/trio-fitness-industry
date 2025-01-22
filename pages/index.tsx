@@ -219,7 +219,7 @@ const Home : React.FC =()=> {
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
-            className="xl:text-7xl text-center h-[65vh] lg:text-[62px] md:text-6xl  text-[34px] pt-[15vh] sm:pt-0  w-5/6 sm:text-5xl font-semibold my-auto mx-0 sm:m-auto sm:w-3/6 "
+            className="xl:text-6xl text-center h-[65vh] lg:text-[62px] md:text-6xl  text-[34px] pt-[15vh] sm:pt-0  w-5/6 sm:text-5xl font-semibold my-auto mx-0 sm:m-auto sm:w-4/6 "
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "0.1em",
