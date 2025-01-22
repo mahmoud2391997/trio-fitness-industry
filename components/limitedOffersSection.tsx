@@ -1,7 +1,5 @@
 import React from 'react'
-import PackageCard from './packageCard'
 import PackageComponent from './packageComponent'
-import { title } from 'process';
 
 function LimitedOffersSection() {
   const packages = [
