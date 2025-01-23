@@ -7,13 +7,31 @@ function LimitedOffersSection() {
         id: 1,
         // title: "3 MONTH + 1 MONTH FREE",
         title:"Personalized Nutrition Plan Offers",
-        description: ["33% DISCOUNT On 3 Months + 1 Month Free.","33% DISCOUNT On 6 Months."]
+        description: [{
+          offer:"3 MONTHS + 1 MONTH FREE",
+          discount:"3000 L.E INSTEAD OF 5200 L.E"
+        },{
+           offer:"6 MONTHS",
+          discount:"4799 L.E INSTEAD OF 7800 L.E"
+        }
+          
+          
+           ],
       },
       {
         id: 2,
         // title: "6 MONTH + 2 MONTH FREE",
         title:"Customized Training & Nutrition Plan Offers",
-        description: ["43% DISCOUNT On 3 Months + 1 Month Free.","38% DISCOUNT On 6 Months."]
+        description: [{
+          offer:"3 MONTHS + 1 MONTH FREE",
+          discount:"3999L.E INSTEAD OF 6000L.E"
+        },{
+           offer:"6 MONTHS",
+          discount:"5999L.E INSTEAD OF 9000L.E"
+        }
+          
+          
+           ],
     },
 ];
 
