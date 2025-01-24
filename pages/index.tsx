@@ -400,8 +400,8 @@ const Home : React.FC =()=> {
 
       {/* Add Transformations Section */}
      
-      <PackageSection />
       <LimitedOffersSection/>
+      <PackageSection />
 
     </div>
   );

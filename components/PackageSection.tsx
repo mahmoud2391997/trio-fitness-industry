@@ -7,6 +7,8 @@ const PackageSection: React.FC = () => {
       id: 1,
       background: "/diet.jpeg",
       title: "Personalized Nutrition",
+      price:"1300 L.E / MONTH",
+
       details: [
         "Diet plan personalized nutrition coaching to help you reach your goals faster.",
         "Carbohydrates, fats and protein grams range",
@@ -20,6 +22,8 @@ const PackageSection: React.FC = () => {
       id: 2,
       background: "/plan.jpg",
       title: "Customized Training & Nutrition",
+      price:"1500 L.E / MONTH",
+
       details: [
         "Advanced workout routines designed for maximum efficiency.",
 "A specifically tailored diet plan customized to your individual needs.",
@@ -34,7 +38,21 @@ const PackageSection: React.FC = () => {
     {
       id: 3,
       background: "/plan.jpg",
+      title: "One On One Personal Gym Coaching",
+      price:"2000 L.E / MONTH",
+      details:  [
+        "Experience a fully tailored fitness experience with our Custom Plan",
+        "Work one-on-one with a Coach Hassan trainer to achieve your goals",
+        "Body Building Championships Preparations",
+        "Other Sports Qualification"
+      ]
+    },
+    {
+      id: 4,
+      background: "/plan.jpg",
       title: "General Nutrition",
+      price:"300 L.E",
+
       details: [
         "Our Pro Plan offers advanced workouts and specifically tailored Diet plan to help you reach your goals faster.",
         "Workout name and shape",
@@ -47,12 +65,13 @@ const PackageSection: React.FC = () => {
   ];
   
   return (
-    <section className="package-section bg-white text-[#928c6b] p-3 sm:p-12 h-auto" style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
+    <section className="package-section bg-white text-[#928c6b] pt-16 p-3 sm:p-7 h-auto" style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
        <h2 className="xl:text-5xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center w-[60%] m-auto font-bold mb-10 text-[#928c6b]">SELECT THE PACKAGE THAT BEST FITS YOUR NEEDS</h2>
-      <div className="packages w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-auto gap-5 m-auto">
+      <div className="packages w-[95%] sm:w-[85%] grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  h-auto gap-4 m-auto">
         {packages.map((pkg) => (
           <PackageCard
             key={pkg.id}
+            price={pkg.price}
             packageName={pkg.title}
             packageDetails={pkg.details}
           />

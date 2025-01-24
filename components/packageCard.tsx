@@ -3,12 +3,14 @@ import React from "react";
 interface PackageComponentProps {
   packageName: string;
   key: number;
+  price:string;
   packageDetails: string[];
 }
 
 const PackageCard: React.FC<PackageComponentProps> = ({
   key,
   packageName,
+  price,
   packageDetails,
 }) => {
   return (
@@ -16,12 +18,16 @@ const PackageCard: React.FC<PackageComponentProps> = ({
       key={key}
       className="relative  h-auto flex flex-col justify-start  bg-white shadow-2xl border-2  border-black rounded-2xl w-full  "
     >
-      <div className="flex justify-center items-center max-h-[200px]  bg-black  w-full  rounded-b-full p-6 "style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
-        <h6 className=" text-[#928c6b] text-2xl md:text-3xl text-center font-semibold  ">
-          {packageName} Plan
+      <div className="flex justify-center items-center h-[200px]  bg-black  w-full  rounded-b-full pt-1 pb-5 px-6 "style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
+        <h6 className=" text-[#928c6b] text-2xl sm:text-3xl text-center font-semibold  ">
+          {packageName}<br/> Plan
         </h6>
       </div>
-
+      <h3 key={key} className="text-sm rounded-r-full rounded-l-full w-[90%]  mt-8 lg:text-lg p-2 sm:p-4 list-disc sm:text-base text-center m-auto  relative text-[#928c6b] font-semibold mb-2" style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
+          
+           {price}
+          
+          </h3>
       <div className="p-4 mt-[5%]">
       <ul className=" text-base sm:text-lg text-black font-medium list-inside h-auto">
   {packageDetails.map((detail, index) => (
