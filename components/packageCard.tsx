@@ -23,12 +23,16 @@ const PackageCard: React.FC<PackageComponentProps> = ({
           {packageName}<br/> Plan
         </h6>
       </div>
-      <h3 key={key} className="text-sm rounded-r-full rounded-l-full w-[90%]  mt-8 lg:text-lg p-2 sm:p-4 list-disc sm:text-base text-center m-auto  relative text-[#928c6b] font-semibold mb-2" style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
+      <h3 key={key} className=" rounded-r-full rounded-l-full w-[90%]  mt-8 text-lg sm:text-2xl  py-2 sm:py-4 list-disc  text-center m-auto  relative text-[#928c6b] font-semibold mb-2" style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
           
            {price}
           
           </h3>
-      <div className="p-4 mt-[5%]">
+      <div className="w-full justify-center my-[10%] flex items-center">
+
+      <button className="w-[60%] mx-auto bg-[#928c6b] text-black font-bold h-10">SUBSCRIBE</button>
+</div>
+      <div className="p-2">
       <ul className=" text-base sm:text-lg text-black font-medium list-inside h-auto">
   {packageDetails.map((detail, index) => (
     <li key={index} className="pl-5 my-2 relative">
@@ -39,10 +43,6 @@ const PackageCard: React.FC<PackageComponentProps> = ({
   ))}
 </ul>
       </div>
-      <div className="w-full justify-center my-4 flex items-center">
-
-      <button className="w-[60%] mx-auto bg-[#928c6b] text-white h-10">SUBSCRIBE</button>
-</div>
     </div>
   );
 };

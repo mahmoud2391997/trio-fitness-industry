@@ -237,10 +237,54 @@ const Home : React.FC =()=> {
           `}</style>
         </div>
       </main>
+      <section
+        id="services"
+        className="bg-black relative text-[#928c6b] max-w-full flex h-auto p-[5%] flex-col items-center justify-between   px-2  sm:p-8"
+        style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
+
+      >
+       
+         <div className=" m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
+            {stats.map((stat, index) => (
+              <React.Fragment key={index}>
+                <div className="flex flex-col items-center border border-[#928c6b] p-4">
+                  <p className="text-4xl font-bold text-[#928c6b]">
+                    {stat.value}
+                  </p>
+                  <p className="text-lg font-semibold mt-2">{stat.title}</p>
+                  <p className="text-sm mt-1">{stat.description}</p>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+            </section>
+            <section
+        ref={videoRef}
+        id="about"
+        className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto py-20"
+      >
+        <div     className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-3/4 md:w-2/4  justify-evenly p-5"    style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
+        >
+
+          <h2 className=" text-xl md:text-3xl my-5 text-center md:text-left font-bold text-[#928c6b]">
+            ABOUT US
+          </h2>
+          <p className=" text-md md:text-xl text-center ">
+            Welcome to Trio fitness industry platform, where we offer a
+            comprehensive and personalized approach to fitness. Our platform
+            connects you with certified personal trainer coach HASSAN MOHAMED
+            who will create customized workout plans tailored to your goals and
+            fitness level. Whether you are looking to lose weight, build muscle,
+            or improve your overall health, our trainers are here to guide and
+            motivate you every step of the way. Join us and experience the best
+            personal training experience ever.
+          </p>
+        </div>
+      </section>
        <section
         id="about"
         ref={aboutUsRef}
-        className="bg-black lg text-[#928c6b] flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-auto"
+        className="bg-black lg text-white flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-auto"
         style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
       >
         <img src="/image.png" className="w-36 lg:w-48" />
@@ -316,68 +360,8 @@ const Home : React.FC =()=> {
       </section>
 
         
-        <section
-        ref={videoRef}
-        id="about"
-        className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto py-20"
-      >
-        <div     className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-3/4 md:w-2/4  justify-evenly p-5"    style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
-        >
-
-          <h2 className=" text-xl md:text-3xl my-5 text-center md:text-left font-bold text-[#928c6b]">
-            ABOUT US
-          </h2>
-          <p className=" text-md md:text-xl text-center ">
-            Welcome to Trio fitness industry platform, where we offer a
-            comprehensive and personalized approach to fitness. Our platform
-            connects you with certified personal trainer coach HASSAN MOHAMED
-            who will create customized workout plans tailored to your goals and
-            fitness level. Whether you are looking to lose weight, build muscle,
-            or improve your overall health, our trainers are here to guide and
-            motivate you every step of the way. Join us and experience the best
-            personal training experience ever.
-          </p>
-        </div>
-      </section>
-      <section
-        id="services"
-        className="bg-black relative text-[#928c6b] max-w-full flex h-auto min-h-[100vh] flex-col items-center justify-between   px-2  sm:p-8"
-        style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
-
-      >
-        <h2 className="text-4xl text-center font-bold mb-8">OUR SERVICES</h2>
-        <div className="flex justify-around flex-wrap gap-[2%] p-2 w-full">
-          <ServicesCard
-            heading="FAT LOSS"
-            description="Achieving your fat loss goals is more than just working out, it's about creating a sustainable lifestyle. Our personalized fat loss training programs are designed to help you shed unwanted weight."
-            image="/fat-loss.jpg"
-          />
-
-          <ServicesCard
-            heading="BUILDING MUSCLES"
-            description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery."
-            image="/Frame_466-removebg-preview.png"
-          />
-          <ServicesCard
-            heading="BUILDING MUSCLES"
-            description="Our muscle-building programs are tailored to help you gain strength and size effectively. With a focus on progressive overload, proper nutrition, and recovery."
-            image="/Frame_468-removebg-preview.png"
-          />
-        </div>
-         <div className=" m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
-            {stats.map((stat, index) => (
-              <React.Fragment key={index}>
-                <div className="flex flex-col items-center border border-[#928c6b] p-4">
-                  <p className="text-4xl font-bold text-[#928c6b]">
-                    {stat.value}
-                  </p>
-                  <p className="text-lg font-semibold mt-2">{stat.title}</p>
-                  <p className="text-sm mt-1">{stat.description}</p>
-                </div>
-              </React.Fragment>
-            ))}
-          </div>
-            </section>
+      
+     
         
       <section
         id="transformations"

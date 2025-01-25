@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        'instagram-gradient': 'linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4)',
+      },
     },
   },
   plugins: [],
