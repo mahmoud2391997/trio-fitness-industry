@@ -38,13 +38,14 @@ export default function PaymentMethod({ type }: { type: string }) {
           <div className="text-center">
             <h2 className="text-2xl font-semibold mb-2">STEP 3</h2>
             <p className="text-gray-700">SEND SCREENSHOT</p>
-            <button
+            <a
+              href="https://wa.me/+201229845327"
               className="bg-green-700 text-white flex justify-center items-center font-bold w-40
              text-center lg:w-[140px] my-3 py-2 mx-auto rounded-lg shadow-md hover:bg-green-800 transition duration-300"
             >
               <FaWhatsapp className="text-2xl mr-2" />
               Whatsapp
-            </button>
+            </a>
           </div>
         </section>
       </div>
