@@ -2,7 +2,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function PaymentMethod({ type }: { type: string }) {
   return (
-    <div className="w-[95%] sm:w-full max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="w-[95%] sm:w-full text-lg max-w-xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
       <img
         src={`${type === "vodafone" ? "/Vodafone.png" : "/instapay.jpg"}`}
         alt="paymentMethod"
