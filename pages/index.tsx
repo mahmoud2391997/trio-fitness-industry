@@ -11,16 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import { fetchTransformations } from "../redux/store/transformationsSlice";
 
-interface Transformation {
 
-  transformationImage: string;
-
-  transformationPeriod: string;
-
-  // other properties
-
-}
- 
 const stats = [
   {
     value: "96%",
