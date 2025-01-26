@@ -25,8 +25,8 @@ export const fetchTransformations = createAsyncThunk(
   "transformations/fetchTransformations",
   async () => {
     const response = await axios.get("/api/transformations");
-    console.log(response.data.data);
-    return response.data.data;
+    console.log(response.data);
+    return response.data;
     
   }
 );

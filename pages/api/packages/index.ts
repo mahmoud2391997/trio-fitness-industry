@@ -8,10 +8,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const db = client.db("triofitnessindustry"); // Replace with your database name
 
     // Fetch packages collection
-    const transformations = await db.collection("transformations").find({}).toArray(); // Replace 'packages' with your collection name
-console.log(transformations);
+    const packages = await db.collection("packages").find({}).toArray(); // Replace 'packages' with your collection name
+console.log(packages);
 
-    res.status(200).json(transformations);
+    res.status(200).json(packages);
   } catch (error) {
     console.error("Error fetching packages:", error);
     res.status(500).json({ success: false, message: "Internal Server Error" });

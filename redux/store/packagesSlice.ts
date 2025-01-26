@@ -1,10 +1,25 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
+interface offer {
+  offer: string;
+  discount: {
+    before: string;
+    after: string;
+  };
+}
+
+interface Package {
+  _id: string;
+  title: string;
+  price: string;
+  details: string[];
+  offers?: offer[];
+}
 // Define types
 interface PackageState {
-  packages: any[];
-  selectedPackage: any | null;
+  packages: Package[];
+  selectedPackage: Package | null;
   loading: boolean;
   error: string | null;
 }
@@ -17,15 +32,27 @@ const initialState: PackageState = {
 };
 
 // Async thunks
-export const fetchPackages = createAsyncThunk("packages/fetchPackages", async () => {
-  const response = await axios.get("/api/packages");
-  return response.data;
-});
+export const fetchPackages = createAsyncThunk(
+  "packages/fetchPackages",
+  async () => {
+    const response = await axios.get("/api/packages");
+    console.log(response.data.data);
 
-export const fetchSinglePackage = createAsyncThunk("packages/fetchSinglePackage", async (id: string) => {
-  const response = await axios.get(`/api/packages/${id}`);
-  return response.data;
-});
+    return response.data;
+  }
+);
+
+export const fetchSinglePackage = createAsyncThunk(
+  "packages/fetchSinglePackage",
+  async (id: string) => {
+    console.log(id);
+
+    const response = await axios.get(`/api/packages/${id}`);
+    console.log(response.data);
+
+    return response.data;
+  }
+);
 
 // Slice
 const packagesSlice = createSlice({
@@ -43,10 +70,13 @@ const packagesSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchPackages.fulfilled, (state, action: PayloadAction<any[]>) => {
-        state.loading = false;
-        state.packages = action.payload;
-      })
+      .addCase(
+        fetchPackages.fulfilled,
+        (state, action: PayloadAction<any[]>) => {
+          state.loading = false;
+          state.packages = action.payload;
+        }
+      )
       .addCase(fetchPackages.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch packages";
@@ -56,10 +86,13 @@ const packagesSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchSinglePackage.fulfilled, (state, action: PayloadAction<any>) => {
-        state.loading = false;
-        state.selectedPackage = action.payload;
-      })
+      .addCase(
+        fetchSinglePackage.fulfilled,
+        (state, action: PayloadAction<any>) => {
+          state.loading = false;
+          state.selectedPackage = action.payload;
+        }
+      )
       .addCase(fetchSinglePackage.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch package";

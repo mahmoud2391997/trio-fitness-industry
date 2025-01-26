@@ -1,12 +1,15 @@
+import Link from "next/link";
 import React from "react";
 
 interface PackageComponentProps {
+  id: string;
   packageName: string;
   price: string;
   packageDetails: string[];
 }
 
 const PackageCard: React.FC<PackageComponentProps> = ({
+  id,
   packageName,
   price,
   packageDetails,
@@ -26,8 +29,11 @@ const PackageCard: React.FC<PackageComponentProps> = ({
           
           </h3>
       <div className="w-full justify-center my-[10%] flex items-center">
-
-      <button className="w-[60%] mx-auto bg-[#928c6b] text-black font-bold h-10">SUBSCRIBE</button>
+<Link className="w-36 mx-auto bg-[#928c6b] text-black flex justify-center items-center font-bold text-center h-10 py-auto cursor-pointer" href={`/payment/${id}`}>
+    <button>
+        SUBSCRIBE
+      </button>
+</Link>
 </div>
       <div className="p-2">
       <ul className=" text-base sm:text-lg text-black font-medium list-inside h-auto">

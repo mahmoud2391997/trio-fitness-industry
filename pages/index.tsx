@@ -10,7 +10,19 @@ import LimitedOffersSection from "@/components/limitedOffersSection";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import { fetchTransformations } from "../redux/store/transformationsSlice";
+import { fetchPackages } from "../redux/store/packagesSlice";
 
+interface Offer {
+  id: string;
+  title: string;
+  description: {
+    offer: string;
+    discount: {
+      before: number;
+      after: number;
+    };
+  }[];
+}
 
 const stats = [
   {
@@ -44,8 +56,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
 interface TransformationCardProps {
   transformationImage: string;
   transformationPeriod: string;
@@ -55,13 +65,15 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
   transformationImage,
   transformationPeriod,
 }) => (
-  <div className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]"         style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
->
+  <div
+    className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]"
+    style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
+  >
     <div className="relative w-full h-[85%] ">
       <img
-      src={transformationImage}
-      alt={transformationPeriod}
-      className="rounded-lg px-5 w-full h-full object-contain"
+        src={transformationImage}
+        alt={transformationPeriod}
+        className="rounded-lg px-5 w-full h-full object-contain"
       />
     </div>
     <p className="text-center my-3">{transformationPeriod}</p>
@@ -74,7 +86,11 @@ interface CustomArrowProps {
   onClick?: () => void;
 }
 
-const CustomArrow: React.FC<CustomArrowProps> = ({ className, style, onClick }) => (
+const CustomArrow: React.FC<CustomArrowProps> = ({
+  className,
+  style,
+  onClick,
+}) => (
   <div
     className={className}
     style={{ ...style, display: "block", zIndex: 1 }}
@@ -82,16 +98,34 @@ const CustomArrow: React.FC<CustomArrowProps> = ({ className, style, onClick }) 
   />
 );
 
-const Home : React.FC =()=> {
+const Home: React.FC = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
   const [bgImage, setBgImage] = useState("/aboutUs.png");
   const dispatch: AppDispatch = useDispatch();
-  const { transformations , loading, error } = useSelector((state: RootState) => state.transformations);
+  const { transformations, loading, error } = useSelector(
+    (state: RootState) => state.transformations
+  );
+  const { packages } = useSelector((state: RootState) => state.packages);
+  const offers: Offer[] = packages
+    .filter((pkg) => pkg.offers !== undefined)
+    .map((pkg) => ({
+      id: pkg._id,
+      title: pkg.title,
+      description: pkg.offers!.map((offer) => ({
+        offer: offer.offer,
+        discount: {
+          before: Number(offer.discount.before),
+          after: Number(offer.discount.after),
+        },
+      })),
+    }));
+  console.log(offers);
 
   useEffect(() => {
     dispatch(fetchTransformations());
+    dispatch(fetchPackages());
   }, [dispatch]);
 
   useEffect(() => {
@@ -125,13 +159,10 @@ const Home : React.FC =()=> {
         const rect = aboutUsRef.current.getBoundingClientRect();
         if (rect.top <= window.innerHeight) {
           setBgImage("/tranformBg.jpg");
-          
         } else {
           setBgImage("/aboutUs.png");
         }
-       
       }
-      
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -146,8 +177,18 @@ const Home : React.FC =()=> {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <CustomArrow className="slick-next" style={{ right: "10px", top: "50%" }} />,
-    prevArrow: <CustomArrow className="slick-prev" style={{ left: "10px", top: "50%" }} />,
+    nextArrow: (
+      <CustomArrow
+        className="slick-next"
+        style={{ right: "10px", top: "50%" }}
+      />
+    ),
+    prevArrow: (
+      <CustomArrow
+        className="slick-prev"
+        style={{ left: "10px", top: "50%" }}
+      />
+    ),
     responsive: [
       {
         breakpoint: 1280,
@@ -166,7 +207,7 @@ const Home : React.FC =()=> {
         },
       },
       {
-        breakpoint:768 ,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -177,7 +218,7 @@ const Home : React.FC =()=> {
   };
 
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable} relative `} >
+    <div className={`${geistSans.variable} ${geistMono.variable} relative `}>
       <div
         className="w-full h-screen sticky top-0 z-[-1]"
         style={{
@@ -201,7 +242,7 @@ const Home : React.FC =()=> {
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
-            className="xl:text-6xl text-center h-[65vh] lg:text-[62px] md:text-6xl  text-[34px] pt-[15vh] sm:pt-0  w-5/6 sm:text-5xl font-semibold my-auto mx-0 sm:m-auto sm:w-4/6 "
+            className="xl:text-7xl text-center h-[65vh] lg:text-[62px] md:text-6xl  text-[34px] pt-[15vh] sm:pt-0  w-5/6 sm:text-5xl font-semibold my-auto mx-0 sm:m-auto sm:w-3/6 "
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "0.1em",
@@ -222,32 +263,31 @@ const Home : React.FC =()=> {
       <section
         id="services"
         className="bg-black relative text-[#928c6b] max-w-full flex h-auto p-[5%] flex-col items-center justify-between   px-2  sm:p-8"
-        style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
-
+        style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
-       
-         <div className=" m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
-            {stats.map((stat, index) => (
-              <React.Fragment key={index}>
-                <div className="flex flex-col items-center border border-[#928c6b] p-4">
-                  <p className="text-4xl font-bold text-[#928c6b]">
-                    {stat.value}
-                  </p>
-                  <p className="text-lg font-semibold mt-2">{stat.title}</p>
-                  <p className="text-sm mt-1">{stat.description}</p>
-                </div>
-              </React.Fragment>
-            ))}
-          </div>
-            </section>
-            <section
+        <div className=" m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
+          {stats.map((stat, index) => (
+            <React.Fragment key={index}>
+              <div className="flex flex-col items-center border border-[#928c6b] p-4">
+                <p className="text-4xl font-bold text-[#928c6b]">
+                  {stat.value}
+                </p>
+                <p className="text-lg font-semibold mt-2">{stat.title}</p>
+                <p className="text-sm mt-1">{stat.description}</p>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
+      </section>
+      <section
         ref={videoRef}
         id="about"
         className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto py-20"
       >
-        <div     className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-3/4 md:w-2/4  justify-evenly p-5"    style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
+        <div
+          className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-3/4 md:w-2/4  justify-evenly p-5"
+          style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
         >
-
           <h2 className=" text-xl md:text-3xl my-5 text-center md:text-left font-bold text-[#928c6b]">
             ABOUT US
           </h2>
@@ -263,11 +303,11 @@ const Home : React.FC =()=> {
           </p>
         </div>
       </section>
-       <section
+      <section
         id="about"
         ref={aboutUsRef}
         className="bg-black lg text-white flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-auto"
-        style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
+        style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <img src="/image.png" className="w-36 lg:w-48" />
         <h3 className="text-base mt-4 mb-2">Certified Personal Trainer </h3>
@@ -338,26 +378,22 @@ const Home : React.FC =()=> {
           height={300}
           className="min-w-[240px] w-1/3 my-1"
         />
-       
       </section>
-
-        
-      
-     
-        
       <section
         id="transformations"
         className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
         ref={aboutUsRef}
       >
-        <h2 className=" text-2xl sm:text-4xl rounded-md bg-black p-4 text-center font-bold text-[#928c6b] mb-8">TRANSFORMATIONS</h2>
+        <h2 className=" text-2xl sm:text-4xl rounded-md bg-black p-4 text-center font-bold text-[#928c6b] mb-8">
+          TRANSFORMATIONS
+        </h2>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
           <p>Error loading transformations</p>
         ) : (
           <Slider {...sliderSettings} className="w-full">
-            {transformations.map((transformation , index) => (
+            {transformations.map((transformation, index) => (
               <TransformationCard
                 key={index}
                 transformationImage={transformation.transformationImgUrl}
@@ -368,14 +404,10 @@ const Home : React.FC =()=> {
         )}
         <div className="w-52 rounded-lg h-4 bg-white mt-[7px]"></div>
       </section>
-     
-
       {/* Add Transformations Section */}
-     
-      <LimitedOffersSection/>
-      <PackageSection />
-
+      <LimitedOffersSection offers={offers} /> {/* Pass offers as params */}
+      <PackageSection packages={packages} />
     </div>
   );
-}
+};
 export default Home;
