@@ -7,7 +7,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PackageSection from "@/components/PackageSection";
 import LimitedOffersSection from "@/components/limitedOffersSection";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../redux/store";
+import { fetchTransformations } from "../redux/store/transformationsSlice";
 
+interface Transformation {
+
+  transformationImage: string;
+
+  transformationPeriod: string;
+
+  // other properties
+
+}
+ 
 const stats = [
   {
     value: "96%",
@@ -40,54 +53,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const transformations = [
-  {
-    image: "/transform2.jpg",
-    description: "6-Week transformation",
-  },
-  {
-    image: "/tranform3.jpg",
-    description: "10-Week transformation",
-  },
-  {
-    image: "/transform1.jpg",
-    description: "From 69kg to 96 kg transformation",
-  },
-  {
-    image: "/tranform4.jpg",
-    description: "6-Week transformation",
-  },
-  {
-    image: "/tranform5.jpg",
-    description: "6-Week transformation",
-  },
-  {
-    image: "/transform6.jpg",
-    description: "1-month transformation",
-  },
-];
+
 
 interface TransformationCardProps {
-  image: string;
-  description: string;
+  transformationImage: string;
+  transformationPeriod: string;
 }
 
 const TransformationCard: React.FC<TransformationCardProps> = ({
-  image,
-  description,
+  transformationImage,
+  transformationPeriod,
 }) => (
   <div className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]"         style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}
 >
-    <div className="relative w-full h-[90%] ">
-      <Image
-        src={image}
-        alt={description}
-        layout="fill"
-        objectFit="contain"
-        className="rounded-lg px-5"
+    <div className="relative w-full h-[85%] ">
+      <img
+      src={transformationImage}
+      alt={transformationPeriod}
+      className="rounded-lg px-5 w-full h-full object-contain"
       />
     </div>
-    <p className="text-center my-3">{description}</p>
+    <p className="text-center my-3">{transformationPeriod}</p>
   </div>
 );
 
@@ -109,7 +95,13 @@ const Home : React.FC =()=> {
   const imageRef = useRef<HTMLImageElement>(null);
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
-  const [bgImage, setBgImage] = useState("/aboutUs");
+  const [bgImage, setBgImage] = useState("/aboutUs.png");
+  const dispatch: AppDispatch = useDispatch();
+  const { transformations , loading, error } = useSelector((state: RootState) => state.transformations);
+
+  useEffect(() => {
+    dispatch(fetchTransformations());
+  }, [dispatch]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -305,7 +297,7 @@ const Home : React.FC =()=> {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_2211_147)">
+              <g clipPath="url(#clip0_2211_147)">
                 <path
                   d="M116.568 23.7958H115.852L115.517 24.8341L115.155 23.7958H114.415L114.305 25.4675H114.835L114.899 24.4748L115.252 25.4675H115.748L116.062 24.4901L116.153 25.4675H116.72L116.568 23.7958Z"
                   fill="#123257"
@@ -368,16 +360,22 @@ const Home : React.FC =()=> {
         ref={aboutUsRef}
       >
         <h2 className=" text-2xl sm:text-4xl rounded-md bg-black p-4 text-center font-bold text-[#928c6b] mb-8">TRANSFORMATIONS</h2>
-        <Slider {...sliderSettings} className="w-full">
-          {transformations.map((transformation, index) => (
-        <TransformationCard
-          key={index}
-          image={transformation.image}
-          description={transformation.description}
-        />
-          ))}
-        </Slider>
-        <div className="w-40 rounded-lg h-4 bg-white mt-[7px]"></div>
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>Error loading transformations</p>
+        ) : (
+          <Slider {...sliderSettings} className="w-full">
+            {transformations.map((transformation , index) => (
+              <TransformationCard
+                key={index}
+                transformationImage={transformation.transformationImgUrl}
+                transformationPeriod={transformation.transformationPeriod}
+              />
+            ))}
+          </Slider>
+        )}
+        <div className="w-52 rounded-lg h-4 bg-white mt-[7px]"></div>
       </section>
      
 

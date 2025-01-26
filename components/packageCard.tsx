@@ -2,20 +2,17 @@ import React from "react";
 
 interface PackageComponentProps {
   packageName: string;
-  key: number;
-  price:string;
+  price: string;
   packageDetails: string[];
 }
 
 const PackageCard: React.FC<PackageComponentProps> = ({
-  key,
   packageName,
   price,
   packageDetails,
 }) => {
   return (
     <div
-      key={key}
       className="relative  h-auto flex flex-col justify-start  bg-white shadow-2xl border-2  border-black rounded-2xl w-full  "
     >
       <div className="flex justify-center items-center h-[200px]  bg-black  w-full  rounded-b-full pt-1 pb-5 px-6 "style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
@@ -23,7 +20,7 @@ const PackageCard: React.FC<PackageComponentProps> = ({
           {packageName}<br/> Plan
         </h6>
       </div>
-      <h3 key={key} className=" rounded-r-full rounded-l-full w-[90%]  mt-8 text-lg sm:text-2xl  py-2 sm:py-4 list-disc  text-center m-auto  relative text-[#928c6b] font-semibold mb-2" style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
+      <h3  className=" rounded-r-full rounded-l-full w-[90%]  mt-8 text-lg sm:text-2xl  py-2 sm:py-4 list-disc  text-center m-auto  relative text-[#928c6b] font-semibold mb-2" style={{background:"url(/aboutbg.jpeg)", backgroundSize:"cover"}}>
           
            {price}
           
