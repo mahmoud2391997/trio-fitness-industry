@@ -33,9 +33,9 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
       <div className="h-[80%] w-auto flex flex-col justify-between m-2">
         {packageDescription.map((packagee, index) => {
           return (
-            <div className="flex flex-col justify-center items-center w-full">
+            <div key={index} className="flex flex-col justify-center items-center w-full">
               <h3
-                key={index}
+                
                 className="text-sm rounded-lg  my-2 lg:text-lg p-2 sm:p-4 list-disc sm:text-base text-center m-auto w-full relative text-[#928c6b] font-semibold mb-2"
                 style={{
                   background: "url(/aboutbg.jpeg)",

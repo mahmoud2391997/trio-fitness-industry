@@ -1,6 +1,5 @@
 import React from "react";
 import PackageComponent from "./packageComponent";
-import { off } from "process";
 
 interface Offer {
   id: string;

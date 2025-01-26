@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import clientPromise from "../../../mongodb";
-const { ObjectId } = require("mongodb");
+import { ObjectId } from "mongodb";
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,6 +26,7 @@ console.log(id);
 
     res.status(200).json(packageToBePurshased);
   } catch (error) {
+    console.error("Error fetching package:", error);    
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
