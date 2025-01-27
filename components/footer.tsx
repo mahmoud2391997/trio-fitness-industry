@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between text-sm">
-          <span>&copy; Beast 2019 All Rights Reserved.</span>
+          <span>&copy; Trio Fitness Industry 2025 All Rights Reserved.</span>
           <div className="flex space-x-4 mt-2 md:mt-0">
             <a href="#" className="hover:underline">
               Terms & Conditions
@@ -61,22 +61,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex space-x-4 mt-2 md:mt-0">
-            <a href="#" aria-label="Facebook" className="hover:text-gray-400">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="#" aria-label="Twitter" className="hover:text-gray-400">
-              <i className="fab fa-x-twitter"></i>
-            </a>
-            <a href="#" aria-label="Instagram" className="hover:text-gray-400">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-gray-400">
-              <i className="fab fa-linkedin"></i>
-            </a>
-          </div>
+         
         </div>
-      </div>
+        </div>
     </footer>
   );
 };
