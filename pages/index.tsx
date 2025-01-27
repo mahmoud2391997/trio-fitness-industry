@@ -12,6 +12,7 @@ import { RootState, AppDispatch } from "../redux/store";
 import { fetchTransformations } from "../redux/store/transformationsSlice";
 import { fetchPackages } from "../redux/store/packagesSlice";
 
+
 interface Offer {
   id: string;
   title: string;
