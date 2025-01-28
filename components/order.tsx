@@ -26,40 +26,38 @@ export default function Order({
     <div className="mt-[20vh] w-full ">
       <table className="table-auto w-full text-center text-base sm:text-lg">
         <thead>
-          <tr className="border rounded-t-md">
+          <tr className=" rounded-t-md">
             <th className="px-4 font-semibold py-2">Category</th>
             <th className="px-4 py-2">Details</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="border font-bold px-4 py-2">Package</td>
-            <td className="border font-extrabold px-4 py-2">{packageDetails.title}</td>
+          <tr >
+            <td className="border border-black font-bold px-4 py-2">Package</td>
+            <td className="border border-black font-extrabold px-4 py-2">{packageDetails.title}</td>
           </tr>
           <tr>
-            <td className="border font-bold px-4 py-2">Offer</td>
-            <td className="border font-extrabold  px-4 py-2">
+            <td className="border border-black font-bold px-4 py-2">Offer</td>
+            <td className="border border-black font-extrabold  px-4 py-2">
               {offerIndex !== null && packageDetails.offers
                 ? packageDetails.offers[offerIndex].offer
                 : "No Offer Included"}
             </td>
-          </tr>
+            </tr>
+              {packageDetails.offers && offerIndex !== null ?
           <tr>
-            <td className="border font-bold px-4 py-2">Discount Amount</td>
-            <td className="border font-extrabold  px-4 py-2">
-              {packageDetails.offers && offerIndex !== null
-                ? `${
+            <td className="border border-black font-bold px-4 py-2">Old Price</td>
+            <td className="border border-black font-extrabold line-through px-4 py-2">
+              {
                     parseInt(
                       packageDetails.offers[offerIndex].discount.before
-                    ) -
-                    parseInt(packageDetails.offers[offerIndex].discount.after)
-                  } EGP`
-                : "No Discount Included"}
+                     )} EGP
+              
             </td>
-          </tr>
+          </tr> : null} 
           <tr>
-            <td className="border font-bold px-4 py-2">Final Price</td>
-            <td className="border  font-extrabold  px-4 py-2">
+            <td className="border border-black font-bold px-4 py-2">Final Price</td>
+            <td className="border border-black  font-extrabold  px-4 py-2">
               {packageDetails.offers && offerIndex !== null
                 ? packageDetails.offers[offerIndex].discount.after + " EGP"
                 : packageDetails.price}

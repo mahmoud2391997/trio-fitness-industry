@@ -1,7 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import React, { useEffect, useRef, useState } from "react";
+import { Cairo } from "next/font/google"; // Import Cairo font for Arabic
+import React, { useEffect, useRef, useContext, useState } from "react";
 import Image from "next/image"; // Import Image from next/image
 import Slider from "react-slick";
+import arabicContent from "../content/arabic"; // Import arabic content
+import englishContent from "../content/english"; // Import english content
+import LanguageContext, { useLanguage } from "../context/LanguageContext"; // Import LanguageContext
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,7 +15,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import { fetchTransformations } from "../redux/store/transformationsSlice";
 import { fetchPackages } from "../redux/store/packagesSlice";
-
 
 interface Offer {
   id: string;
@@ -25,28 +28,6 @@ interface Offer {
   }[];
 }
 
-const stats = [
-  {
-    value: "96%",
-    title: "Client Satisfaction",
-    description: "Our Members Love Their Results And Experience",
-  },
-  {
-    value: "+5",
-    title: "Years Of Experience",
-    description: "Trust In Our Proven Track Record Of Transforming",
-  },
-  {
-    value: "+800",
-    title: "Active Members",
-    description: "Join Our Thriving Fitness Community",
-  },
-  {
-    value: "24/7",
-    title: "Support Available",
-    description: "Expert Assistance Whenever You Need It",
-  },
-];
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -55,6 +36,11 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const cairoFont = Cairo({
+  variable: "--font-cairo",
+  subsets: ["arabic"],
 });
 
 interface TransformationCardProps {
@@ -70,14 +56,16 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
     className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]"
     style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
   >
-    <div className="relative w-full h-[85%] ">
-      <img
+    <div className="relative w-full h-[90%] ">
+      <Image
         src={transformationImage}
         alt={transformationPeriod}
-        className="rounded-lg px-5 w-full h-full object-contain"
+        layout="fill"
+        objectFit="contain"
+        className="rounded-lg px-5"
       />
     </div>
-    <p className="text-center my-3">{transformationPeriod}</p>
+    <p className="text-center my-3">{transformationPeriod} Transformation</p>
   </div>
 );
 
@@ -109,6 +97,9 @@ const Home: React.FC = () => {
     (state: RootState) => state.transformations
   );
   const { packages } = useSelector((state: RootState) => state.packages);
+  const { language } = useLanguage();
+
+  const content = language === "arabic" ? arabicContent : englishContent;
   const offers: Offer[] = packages
     .filter((pkg) => pkg.offers !== undefined)
     .map((pkg) => ({
@@ -156,8 +147,8 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (aboutUsRef.current) {
-        const rect = aboutUsRef.current.getBoundingClientRect();
+      if (videoRef.current) {
+        const rect = videoRef.current.getBoundingClientRect();
         if (rect.top <= window.innerHeight) {
           setBgImage("/tranformBg.jpg");
         } else {
@@ -219,7 +210,13 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable} relative `}>
+    <div
+      className={`${
+        language === "arabic" ? cairoFont.variable : geistSans.variable
+      } ${geistMono.variable} relative ${
+        language === "arabic" ? "rtl" : "ltr"
+      }`}
+    >
       <div
         className="w-full h-screen sticky top-0 z-[-1]"
         style={{
@@ -243,14 +240,14 @@ const Home: React.FC = () => {
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
-            className="xl:text-7xl text-center h-[65vh] lg:text-[62px] md:text-6xl  text-[34px] pt-[15vh] sm:pt-0  w-5/6 sm:text-5xl font-semibold my-auto mx-0 sm:m-auto sm:w-3/6 "
+            className={"xl:text-8xl text-center h-auto lg:text-[62px] md:text-6xl   pt-[15vh] sm:pt-0  w-5/6  font-semibold my-auto mx-0 sm:m-auto " + (language === "arabic" ? "text-6xl sm:w-3/6" : "text-4xl font sm:w-5/6")}
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
-              letterSpacing: "0.1em",
-              lineHeight: "2.1em",
+              letterSpacing: "0.03em",
+              lineHeight: "2em",
             }}
           >
-            THE BEST PERSONAL TRAINING EXPERIENCE EVER
+            {content.videoCaption}
           </h1>
           <style jsx>{`
             @media (max-width: 640px) {
@@ -267,7 +264,7 @@ const Home: React.FC = () => {
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <div className=" m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-4 h-auto text-center">
-          {stats.map((stat, index) => (
+          {content.stats.map((stat, index) => (
             <React.Fragment key={index}>
               <div className="flex flex-col items-center border border-[#928c6b] p-4">
                 <p className="text-4xl font-bold text-[#928c6b]">
@@ -281,7 +278,6 @@ const Home: React.FC = () => {
         </div>
       </section>
       <section
-        ref={videoRef}
         id="about"
         className="bg-transparent no-scroll text-white flex flex-col-reverse gap-10 md:flex-row items-center justify-around h-auto py-20"
       >
@@ -290,17 +286,10 @@ const Home: React.FC = () => {
           style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
         >
           <h2 className=" text-xl md:text-3xl my-5 text-center md:text-left font-bold text-[#928c6b]">
-            ABOUT US
+            {content.aboutUsTitle}
           </h2>
           <p className=" text-md md:text-xl text-center ">
-            Welcome to Trio fitness industry platform, where we offer a
-            comprehensive and personalized approach to fitness. Our platform
-            connects you with certified personal trainer coach HASSAN MOHAMED
-            who will create customized workout plans tailored to your goals and
-            fitness level. Whether you are looking to lose weight, build muscle,
-            or improve your overall health, our trainers are here to guide and
-            motivate you every step of the way. Join us and experience the best
-            personal training experience ever.
+            {content.aboutUsCaption}
           </p>
         </div>
       </section>
@@ -311,11 +300,13 @@ const Home: React.FC = () => {
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <img src="/image.png" className="w-36 lg:w-48" />
-        <h3 className="text-base mt-4 mb-2">Certified Personal Trainer </h3>
-        <h2 className="text-3xl text-center font-bold mb-4">HASSAN MOHAMED</h2>
+        <h3 className="text-base mt-4 mb-2">{content.personalTrainer}</h3>
+        <h2 className="text-3xl text-center font-bold mb-4">
+          {content.Trainer}
+        </h2>
         <h4 className="text-xl text-center mb-3 w-auto">
-          Expert Body Building Coach And Nutritionist
-          <br /> With Certificate Earned From
+          {content.occupation}
+          <br /> {content.certified}
           <br />
           <a
             target="_blank"
@@ -381,12 +372,12 @@ const Home: React.FC = () => {
         />
       </section>
       <section
+      ref={videoRef}
         id="transformations"
         className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
-        ref={aboutUsRef}
       >
         <h2 className=" text-2xl sm:text-4xl rounded-md bg-black p-4 text-center font-bold text-[#928c6b] mb-8">
-          TRANSFORMATIONS
+          {content.transformations}
         </h2>
         {loading ? (
           <p>Loading...</p>
