@@ -36,7 +36,33 @@ const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
       }
       style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
     >
-      <div className={`flex justify-between w-5/6 items-center space-x-4 ${language === "arabic" ? "flex-row-reverse" : ""}`}>
+            <div className="md:hidden mt-3">
+        <button onClick={toggleMenu} className="">
+          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </button>
+            </div>
+            <div
+        className={`${
+          isOpen ? "block" : "hidden"
+        } md:hidden absolute top-24 z-50 left-0 w-full bg-white text-center`}
+            >
+        <Link href="#home" className="block py-2 hover:text-white">
+          {content.home}
+        </Link>
+        <Link href="#about" className="block py-2 hover:text-white">
+          {content.about}
+        </Link>
+        <Link href="#transformations" className="block py-2 hover:text-white">
+          {content.transformations}
+        </Link>
+        <Link href="#packages" className="block py-2 hover:text-white">
+          {content.packages}
+        </Link>
+        <Link href="#reviews" className="block py-2 hover:text-white">
+          {content.reviews}
+        </Link>
+      </div>
+      <div className={`flex  justify-between w-auto md:w-5/6 items-center space-x-4 ${language === "arabic" ? "flex-row-reverse" : ""}`}>
         <Link href={"/"} className="flex flex-col items-center">
           <img src="/image.png" className="w-16 md:min-w-16 lg:w-24" />
           <img src="/name.png" className="w-32 md:min-w-36 lg:w-52" />
@@ -60,32 +86,6 @@ const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
         </div>
             </div>
 
-            <div className="md:hidden">
-        <button onClick={toggleMenu}>
-          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </button>
-            </div>
-            <div
-        className={`${
-          isOpen ? "block" : "hidden"
-        } md:hidden absolute top-16 left-0 w-full bg-white text-center`}
-            >
-        <Link href="#home" className="block py-2 hover:text-white">
-          {content.home}
-        </Link>
-        <Link href="#about" className="block py-2 hover:text-white">
-          {content.about}
-        </Link>
-        <Link href="#transformations" className="block py-2 hover:text-white">
-          {content.transformations}
-        </Link>
-        <Link href="#packages" className="block py-2 hover:text-white">
-          {content.packages}
-        </Link>
-        <Link href="#reviews" className="block py-2 hover:text-white">
-          {content.reviews}
-        </Link>
-      </div>
       <LanguageDropdown />
     </nav>
   );

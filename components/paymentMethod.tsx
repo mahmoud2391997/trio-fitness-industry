@@ -41,7 +41,7 @@ export default function PaymentMethod({ type }: { type: string }) {
                   Pay with instapay Transfer the fees to
                 </p>
 }
-                <p className=" text-lg sm:text-3xl text-center my-2 font-extrabold text-gray-900">alhassan.omar@instapay</p>
+                <p className=" text-xl sm:text-3xl text-center my-2 font-extrabold text-gray-900">alhassan.omar@instapay</p>
 </>
             )}
           </div>

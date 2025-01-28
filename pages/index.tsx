@@ -334,15 +334,15 @@ const Home: React.FC = () => {
       <section
         id="about"
         ref={aboutUsRef}
-        className="bg-black lg text-white flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-auto"
+        className="bg-black lg text-white flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-[95vh]"
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <img src="/image.png" className="w-36 lg:w-48" />
-        <h3 className="text-base mt-4 mb-2">{content.personalTrainer}</h3>
-        <h2 className="text-3xl text-center font-bold mb-4">
+        <h3 className="text-base md:text-lg lg:text-xl mt-4 mb-2">{content.personalTrainer}</h3>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-4">
           {content.Trainer}
         </h2>
-        <h4 className="text-xl text-center mb-3 w-auto">
+        <h4 className="text-xl md:text-2xl lg:text-3xl text-center mb-3 w-auto">
           {content.occupation}
           <br /> {content.certified}
           <br />
@@ -406,7 +406,7 @@ const Home: React.FC = () => {
           alt="Certificate"
           width={500}
           height={300}
-          className="min-w-[240px] w-1/3 my-1"
+          className="min-w-[240px] w-1/3 my-1 overscroll-none"
         />
       </section>
       <section
@@ -414,7 +414,7 @@ const Home: React.FC = () => {
         id="transformations"
         className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
       >
-        <h2 className=" text-2xl sm:text-4xl rounded-md bg-black p-4 text-center font-bold text-[#928c6b] mb-8">
+        <h2 className=" text-2xl md:text-4xl lg:text-5xl  rounded-md bg-black p-4 text-center font-bold text-[#928c6b] mb-8">
           {content.transformations}
         </h2>
         {loading ? (

@@ -35,7 +35,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
   
   const {language} = useLanguage();
   return (
-    <div className="relative  h-auto pb-[5%] flex flex-col justify-around items-center bg-white  rounded-xl  border border-black shadow-md">
+    <div className="relative  h-auto pb-[5%] my-3 flex flex-col justify-around items-center bg-white  rounded-xl  border border-black shadow-md">
       <div
         className="h-[20%] px-3  rounded-b-full flex justify-center items-center w-full "
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
@@ -45,7 +45,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
 
         </h2>
       </div>
-      <div className="h-[80%] w-[85%] flex flex-col justify-between m-2">
+      <div className="h-auto w-[85%] flex flex-col justify-between m-2">
         {packageDescription.map((packagee, index) => {
           return (
             <div key={index} className="flex flex-col justify-center items-center my-5 rounded-lg w-full"  style={{
@@ -66,7 +66,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
                 </div>
               </h3>
               <Link href={`/payment/${id}?offerIndex=${index}`}>
-                <button className="bg-[#928c6b] text-white py-3 font-bold w-64 text-center mt-2 text-2xl mb-4 m-auto h-16">
+                <button className="bg-[#928c6b] text-white py-3 font-bold w-48 text-center mt-2 text-xl mb-4 m-auto h-16">
                 { language === "arabic" ? "اشترك الان" :"SUBSCRIBE NOW"} 
                 </button>
               </Link>
