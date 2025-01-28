@@ -14,7 +14,7 @@ export default function PaymentMethod({ type }: { type: string }) {
         alt="paymentMethod"
         className="w-full  object-cover"
       />
-      <div className="p-6">
+      <div className="p-1 sm:p-6">
         <h1 className={"text-center text-4xl font-bold mb-4" + (type === "vodafone" ? " text-[#e60101]" : " text-[#4c0b6e]")}>    
           {type === "vodafone" ? "Vodafone Cash" : "INSTAPAY"}
         </h1>
@@ -41,7 +41,7 @@ export default function PaymentMethod({ type }: { type: string }) {
                   Pay with instapay Transfer the fees to
                 </p>
 }
-                <p className="text-3xl my-2 font-extrabold text-gray-900">alhassan.omar@instapay</p>
+                <p className=" text-lg sm:text-3xl text-center my-2 font-extrabold text-gray-900">alhassan.omar@instapay</p>
 </>
             )}
           </div>

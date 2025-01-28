@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between text-sm">
-          <span>&copy; Trio Fitness Industry 2025 All Rights Reserved.</span>
+          <span className="text-center md:text-left">&copy; Trio Fitness Industry 2025 All Rights Reserved.</span>
           <div className="flex space-x-4 mt-2 md:mt-0">
             <a href="#" className="hover:underline">
               Terms & Conditions
