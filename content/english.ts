@@ -46,6 +46,20 @@ certified:"With Certificate Earned From",
   offersHeader:"DON'T MISS OUT OUR LIMITED-TIME OFFERS!",
 
   packagesHeader:"SELECT THE PACKAGE THAT BEST FITS YOUR GOALS",
+  orderCategory:"Category",
+orderDetails:"Details",
+orderPackage:"Package",
+orderOffer:"Offer",
+orderPrice:"Final Price",
+orderOldPrice:"Old Price",
+paymentStep1Header:"Step 1",
+paymentStep1:"Pay with Vodafone Cash Transfer the fees to",
+paymentStep2Header:"Step 2",
+paymentStep2:"Take A Screenshot",
+paymentStep3Header:"Step 3",
+paymentStep3:"SEND SCREENSHOT"
+
+
 };
 
 export default englishContent;

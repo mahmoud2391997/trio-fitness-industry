@@ -1,16 +1,38 @@
+import arabicContent from "@/content/arabic";
+import englishContent from "@/content/english";
+import { useLanguage } from "@/context/LanguageContext";
+
 interface offer {
-  offer: string;
+  offer: {
+    english: string;
+    arabic: string
+  };
   discount: {
-    before: string;
-    after: string;
+    before: {
+      english: string;
+      arabic: string
+    };
+    after: {
+      english: string;
+      arabic: string
+    };
   };
 }
 
 interface Package {
   _id: string;
-  title: string;
-  price: string;
-  details: string[];
+  title: {
+    english: string;
+    arabic: string
+  };
+  price: {
+    english: string;
+    arabic: string
+  };
+  details: {
+    english: string;
+    arabic: string
+  }[];
   offers?: offer[];
 }
 export default function Order({
@@ -21,48 +43,92 @@ export default function Order({
   offerIndex: number | null;
 }) {
   console.log(offerIndex);
+const {language} = useLanguage();
+const content = language === "arabic" ? arabicContent : englishContent;
 
   return (
     <div className="mt-[20vh] w-full ">
       <table className="table-auto w-full text-center text-base sm:text-lg">
         <thead>
+        { language === "arabic" ? 
+          <tr className="rounded-t-md">
+            <th className="px-4 w-1/2 text-xl font-semibold py-2">{content.orderDetails}</th>
+            <th className="px-4 w-1/2 text-xl py-2">{content.orderCategory}</th> </tr> :
           <tr className=" rounded-t-md">
-            <th className="px-4 font-semibold py-2">Category</th>
-            <th className="px-4 py-2">Details</th>
-          </tr>
+            
+            <th className="px-4 w-1/2 text-xl font-semibold py-2">{content.orderCategory}</th>
+            <th className="px-4 w-1/2 text-xl py-2">{content.orderDetails}</th>
+          </tr>}
         </thead>
-        <tbody>
+        <tbody className="w-full">
+            { language === "arabic" ? 
+
+<tr >
+            <td className="border border-black text-2xl font-extrabold px-4 py-2">{  "نظام " +  packageDetails.title.arabic  }</td>
+            <td className="border border-black text-2xl font-bold px-4 py-2">{content.orderPackage}</td>
+          </tr> :
           <tr >
-            <td className="border border-black font-bold px-4 py-2">Package</td>
-            <td className="border border-black font-extrabold px-4 py-2">{packageDetails.title}</td>
-          </tr>
+            <td className="border border-black text-2xl font-bold px-4 py-2">{content.orderPackage}</td>
+            <td className="border border-black text-2xl font-extrabold px-4 py-2">{ packageDetails.title.english + " Plan" }</td>
+          </tr>}
+            { language === "arabic" ? 
           <tr>
-            <td className="border border-black font-bold px-4 py-2">Offer</td>
-            <td className="border border-black font-extrabold  px-4 py-2">
+            <td className="border border-black font-extrabold text-2xl  px-4 py-2">
               {offerIndex !== null && packageDetails.offers
-                ? packageDetails.offers[offerIndex].offer
+                ? 
+                language === "arabic" ?  packageDetails.offers[offerIndex].offer.arabic : packageDetails.offers[offerIndex].offer.english 
+                : "لا يتضمن عرض"}
+            </td>
+                <td className="border border-black text-2xl font-bold px-4 py-2">{content.orderOffer}</td>
+            </tr> :
+          <tr>
+            <td className="border text-2xl border-black font-bold px-4 py-2">{content.orderOffer}</td>
+            <td className="border text-2xl border-black font-extrabold  px-4 py-2">
+              {offerIndex !== null && packageDetails.offers
+                ? 
+                language === "arabic" ?  packageDetails.offers[offerIndex].offer.arabic : packageDetails.offers[offerIndex].offer.english 
                 : "No Offer Included"}
             </td>
-            </tr>
+            </tr> }
               {packageDetails.offers && offerIndex !== null ?
+                (language === "arabic" ? 
           <tr>
-            <td className="border border-black font-bold px-4 py-2">Old Price</td>
-            <td className="border border-black font-extrabold line-through px-4 py-2">
+            <td className="border border-black text-2xl font-extrabold line-through px-4 py-2">
               {
-                    parseInt(
-                      packageDetails.offers[offerIndex].discount.before
-                     )} EGP
+                
+                language === "arabic" ?   packageDetails.offers[offerIndex].discount.before.arabic + " جنيه" :  parseInt(packageDetails.offers[offerIndex].discount.before.english )  + " EGP"
+              } 
+            </td> 
+              <td className="border border-black text-2xl font-bold px-4 py-2">{content.orderOldPrice}</td>
+              
+             </tr> :
+          <tr>
+            <td className="border border-black text-2xl font-bold px-4 py-2">{content.orderOldPrice}</td>
+            <td className="border border-black text-2xl font-extrabold line-through px-4 py-2">
+              {
+                   
+                     language === "arabic" ?   packageDetails.offers[offerIndex].discount.before.arabic + " جنيه" :  parseInt(packageDetails.offers[offerIndex].discount.before.english  )+ " EGP"
+                     } 
               
             </td>
-          </tr> : null} 
+          </tr>) : null} 
+         { language === "arabic" ? 
           <tr>
-            <td className="border border-black font-bold px-4 py-2">Final Price</td>
-            <td className="border border-black  font-extrabold  px-4 py-2">
+            <td className="border border-black text-2xl  font-extrabold  px-4 py-2">
               {packageDetails.offers && offerIndex !== null
-                ? packageDetails.offers[offerIndex].discount.after + " EGP"
-                : packageDetails.price}
+                ? language === "arabic" ?   packageDetails.offers[offerIndex].discount.after.arabic + " جنيه" : packageDetails.offers[offerIndex].discount.after.english + " EGP"
+                : language === "arabic" ? packageDetails.price.arabic  : packageDetails.price.english  }
             </td>
-          </tr>
+                <td className="border border-black text-2xl font-bold px-4 py-2">{content.orderPrice}</td>
+          </tr>  :
+          <tr >
+            <td className="border border-black text-2xl font-bold px-4 py-2">{content.orderPrice}</td>
+            <td className="border border-black  text-2xl font-extrabold  px-4 py-2">
+              {packageDetails.offers && offerIndex !== null
+                ? language === "arabic" ?   packageDetails.offers[offerIndex].discount.after.arabic + " جنيه" : packageDetails.offers[offerIndex].discount.after.english + " EGP"
+                : language === "arabic" ? packageDetails.price.arabic  : packageDetails.price.english }
+            </td>
+          </tr> }
         </tbody>
       </table>
     </div>

@@ -1,11 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Cairo } from "next/font/google"; // Import Cairo font for Arabic
-import React, { useEffect, useRef,  useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image"; // Import Image from next/image
 import Slider from "react-slick";
 import arabicContent from "../content/arabic"; // Import arabic content
 import englishContent from "../content/english"; // Import english content
-import  { useLanguage } from "../context/LanguageContext"; // Import LanguageContext
+import { useLanguage } from "../context/LanguageContext"; // Import LanguageContext
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,12 +18,24 @@ import { fetchPackages } from "../redux/store/packagesSlice";
 
 interface Offer {
   id: string;
-  title: string;
+  title: {
+    english: string;
+    arabic: string;
+  };
   description: {
-    offer: string;
+    offer: {
+      english: string;
+      arabic: string;
+    };
     discount: {
-      before: number;
-      after: number;
+      before: {
+        english: string;
+        arabic: string;
+      };
+      after: {
+        english: string;
+        arabic: string;
+      };
     };
   }[];
 }
@@ -45,27 +57,39 @@ const cairoFont = Cairo({
 
 interface TransformationCardProps {
   transformationImage: string;
-  transformationPeriod: string;
+  transformationPeriodEnglish: string;
+  transformationPeriodArabic: string;
+  language: string;
 }
 
 const TransformationCard: React.FC<TransformationCardProps> = ({
   transformationImage,
-  transformationPeriod,
+  transformationPeriodEnglish,
+  transformationPeriodArabic,
+  language,
 }) => (
   <div
-    className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[85vh]"
+    className="flex m-auto flex-col justify-around items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[550px]"
     style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
   >
-    <div className="relative w-full  h-[85%]">
-      <Image
+    <div className="relative w-full  h-[75%]">
+      <img
         src={transformationImage}
-        alt={transformationPeriod}
-        layout="fill"
-        objectFit="contain"
-        className="rounded-lg px-5 w-full"
+        alt={transformationPeriodEnglish}
+        
+        className="rounded-lg px-2 m-auto
+         h-full "
       />
     </div>
-    <p className="text-center w-[70%] rounded-lg bg-[#928c6b] py-3 my-3">{transformationPeriod} Transformation</p>
+    <p className="text-center w-[80%] text-2xl font-bold rounded-lg bg-[#928c6b] py-2 my-3">
+      {language === "arabic" ? (
+        <span style={{ direction: "rtl" }}>
+          تحول {transformationPeriodArabic}
+        </span>
+      ) : (
+        transformationPeriodEnglish + " Transformation"
+      )}
+    </p>
   </div>
 );
 
@@ -106,10 +130,19 @@ const Home: React.FC = () => {
       id: pkg._id,
       title: pkg.title,
       description: pkg.offers!.map((offer) => ({
-        offer: offer.offer,
+        offer: {
+          english: offer.offer.english,
+          arabic: offer.offer.arabic,
+        },
         discount: {
-          before: Number(offer.discount.before),
-          after: Number(offer.discount.after),
+          before: {
+            english: offer.discount.before.english,
+            arabic: offer.discount.before.arabic,
+          },
+          after: {
+            english: offer.discount.after.english,
+            arabic: offer.discount.after.arabic,
+          },
         },
       })),
     }));
@@ -240,7 +273,12 @@ const Home: React.FC = () => {
         </video>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
-            className={"xl:text-8xl text-center h-auto lg:text-[62px] md:text-6xl   pt-[15vh] sm:pt-0  w-5/6  font-semibold my-auto mx-0 sm:m-auto " + (language === "arabic" ? "text-6xl sm:w-3/6" : "text-4xl font sm:w-5/6")}
+            className={
+              "xl:text-8xl text-center h-auto lg:text-[62px] md:text-6xl   pt-[15vh] sm:pt-0  w-5/6  font-semibold my-auto mx-0 sm:m-auto " +
+              (language === "arabic"
+                ? "text-6xl sm:w-3/6"
+                : "text-4xl font sm:w-5/6")
+            }
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "0.03em",
@@ -372,7 +410,7 @@ const Home: React.FC = () => {
         />
       </section>
       <section
-      ref={videoRef}
+        ref={videoRef}
         id="transformations"
         className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
       >
@@ -388,8 +426,14 @@ const Home: React.FC = () => {
             {transformations.map((transformation, index) => (
               <TransformationCard
                 key={index}
+                language={language}
                 transformationImage={transformation.transformationImgUrl}
-                transformationPeriod={transformation.transformationPeriod}
+                transformationPeriodArabic={
+                  transformation.transformationPeriod.arabic
+                }
+                transformationPeriodEnglish={
+                  transformation.transformationPeriod.english
+                }
               />
             ))}
           </Slider>

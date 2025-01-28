@@ -1,3 +1,5 @@
+import Order from "@/components/order";
+
 const arabicContent = {
   home: "الرئيسية",
   about: "حول",
@@ -43,6 +45,19 @@ const arabicContent = {
   offersHeader:"لا تفوت عروضنا لفترة محدودة",
 
 packagesHeader:"اختر الباقة التي تناسب أهدافك",
+orderCategory:"الفئة",
+orderDetails:"التفاصيل",
+orderPackage:"الباقة",
+orderOffer:"العرض",
+orderPrice:"السعر النهائي",
+orderOldPrice:"السعر القديم",
+paymentStep1Header:"الخطوة ١",
+paymentStep1:"ادفع باستخدام تحويل فودافون كاش إلى الرقم",
+paymentStep2Header:"الخطوة ٢",
+paymentStep2:"التقط لقطة شاشة",
+paymentStep3Header:"الخطوة ٣",
+paymentStep3:"الخطوة أرسل لقطة الشاشة"
+
 };
 
 export default arabicContent;

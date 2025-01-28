@@ -1,6 +1,12 @@
+import arabicContent from "@/content/arabic";
+import englishContent from "@/content/english";
+import { useLanguage } from "@/context/LanguageContext";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function PaymentMethod({ type }: { type: string }) {
+  const {language} = useLanguage();
+  const content = language === "arabic" ? arabicContent : englishContent;
+
   return (
     <div className="w-[95%] sm:w-full text-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
       <img
@@ -14,30 +20,38 @@ export default function PaymentMethod({ type }: { type: string }) {
         </h1>
         <section className="space-y-6">
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-2">STEP 1</h2>
+            <h2 className="text-2xl font-semibold mb-2">{content.paymentStep1Header}</h2>
             {type === "vodafone" ? (
               <>
-                <p className="text-gray-700 text-xl">
+              {
+                language === "arabic" ?  <p className="text-gray-700 text-2xl">
+                  ادفع بفودافون كاش قم بتحويل المبلغ الى
+                </p> : <p className="text-gray-700 text-2xl">
                   Pay with Vodafone Cash Transfer the fees to
                 </p>
-                <p className="text-2xl font-bold text-gray-900">01000000000</p>
+              }
+                <p className="text-3xl font-extrabold my-2 text-gray-900">010 29000 741</p>
               </>
+              
             ) : (
-              <>
-                <p className="text-gray-700 text-xl">
+              <> {
+                language === "arabic" ?  <p className="text-gray-700 text-2xl">
+                  ادفع بإنستاباى قم بتحويل المبلغ الى</p> :
+                <p className="text-gray-700 text-2xl">
                   Pay with instapay Transfer the fees to
                 </p>
-                <p className="text-2xl font-bold text-gray-900">01000000000</p>
-              </>
+}
+                <p className="text-3xl my-2 font-extrabold text-gray-900">alhassan.omar@instapay</p>
+</>
             )}
           </div>
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-2">STEP 2</h2>
-            <p className="text-gray-700 text-xl">Take A Screenshot</p>
+            <h2 className="text-2xl font-semibold mb-2">{content.paymentStep2Header}</h2>
+            <p className="text-gray-700 text-2xl">{content.paymentStep2}</p>
           </div>
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-2">STEP 3</h2>
-            <p className="text-gray-700 text-xl">SEND SCREENSHOT</p>
+            <h2 className="text-2xl font-semibold mb-2">{content.paymentStep3Header}</h2>
+            <p className="text-gray-700 text-2xl">{content.paymentStep3}</p>
             <a
               href="https://wa.me/+201229845327"
               className="bg-green-700 text-white flex justify-center items-center font-bold w-40

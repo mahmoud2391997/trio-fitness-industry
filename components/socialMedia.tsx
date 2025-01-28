@@ -46,7 +46,7 @@ const SocialMedia = () => {
           )}
         </AnimatePresence>
       <div
-        className="w-16 h-16 bg-white rounded-full flex items-center shadow-lg justify-center cursor-pointer"
+        className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center shadow-lg justify-center cursor-pointer"
         onClick={toggleOpen}
       >
 {!isOpen ? <FaWhatsapp className="text-green-700 w-[80%] h-[80%] " /> : <svg xmlns="http://www.w3.org/2000/svg" className='w-[80%] h-[80%] text-red-600' width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

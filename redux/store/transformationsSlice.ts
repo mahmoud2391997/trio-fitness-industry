@@ -5,7 +5,11 @@ import axios from "axios";
 interface Transformation {
   id: string;
   transformationImgUrl: string;
-  transformationPeriod: string;
+  transformationPeriod: 
+  {
+    english: string;
+    arabic: string;
+  };
 }
 
 interface TransformationsState {

@@ -2,18 +2,37 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 interface offer {
-  offer: string;
+  offer: {
+    english: string;
+    arabic: string;
+  };
   discount: {
-    before: string;
-    after: string;
+    before: 
+    {
+      english: string;
+      arabic: string;
+    };
+    after: {
+      english: string;
+      arabic: string;
+    }
   };
 }
 
 interface Package {
   _id: string;
-  title: string;
-  price: string;
-  details: string[];
+  title: {
+    english: string;
+    arabic: string;
+  }
+  price: {
+    english: string;
+    arabic: string;
+  }
+  details: {
+    english: string;
+    arabic: string;
+  }[];
   offers?: offer[];
 }
 // Define types
