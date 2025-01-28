@@ -15,7 +15,7 @@ interface NavBarProps {
 }
 const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
 
 
@@ -42,49 +42,49 @@ const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
           <img src="/name.png" className="w-32 md:min-w-36 lg:w-52" />
         </Link>
         <div className={`hidden md:flex text-lg lg:text-2xl justify-around w-full font-semibold space-x-4 ${language === "arabic" ? "flex-row-reverse" : ""}`}>
-          <a href="/" className="hover:text-white">
+          <Link href="/" className="hover:text-white">
             {content.home}
-          </a>
-          <a href="#about" className="hover:text-white">
+          </Link>
+          <Link href="#about" className="hover:text-white">
             {content.about}
-          </a>
-          <a href="#transformations" className="hover:text-white">
+          </Link>
+          <Link href="#transformations" className="hover:text-white">
             {content.transformations}
-          </a>
-          <a href="#packages" className="hover:text-white">
+          </Link>
+          <Link href="#packages" className="hover:text-white">
             {content.packages}
-          </a>
-          <a href="#reviews" className="hover:text-white">
+          </Link>
+          <Link href="#reviews" className="hover:text-white">
             {content.reviews}
-          </a>
+          </Link>
         </div>
-      </div>
+            </div>
 
-      <div className="md:hidden">
+            <div className="md:hidden">
         <button onClick={toggleMenu}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
-      </div>
-      <div
+            </div>
+            <div
         className={`${
           isOpen ? "block" : "hidden"
         } md:hidden absolute top-16 left-0 w-full bg-white text-center`}
-      >
-        <a href="#home" className="block py-2 hover:text-white">
+            >
+        <Link href="#home" className="block py-2 hover:text-white">
           {content.home}
-        </a>
-        <a href="#about" className="block py-2 hover:text-white">
+        </Link>
+        <Link href="#about" className="block py-2 hover:text-white">
           {content.about}
-        </a>
-        <a href="#transformations" className="block py-2 hover:text-white">
+        </Link>
+        <Link href="#transformations" className="block py-2 hover:text-white">
           {content.transformations}
-        </a>
-        <a href="#packages" className="block py-2 hover:text-white">
+        </Link>
+        <Link href="#packages" className="block py-2 hover:text-white">
           {content.packages}
-        </a>
-        <a href="#reviews" className="block py-2 hover:text-white">
+        </Link>
+        <Link href="#reviews" className="block py-2 hover:text-white">
           {content.reviews}
-        </a>
+        </Link>
       </div>
       <LanguageDropdown />
     </nav>
