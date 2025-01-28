@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import LanguageDropdown from "./languages";
 import Link from "next/link";
@@ -17,14 +17,9 @@ const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
 
-  const handleLanguageChange = (lang: string) => {
-    setLanguage(lang);
-    setIsOpen(false);
-  };
+
+
   const content = language === "arabic" ? arabicContent : englishContent;
 
   const toggleMenu = () => {

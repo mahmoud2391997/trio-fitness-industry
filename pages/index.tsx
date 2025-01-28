@@ -1,11 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Cairo } from "next/font/google"; // Import Cairo font for Arabic
-import React, { useEffect, useRef, useContext, useState } from "react";
+import React, { useEffect, useRef,  useState } from "react";
 import Image from "next/image"; // Import Image from next/image
 import Slider from "react-slick";
 import arabicContent from "../content/arabic"; // Import arabic content
 import englishContent from "../content/english"; // Import english content
-import LanguageContext, { useLanguage } from "../context/LanguageContext"; // Import LanguageContext
+import  { useLanguage } from "../context/LanguageContext"; // Import LanguageContext
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -53,19 +53,19 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
   transformationPeriod,
 }) => (
   <div
-    className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[55vh]"
+    className="flex m-auto flex-col items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[85vh]"
     style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
   >
-    <div className="relative w-full h-[90%] ">
+    <div className="relative w-full  h-[85%]">
       <Image
         src={transformationImage}
         alt={transformationPeriod}
         layout="fill"
         objectFit="contain"
-        className="rounded-lg px-5"
+        className="rounded-lg px-5 w-full"
       />
     </div>
-    <p className="text-center my-3">{transformationPeriod} Transformation</p>
+    <p className="text-center w-[70%] rounded-lg bg-[#928c6b] py-3 my-3">{transformationPeriod} Transformation</p>
   </div>
 );
 
@@ -267,11 +267,11 @@ const Home: React.FC = () => {
           {content.stats.map((stat, index) => (
             <React.Fragment key={index}>
               <div className="flex flex-col items-center border border-[#928c6b] p-4">
-                <p className="text-4xl font-bold text-[#928c6b]">
+                <p className="text-5xl font-bold text-[#928c6b]">
                   {stat.value}
                 </p>
-                <p className="text-lg font-semibold mt-2">{stat.title}</p>
-                <p className="text-sm mt-1">{stat.description}</p>
+                <p className="text-xl font-semibold mt-2">{stat.title}</p>
+                <p className="text-base mt-1">{stat.description}</p>
               </div>
             </React.Fragment>
           ))}
@@ -285,10 +285,10 @@ const Home: React.FC = () => {
           className="rounded-xl h-full flex flex-col items-center min-h-[35vh] w-3/4 md:w-2/4  justify-evenly p-5"
           style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
         >
-          <h2 className=" text-xl md:text-3xl my-5 text-center md:text-left font-bold text-[#928c6b]">
+          <h2 className=" text-xl md:text-5xl my-5 text-center md:text-left font-bold text-[#928c6b]">
             {content.aboutUsTitle}
           </h2>
-          <p className=" text-md md:text-xl text-center ">
+          <p className=" text-md md:text-2xl text-center ">
             {content.aboutUsCaption}
           </p>
         </div>
