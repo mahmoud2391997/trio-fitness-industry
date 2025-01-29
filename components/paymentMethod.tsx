@@ -20,7 +20,7 @@ export default function PaymentMethod({ type }: { type: string }) {
         </h1>
         <section className="space-y-6">
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-2">{content.paymentStep1Header}</h2>
+            <h2 className="text-2xl text-black font-semibold mb-2">{content.paymentStep1Header}</h2>
             {type === "vodafone" ? (
               <>
               {
@@ -46,11 +46,11 @@ export default function PaymentMethod({ type }: { type: string }) {
             )}
           </div>
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-2">{content.paymentStep2Header}</h2>
+            <h2 className="text-2xl text-black font-semibold mb-2">{content.paymentStep2Header}</h2>
             <p className="text-gray-700 text-2xl">{content.paymentStep2}</p>
           </div>
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-2">{content.paymentStep3Header}</h2>
+            <h2 className="text-2xl text-black font-semibold mb-2">{content.paymentStep3Header}</h2>
             <p className="text-gray-700 text-2xl">{content.paymentStep3}</p>
             <a
               href="https://wa.me/+201229845327"

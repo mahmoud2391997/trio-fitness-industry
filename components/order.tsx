@@ -47,7 +47,7 @@ const {language} = useLanguage();
 const content = language === "arabic" ? arabicContent : englishContent;
 
   return (
-    <div className="mt-[20vh] w-full px-1">
+    <div className="mt-[20vh] text-black w-full px-1">
       <table className="table-auto w-full text-center text-base sm:text-lg">
         <thead>
         { language === "arabic" ? 
