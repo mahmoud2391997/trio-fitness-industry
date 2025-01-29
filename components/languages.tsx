@@ -21,12 +21,12 @@ const LanguageDropdown: React.FC = () => {
     <div className="relative inline-block text-left mt-2 md:mt-0">
       <button
         onClick={toggleDropdown}
-        className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-[#928c6b] rounded-md hover:bg-[#928c6b] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#928c6b]"
+        className="inline-flex justify-center w-full px-2 sm:px-4 py-2 text-sm font-medium text-white bg-[#928c6b] rounded-md hover:bg-[#928c6b] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#928c6b]"
       >
         {selectedLanguage === "ENGLISH" ? "EN" : "AR"}
       </button>
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg focus:outline-none">
+        <div className={`absolute mt-2 w-56 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg focus:outline-none ${language === "arabic" ? "left-0" : "right-0"}`}>
           <div className="py-1">
             <a
               href="#"

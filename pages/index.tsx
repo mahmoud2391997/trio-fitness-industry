@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import arabicContent from "../content/arabic"; // Import arabic content
 import englishContent from "../content/english"; // Import english content
 import { useLanguage } from "../context/LanguageContext"; // Import LanguageContext
+import { CircularProgress } from "@mui/material"; // Import CircularProgress from MUI
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -76,7 +77,6 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
       <img
         src={transformationImage}
         alt={transformationPeriodEnglish}
-        
         className="rounded-lg px-2 m-auto
          h-full "
       />
@@ -117,10 +117,16 @@ const Home: React.FC = () => {
   const videoRef = useRef<HTMLDivElement>(null);
   const [bgImage, setBgImage] = useState("/aboutUs.png");
   const dispatch: AppDispatch = useDispatch();
-  const { transformations, loading, error } = useSelector(
-    (state: RootState) => state.transformations
-  );
-  const { packages } = useSelector((state: RootState) => state.packages);
+  const {
+    transformations,
+    loading: transformationsLoading,
+    error: transformationsError,
+  } = useSelector((state: RootState) => state.transformations);
+  const {
+    packages,
+    loading: packagesLoading,
+    error: packagesError,
+  } = useSelector((state: RootState) => state.packages);
   const { language } = useLanguage();
 
   const content = language === "arabic" ? arabicContent : englishContent;
@@ -338,7 +344,9 @@ const Home: React.FC = () => {
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <img src="/image.png" className="w-36 lg:w-48" />
-        <h3 className="text-base md:text-lg lg:text-xl mt-4 mb-2">{content.personalTrainer}</h3>
+        <h3 className="text-base md:text-lg lg:text-xl mt-4 mb-2">
+          {content.personalTrainer}
+        </h3>
         <h2 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-4">
           {content.Trainer}
         </h2>
@@ -417,9 +425,9 @@ const Home: React.FC = () => {
         <h2 className=" text-2xl md:text-4xl lg:text-5xl  rounded-md bg-black p-4 text-center font-bold text-[#928c6b] mb-8">
           {content.transformations}
         </h2>
-        {loading ? (
-          <p>Loading...</p>
-        ) : error ? (
+        {transformationsLoading ? (
+          <CircularProgress />
+        ) : transformationsError ? (
           <p>Error loading transformations</p>
         ) : (
           <Slider {...sliderSettings} className="w-full">
@@ -441,8 +449,16 @@ const Home: React.FC = () => {
         <div className="w-52 rounded-lg h-4 bg-white mt-[7px]"></div>
       </section>
       {/* Add Transformations Section */}
-      <LimitedOffersSection offers={offers} /> {/* Pass offers as params */}
-      <PackageSection packages={packages} />
+      {packagesLoading ? (
+        <CircularProgress />
+      ) : packagesError ? (
+        <p>Error loading packages</p>
+      ) : (
+        <>
+          <LimitedOffersSection offers={offers} /> {/* Pass offers as params */}
+          <PackageSection packages={packages} />
+        </>
+      )}
     </div>
   );
 };
