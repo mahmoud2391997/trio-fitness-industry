@@ -6,7 +6,6 @@ const LanguageDropdown: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
   const selectedLanguage = language === "english" ? "ENGLISH" : "العربية";
-  const selectedFlag = language === "english" ? "GB" : "EGY";
 
   const handleLanguageChange = (lang: string) => {
     setLanguage(lang);
