@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4 justify-evenly
              w-full">
               <a
-                href="https://wa.me/your-number"
+                href="https://wa.me/+201229845327"
                 className="hover:underline"
                 aria-label="WhatsApp"
               >
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                 WhatsApp
               </a>
               <a
-                href="https://www.instagram.com/your-profile"
+                 href="https://www.instagram.com/hassan.mohamed07/"
                 className="hover:underline"
                 aria-label="Instagram"
               >
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                 Instagram
               </a>
               <a
-                href="tel:+your-number"
+                 href="tel:+201229845327"
                 className="hover:underline"
                 aria-label="Phone Call"
               >

@@ -69,19 +69,22 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
   transformationPeriodArabic,
   language,
 }) => (
-  <div
-    className="flex m-auto flex-col justify-around items-center w-[97%] p-1 pb-0 bg-black rounded-lg h-[550px]"
+  <>
+  <div className="flex m-auto flex-col items-center w-[97%] p-1  bg-black rounded-lg h-[55vh]"
     style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
-  >
-    <div className="relative w-full  h-[75%]">
-      <img
+    >
+    
+    <div className="relative w-full h-full">
+      <Image
         src={transformationImage}
         alt={transformationPeriodEnglish}
-        className="rounded-lg px-2 m-auto
-         h-full "
+        layout="fill"
+        objectFit="contain"
+        className="rounded-lg"
       />
     </div>
-    <p className="text-center w-[80%] text-2xl font-bold rounded-lg bg-[#928c6b] py-2 my-3">
+  </div>
+    <p className="text-center mx-auto w-[80%] text-2xl font-bold rounded-lg bg-[#928c6b] py-2 my-3">
       {language === "arabic" ? (
         <span style={{ direction: "rtl" }}>
           تحول {transformationPeriodArabic}
@@ -90,7 +93,7 @@ const TransformationCard: React.FC<TransformationCardProps> = ({
         transformationPeriodEnglish + " Transformation"
       )}
     </p>
-  </div>
+    </>
 );
 
 interface CustomArrowProps {
@@ -280,7 +283,7 @@ const Home: React.FC = () => {
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
           <h1
             className={
-              "xl:text-8xl text-center h-auto lg:text-[62px] md:text-6xl   pt-[15vh] sm:pt-0  w-5/6  font-semibold my-auto mx-0 sm:m-auto " +
+              "xl:text-7xl text-center h-auto lg:text-[62px] md:text-6xl   pt-[15vh] sm:pt-0  w-5/6  font-semibold my-auto mx-0 sm:m-auto " +
               (language === "arabic"
                 ? "text-6xl sm:w-3/6"
                 : "text-4xl font sm:w-5/6")
@@ -340,7 +343,7 @@ const Home: React.FC = () => {
       <section
         id="about"
         ref={aboutUsRef}
-        className="bg-black lg text-white flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-[95vh]"
+        className="bg-black lg text-white flex flex-col py-4 z-20 overflow-y-hidden items-center justify-around h-[95vh] lg:h-[120vh]"
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <img src="/image.png" className="w-36 lg:w-48" />
