@@ -61,6 +61,7 @@ export default function PaymentMethod({ type }: { type: string }) {
               Whatsapp
             </a>
           </div>
+         
         </section>
       </div>
     </div>

@@ -56,8 +56,11 @@ paymentStep1:"ادفع باستخدام تحويل فودافون كاش إلى 
 paymentStep2Header:"الخطوة ٢",
 paymentStep2:"التقط لقطة شاشة",
 paymentStep3Header:"الخطوة ٣",
-paymentStep3:"الخطوة أرسل لقطة الشاشة"
-
+paymentStep3:"الخطوة أرسل لقطة الشاشة",
+payment:"بعد الدفع بيتم ارسال ليك ابلكيشن اللي بيتبني علي اساسه النظام",
+advancePayment:"و دفع قيمه الاشتراك يكون مقدمآ",
+paymentCondition:"و لن يتم البدء في تصميم الانظمة قبل الدفع",
+caution:"تنبيه",
 };
 
 export default arabicContent;
