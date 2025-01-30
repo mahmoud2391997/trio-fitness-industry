@@ -45,10 +45,10 @@ const PackageSection: React.FC<PackageSectionProps> = ({ packages }) => {
   const content = language === "arabic" ? arabicContent : englishContent;
   return (
     <section
-      className="package-section bg-white text-[#928c6b] pt-16 h-auto"
-      style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
+      className="package-section bg-white text-[#928c6b] pt-16 pb-8 h-auto"
     >
-      <h2 className="xl:text-5xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center w-[60%] m-auto font-bold mb-14 text-[#928c6b]">
+      <h2 className="xl:text-5xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl  text-center w-[60%] m-auto font-bold mb-14 text-[#928c6b] py-5 shadow-xl rounded-lg "         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
+      >
         {content.packagesHeader}
       </h2>
       <div className="packages w-[95%] grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  h-auto gap-3 m-auto">

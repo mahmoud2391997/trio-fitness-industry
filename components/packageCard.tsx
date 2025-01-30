@@ -28,7 +28,7 @@ const PackageCard: React.FC<PackageComponentProps> = ({
   return (
     <div className="relative  h-auto flex flex-col justify-start  bg-white shadow-2xl border-2  border-black rounded-2xl w-full  ">
       <div
-        className="flex justify-center items-center h-[200px]  bg-black  w-full  rounded-b-full pt-1 pb-5 px-6 "
+        className="flex justify-center items-center h-[200px]  bg-black  w-full rounded-t-[35rem] rounded-b-full pt-1 pb-5 px-6 "
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <h6 className=" text-[#928c6b] text-2xl sm:text-4xl text-center font-semibold  ">
@@ -63,11 +63,11 @@ const PackageCard: React.FC<PackageComponentProps> = ({
         <ul className={`text-xl sm:text-2xl text-black font-medium list-inside h-auto ${language === "arabic" ? "rtl" : ""}`}>
           {packageDetails.map((detail, index) => (
             <li key={index} className="pl-5 my-2 relative">
-              <span className={"absolute  " + (language === "arabic" ? "right-0" : "left-0")}>•</span>
+              <span className={"absolute " + (language === "arabic" ? "right-1" : "left-1")}>•</span>
               <p className={`inline-block px-5 w-full ${language === "arabic" ? "text-right " : ""}`}>
           {language === "arabic" ? detail.arabic : detail.english}
               </p>
-              <hr />
+              <hr className="bg-black h-[2px]"/>
             </li>
           ))}
         </ul>
