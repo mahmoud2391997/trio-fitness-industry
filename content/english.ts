@@ -58,11 +58,11 @@ paymentStep2Header:"Step 2",
 paymentStep2:"Take A Screenshot",
 paymentStep3Header:"Step 3",
 paymentStep3:"SEND SCREENSHOT",
-payment:"After payment, you will receive an application on which the system is built.",
+payment:"After payment, you will receive an application on which the Program is built.",
 advancePayment:"The subscription fee must be paid in advance.",
-paymentCondition:"And system design will not begin before payment",
+paymentCondition:"And Program design will not begin before payment",
 caution:"CAUTION",
-
+orTo:"Or To",
 };
 
 export default englishContent;

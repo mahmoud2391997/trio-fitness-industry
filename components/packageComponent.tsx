@@ -35,12 +35,12 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
   
   const {language} = useLanguage();
   return (
-    <div className="relative  h-auto pb-[5%] my-3 flex flex-col justify-around items-center bg-white  rounded-xl  border border-black shadow-md">
+    <div className="relative  h-auto pb-[5%] my-3 flex flex-col  justify-around items-center bg-white  rounded-xl  border border-gray-300  shadow-md">
       <div
-        className="h-[20%] px-3  rounded-b-full flex justify-center items-center w-full "
+        className="h-[80%] px-3 py-2  rounded-b-full flex justify-center items-center w-full rounded-t-[100rem]"
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
-        <h2 className="text-lg sm:text-2xl xl:text-4xl text-center text-[#928c6b] font-bold mb-2">
+        <h2 className="text-3xl xl:text-4xl text-center text-[#928c6b] font-bold mb-2">
         { language === "arabic" ?   "عروض نظام "  + packageName.arabic : packageName.english + " Plan Offers"}       
 
         </h2>

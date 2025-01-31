@@ -40,7 +40,8 @@ export default function PaymentMethod({ type }: { type: string }) {
                 <p className="text-gray-700 text-2xl">
                   Pay with instapay Transfer the fees to
                 </p>
-}
+} <p className="text-3xl font-extrabold my-2 text-gray-900">010 29000 741</p>
+<span className="text-gray-700 text-2xl">{content.orTo}</span>
                 <p className=" text-xl sm:text-3xl text-center my-2 font-extrabold text-gray-900">alhassan.omar@instapay</p>
 </>
             )}

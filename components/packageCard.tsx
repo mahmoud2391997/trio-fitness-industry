@@ -31,7 +31,7 @@ const PackageCard: React.FC<PackageComponentProps> = ({
         className="flex justify-center items-center h-[200px]  bg-black  w-full rounded-t-[35rem] rounded-b-full pt-1 pb-5 px-6 "
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
-        <h6 className=" text-[#928c6b] text-2xl sm:text-4xl text-center font-semibold  ">
+        <h6 className=" text-[#928c6b] text-3xl sm:text-4xl text-center font-semibold  ">
           {language === "arabic"
             ? "نظام " + packageName.arabic
             : (
@@ -44,7 +44,7 @@ const PackageCard: React.FC<PackageComponentProps> = ({
         </h6>
       </div>
       <h3
-        className=" rounded-r-full rounded-l-full w-[90%]  mt-8 text-2xl sm:text-4xl  py-2 sm:py-4 list-disc  text-center m-auto  relative text-[#928c6b] font-semibold mb-2"
+        className=" rounded-r-full rounded-l-full w-[95%]  mt-8 text-2xl xl:text-3xl  py-2 sm:py-4 list-disc  text-center m-auto  relative text-[#928c6b] font-semibold mb-2"
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         {language === "arabic" ? price.arabic : price.english}
