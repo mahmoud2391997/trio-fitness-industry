@@ -28,7 +28,7 @@ const PackageCard: React.FC<PackageComponentProps> = ({
   return (
     <div className="relative  h-auto flex flex-col justify-start  bg-white shadow-2xl border-2  border-black rounded-2xl w-full  ">
       <div
-        className="flex justify-center items-center h-[200px]  bg-black  w-full rounded-t-[35rem] rounded-b-full pt-1 pb-5 px-6 "
+        className="flex justify-center items-center h-[270px]  bg-black  w-full rounded-t-[35rem] rounded-b-full pt-1 pb-5 px-6 "
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <h6 className=" text-[#928c6b] text-3xl sm:text-4xl text-center font-semibold  ">

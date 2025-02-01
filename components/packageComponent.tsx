@@ -37,10 +37,10 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
   return (
     <div className="relative  h-auto pb-[5%] my-3 flex flex-col  justify-around items-center bg-white  rounded-xl  border border-gray-300  shadow-md">
       <div
-        className="h-[80%] px-3 py-2  rounded-b-full flex justify-center items-center w-full rounded-t-[100rem]"
+        className="h-[280px] px-3 py-2  rounded-b-full flex justify-center items-center w-full rounded-t-[50rem]"
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
-        <h2 className="text-3xl xl:text-4xl text-center text-[#928c6b] font-bold mb-2">
+        <h2 className="text-3xl w-[80%] xl:text-4xl text-center text-[#928c6b] font-bold mb-2">
         { language === "arabic" ?   "عروض نظام "  + packageName.arabic : packageName.english + " Plan Offers"}       
 
         </h2>

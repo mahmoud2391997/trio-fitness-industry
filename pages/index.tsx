@@ -16,6 +16,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import { fetchTransformations } from "../redux/store/transformationsSlice";
 import { fetchPackages } from "../redux/store/packagesSlice";
+import ReviewComponent from "@/components/review";
 
 interface Offer {
   id: string;
@@ -118,6 +119,7 @@ const Home: React.FC = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
+  const reviewsRef = useRef<HTMLDivElement>(null); // Add ref for reviews section
   const [bgImage, setBgImage] = useState("/aboutUs.png");
   const dispatch: AppDispatch = useDispatch();
   const {
@@ -189,16 +191,21 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (videoRef.current) {
-        const rect = videoRef.current.getBoundingClientRect();
-        if (rect.top <= window.innerHeight) {
+      
+      if (videoRef.current && reviewsRef.current) {
+        const videoRect = videoRef.current.getBoundingClientRect();
+        const reviewsRect = reviewsRef.current.getBoundingClientRect();
+  
+        if (videoRect.top <= window.innerHeight && videoRect.bottom >= 0) {
+          setBgImage("/reviews.jpg");
+        } else if (reviewsRect.top <= window.innerHeight && reviewsRect.bottom >= 0) {
           setBgImage("/tranformBg.jpg");
         } else {
           setBgImage("/aboutUs.png");
         }
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -264,6 +271,7 @@ const Home: React.FC = () => {
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
+          backgroundPosition: bgImage === "/reviews.jpg" ? "center" : bgImage === "/tranformBg.jpg" ? "top right" : undefined,
         }}
         id="background-image"
       ></div>
@@ -285,8 +293,8 @@ const Home: React.FC = () => {
             className={
               "xl:text-7xl text-center h-auto lg:text-[62px] md:text-6xl   pt-[15vh] sm:pt-0  w-5/6  font-semibold my-auto mx-0 sm:m-auto " +
               (language === "arabic"
-                ? "text-6xl sm:w-3/6"
-                : "text-4xl font sm:w-5/6")
+                ? "text-5xl sm:w-3/6"
+                : "text-3xl font sm:w-5/6")
             }
             style={{
               fontFamily: '"Bebas Neue", Helvetica, Arial, sans-serif',
@@ -421,7 +429,7 @@ const Home: React.FC = () => {
         />
       </section>
       <section
-        ref={videoRef}
+        ref={videoRef} // Add ref to reviews section
         id="transformations"
         className="bg-transparent overflow-x-hidden px-[2px] sm:px-10 text-white flex flex-col items-center justify-around h-auto m-auto py-7"
       >
@@ -462,7 +470,9 @@ const Home: React.FC = () => {
           <PackageSection packages={packages} />
         </>
       )}
+      <ReviewComponent ref={reviewsRef}/>
     </div>
+    
   );
 };
 export default Home;

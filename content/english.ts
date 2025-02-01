@@ -8,7 +8,7 @@ const englishContent = {
   contact: "Contact",
   // Add more sections as needed
   videoCaption: "THE BEST PERSONAL TRAINING EXPERIENCE WITH THE BEST COACH",
-  aboutUsTitle:"Who We Are",
+  aboutUsTitle:"About Us",
   aboutUsCaption:"Welcome to Trio fitness industry platform, where we offer a comprehensive and personalized approach to fitness. Our platform connects you with certified personal trainer coach HASSAN MOHAMED who will create customized workout plans tailored to your goals and fitness level. Whether you are looking to lose weight, build muscle, or improve your overall health, our trainers are here to guide and motivate you every step of the way. Join us and experience the best personal training experience ever."
   
   ,
