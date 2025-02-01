@@ -31,9 +31,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
   packageName,
   packageDescription,
 }) => {
-
-  
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   return (
     <div className="relative  h-auto pb-[5%] my-3 flex flex-col  justify-around items-center bg-white  rounded-xl  border border-gray-300  shadow-md">
       <div
@@ -41,33 +39,47 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
         style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
       >
         <h2 className="text-3xl w-[80%] xl:text-4xl text-center text-[#928c6b] font-bold mb-2">
-        { language === "arabic" ?   "عروض نظام "  + packageName.arabic : packageName.english + " Plan Offers"}       
-
+          {language === "arabic"
+            ? "نظام " + packageName.arabic
+            : packageName.english + " Plan"}
         </h2>
       </div>
       <div className="h-auto w-[85%] flex flex-col justify-between m-2">
         {packageDescription.map((packagee, index) => {
           return (
-            <div key={index} className="flex flex-col justify-center items-center my-5 rounded-lg w-full"  style={{
-              background: "url(/aboutbg.jpeg)",
-              backgroundSize: "cover",
-            }}>
-              <h3
-                
-                className="text-sm rounded-lg  mt-2 lg:text-lg p-2 sm:p-4 list-disc sm:text-base text-center m-auto w-full relative text-[#928c6b] font-semibold "
-               
-              >
-                <div className="text-xl sm:text-3xl ">   { language === "arabic" ? packagee.offer.arabic : packagee.offer.english}</div>
+            <div
+              key={index}
+              className="flex flex-col justify-center items-center my-5 rounded-lg w-full"
+              style={{
+                background: "url(/aboutbg.jpeg)",
+                backgroundSize: "cover",
+              }}
+            >
+              <h3 className="text-sm rounded-lg  mt-2 lg:text-lg p-2 sm:p-4 list-disc sm:text-base text-center m-auto w-full relative text-[#928c6b] font-semibold ">
+                <div className="text-xl sm:text-3xl ">
+                  {" "}
+                  {language === "arabic"
+                    ? packagee.offer.arabic
+                    : packagee.offer.english}
+                </div>
                 <div className="text-xl sm:text-3xl mt-2">
-                  { language === "arabic" ? packagee.discount.after.arabic + " جنيه " : packagee.discount.after.english + " EGP" }
-                  <span className="text-sm"> { language === "arabic" ? " بدلا من " : " INSTEAD OF " }</span>
+                  {language === "arabic"
+                    ? packagee.discount.after.arabic + " جنيه "
+                    : packagee.discount.after.english + " EGP"}
+                  <span className="text-sm">
+                    {" "}
+                    {language === "arabic" ? " بدلا من " : " INSTEAD OF "}
+                  </span>
                   <span className="text-xl sm:text-3xl  line-through">
-                  { language === "arabic" ? packagee.discount.before.arabic + " جنيه " : packagee.discount.before.english + " EGP"}                  </span>
+                    {language === "arabic"
+                      ? packagee.discount.before.arabic + " جنيه "
+                      : packagee.discount.before.english + " EGP"}{" "}
+                  </span>
                 </div>
               </h3>
               <Link href={`/payment/${id}?offerIndex=${index}`}>
                 <button className="bg-[#928c6b] text-white py-3 font-bold w-48 text-center mt-2 text-xl mb-4 m-auto h-16">
-                { language === "arabic" ? "اشترك الان" :"SUBSCRIBE NOW"} 
+                  {language === "arabic" ? "اشترك الان" : "SUBSCRIBE NOW"}
                 </button>
               </Link>
             </div>

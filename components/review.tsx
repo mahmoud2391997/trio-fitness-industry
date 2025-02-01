@@ -5,13 +5,7 @@ import ReviewComponent from "./reviewComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { fetchReviews } from "@/redux/store/reviewsSlice";
-interface Review {
-  id: number;
-  author: string;
-  content: string;
-  rating: number;
-  image: string;
-}
+
 
 interface CustomArrowProps {
   className?: string;
