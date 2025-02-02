@@ -91,7 +91,7 @@ const calculateCalories = async (data: {
       <h2 className="md:text-6xl text-3xl py-3 font-bold text-[#928c6b] text-center">Calorie Calculator</h2>
       <div className="w-full max-w-4xl bg-white p-6 rounded-2xl shadow-lg">
         <form onSubmit={handleSubmit(calculateCalories)} className="space-y-6">
-          <div className="flex flex-wrap md:flex-nowrap gap-6">
+          <div className="flex flex-wrap md:flex-nowrap gap-6 text-black">
             {/* Personal Information */}
             <div className="w-[250px] space-y-4 m-auto">
               <h3 className="text-lg font-semibold text-gray-800">Personal Information</h3>
@@ -99,11 +99,11 @@ const calculateCalories = async (data: {
                   <div className="w-full" key={input.name}> 
     <div key={input.name} className="flex flex-row w-full justify-start items-center ">
 
-                  <label className="text-gray-700 w-[80px] font-medium">{input.label}</label>
+                  <label className="text-black w-[80px] font-medium">{input.label}</label>
                   <input
                     type="number"
                     {...register(input.name)}
-                    className="w-[100px] p-2 border rounded-lg focus:ring focus:ring-blue-300"
+                    className="w-[100px] p-2 border placeholder:text-gray-700 border-black rounded-lg focus:ring focus:ring-blue-300"
                     placeholder={input.placeholder}
                     />
                       </div>
@@ -114,7 +114,7 @@ const calculateCalories = async (data: {
               ))}
 
               <div className="flex flex-col items-start gap-4 "><div className="flex">
-                <label className="text-gray-700 mr-3 font-medium">Gender</label>
+                <label className="text-black mr-3 font-medium">Gender</label>
                 <div className="flex items-center gap-6">
                   <label className="flex items-center space-x-2">
                     <input type="radio" {...register("sex")} value="male" className="accent-[#928c6b]" />
@@ -144,7 +144,7 @@ const calculateCalories = async (data: {
                     <input type="radio" {...register("activity")} value={option.value} className="accent-[#928c6b]" />
                     <span>
                       <span className="font-semibold text-gray-800">{option.label}:</span>
-                      <span className="text-gray-600"> {option.description}</span>
+                      <span className="text-gray-900"> {option.description}</span>
                     </span>
                   </label>
                 ))}

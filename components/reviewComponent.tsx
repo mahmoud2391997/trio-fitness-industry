@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface ReviewProps {
@@ -7,9 +8,21 @@ interface ReviewProps {
 
 const ReviewComponent: React.FC<ReviewProps> = ({ imageUrl }) => {
     return (
-        <div className="flex my-auto  justify-center  mx-auto items-center p-3 rounded-lg w-full sm:w-[90%]" style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}>   
-            <img src={imageUrl} alt={`profile`} />
-        </div>
+        <div className="flex m-auto flex-col items-center w-[97%] p-1  bg-black rounded-lg h-[55vh]"
+            style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
+            >
+            
+            <div className="relative w-full h-full">
+              <Image
+                src={imageUrl}
+                alt={imageUrl}
+                layout="fill"
+                objectFit="contain"
+                className="rounded-lg"
+              />
+            </div>
+          </div>
+      
     );
 };
 
