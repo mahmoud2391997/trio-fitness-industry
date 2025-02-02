@@ -33,9 +33,9 @@ const sliderSettings = {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <CustomArrow className="slick-next"         style={{ right: "10px", top: "50%", color: "black" }}
+    nextArrow: <CustomArrow className="slick-next"         style={{ right: "10px", top: "50%", color: "white" }}
 />,
-    prevArrow: <CustomArrow className="slick-prev"         style={{ right: "10px", top: "50%", color: "black" }}
+    prevArrow: <CustomArrow className="slick-prev"         style={{ right: "10px", top: "50%", color: "white" }}
 />,
     responsive: [
         {

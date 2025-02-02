@@ -17,6 +17,7 @@ import { RootState, AppDispatch } from "../redux/store";
 import { fetchTransformations } from "../redux/store/transformationsSlice";
 import { fetchPackages } from "../redux/store/packagesSlice";
 import ReviewComponent from "@/components/review";
+import CalorieCalculator from "@/components/caloriesCalculator";
 
 interface Offer {
   id: string;
@@ -313,6 +314,8 @@ const Home: React.FC = () => {
           `}</style>
         </div>
       </main>
+<CalorieCalculator/>
+
       <section
         id="services"
         className="bg-black relative text-[#928c6b] max-w-full flex h-auto p-[5%] flex-col items-center justify-between   px-2  sm:p-8"
