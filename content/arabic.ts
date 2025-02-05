@@ -19,6 +19,24 @@ const arabicContent = {
     contactUs: "اتصل بنا",
     followUs: "تابعنا",
   },
+  calorieCalculator: "حاسبة السعرات الحرارية",
+  age: "العمر",
+  height: "الطول",
+  weight: "الوزن",
+  personalInfo: "المعلومات الشخصية",
+  gender: "الجنس",
+  male: "ذكر", // Arabic translation for Male
+    female: "أنثى", 
+  activityLevel: "مستوى النشاط",
+  activities: [
+    { label: "غير نشط", value: "inactive", description: "لا تشمل أو نادرًا ما تشمل النشاط البدني في يومك." },
+    { label: "نشط قليلًا", value: "somewhat-active", description: "تشمل نشاطًا خفيفًا أو معتدلًا حوالي 2-3 مرات في الأسبوع." },
+    { label: "نشط", value: "active", description: "تشمل نشاطًا معتدلًا لمدة 30 دقيقة في معظم الأيام أو 20 دقيقة من النشاط القوي 3 مرات في الأسبوع." },
+    { label: "نشط جدًا", value: "very-active", description: "تشمل كميات كبيرة من النشاط المعتدل أو القوي في يومك." }
+  ],
+  calculate: "احسب",
+  estmaitedCalories: "احتياجاتك اليومية المقدرة من السعرات الحرارية:",
+  dailyCalories: "سعرات حرارية/يوم",
   stats: [
     {
       value: "٪٩٦",

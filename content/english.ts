@@ -11,8 +11,23 @@ const englishContent = {
   aboutUsTitle:"About Us",
   aboutUsCaption:"Welcome to Trio fitness industry platform, where we offer a comprehensive and personalized approach to fitness. Our platform connects you with certified personal trainer coach HASSAN MOHAMED who will create customized workout plans tailored to your goals and fitness level. Whether you are looking to lose weight, build muscle, or improve your overall health, our trainers are here to guide and motivate you every step of the way. Join us and experience the best personal training experience ever."
   
-  ,
-  stats:[
+  ,calorieCalculator:"Calorie Calculator",
+  age:"Age",
+  height:"Height",
+  weight:"Weight",
+  personalInfo:"Personal Information",
+  gender:"Gender",
+  activityLevel:"Activity Level",
+  activities:[{ label: "Inactive", value: "inactive", description: "Never or rarely include physical activity in your day." },
+    { label: "Somewhat active", value: "somewhat-active", description: "Include light or moderate activity about 2-3 times a week." },
+    { label: "Active", value: "active", description: "Include at least 30 min of moderate activity most days or 20 min of vigorous activity 3 times a week." },
+    { label: "Very active", value: "very-active", description: "Include large amounts of moderate or vigorous activity in your day." }],
+ calculate:"Calculate",
+ estmaitedCalories:"Your estimated daily calorie needs:",
+ dailyCalories:"Kcal/day",
+male:"Male",
+female:"Female",
+    stats:[
     {
       value: "96%",
       title: "Client Satisfaction",

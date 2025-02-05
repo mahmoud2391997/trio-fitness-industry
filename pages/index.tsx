@@ -18,6 +18,7 @@ import { fetchTransformations } from "../redux/store/transformationsSlice";
 import { fetchPackages } from "../redux/store/packagesSlice";
 import ReviewComponent from "@/components/review";
 import CalorieCalculator from "@/components/caloriesCalculator";
+import FAQs from "@/components/faqs";
 
 interface Offer {
   id: string;
@@ -289,7 +290,7 @@ const Home: React.FC = () => {
           />
           Your browser does not support the video tag.
         </video>
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-[#928c6b] text-center">
           <h1
             className={
               "xl:text-7xl text-center h-auto lg:text-[62px] md:text-6xl   pt-[15vh] sm:pt-0  w-5/6  font-semibold my-auto mx-0 sm:m-auto " +
@@ -474,6 +475,7 @@ const Home: React.FC = () => {
         </>
       )}
       <ReviewComponent ref={reviewsRef}/>
+      <FAQs/>
     </div>
     
   );

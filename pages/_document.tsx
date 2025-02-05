@@ -9,7 +9,7 @@ export default function Document() {
       <Head>
         <meta charSet="UTF-8" />
       </Head>
-      <body className="antialiased">
+      <body className="antialiased" style={{ direction: language === "arabic" ? "rtl" : "ltr" }}>
         <Main />
         <NextScript />
       </body>

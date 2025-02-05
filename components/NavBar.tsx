@@ -32,7 +32,7 @@ const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
       className={
         navBg +
         " h-[15vh] fixed top-0 py-[1%] px-[3.5%] z-20 w-full text-[#928c6b] flex justify-around items-center" +
-        (language === "arabic" ? " rtl" : " ltr") + (language === "arabic" ? " flex-row-reverse" : "")
+       (language === "arabic" ? " flex-row-reverse" : "")
       }
       style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
     >

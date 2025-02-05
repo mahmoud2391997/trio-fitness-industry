@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useLanguage } from "@/context/LanguageContext";
+import arabicContent from "@/content/arabic";
+import englishContent from "@/content/english";
 
 // Validation Schema with Yup
 const schema = yup.object().shape({
@@ -25,7 +28,6 @@ const schema = yup.object().shape({
     .required("Gender is required"),
   activity: yup.string().required("Activity level is required"),
 });
-
 // Type for input fields
 type InputField = {
   label: string;
@@ -33,20 +35,22 @@ type InputField = {
   placeholder: string;
 };
 
-const inputFields: InputField[] = [
-  { label: "Age", name: "age", placeholder: "Years" },
-  { label: "Height", name: "height", placeholder: "cm" },
-  { label: "Weight", name: "weight", placeholder: "kg" },
-];
 
 export default function CalorieCalculator() {
   // Use react-hook-form and yup resolver for validation
+  const {language} = useLanguage();
+  const content = language === "arabic" ? arabicContent : englishContent;
+  const inputFields: InputField[] = [
+    { label: content.age, name: "age", placeholder: "Years" },
+    { label: content.height, name: "height", placeholder: "cm" },
+    { label: content.weight, name: "weight", placeholder: "kg" },
+  ];
   const {
     register,
     handleSubmit,
     formState: { errors },
     trigger, // Add trigger function
-  } = useForm({ resolver: yupResolver(schema), mode: "onChange" });
+  } = useForm({ resolver: yupResolver(schema), mode: "onBlur" });
 
   const [calories, setCalories] = useState<number | null>(null);
 
@@ -88,20 +92,23 @@ const calculateCalories = async (data: {
 
   return (
     <div className="py-4 flex flex-col justify-center items-center min-h-screen bg-gray-100 px-4 sm:px-6" style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}>
-      <h2 className="md:text-6xl text-3xl py-3 font-bold text-[#928c6b] text-center">Calorie Calculator</h2>
+      <h2 className="md:text-6xl text-3xl py-3 font-bold text-[#928c6b] text-center">{content.calorieCalculator}</h2>
       <div className="w-full max-w-4xl bg-white p-6 rounded-2xl shadow-lg">
         <form onSubmit={handleSubmit(calculateCalories)} className="space-y-6">
-          <div className="flex flex-wrap md:flex-nowrap gap-6 text-black">
-            {/* Personal Information */}
-            <div className="w-[250px] space-y-4 m-auto">
-              <h3 className="text-lg font-semibold text-gray-800">Personal Information</h3>
+        <div className={`flex gap-6 text-black flex-col md:flex-row ${language == "arabic" ? 'md:flex-row-reverse rtl:flex-row-reverse' : ''}`}>
+        {/* Personal Information */}
+            <div className=" space-y-4 m-auto">
+              <h3 className={(language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse ' : '') +  "text-lg w-auto font-semibold text-gray-800"}>
+                {content.personalInfo}
+              </h3>
               {inputFields.map((input) => (
-                  <div className="w-full" key={input.name}> 
-    <div key={input.name} className="flex flex-row w-full justify-start items-center ">
+                  <div className="w-auto"  key={input.name}> 
+    <div key={input.name} className={`flex flex-row w-auto justify-start items-center ${language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse' : ''}`}>
 
                   <label className="text-black w-[80px] font-medium">{input.label}</label>
                   <input
                     type="number"
+                    min={10}
                     {...register(input.name)}
                     className="w-[100px] p-2 border placeholder:text-gray-700 border-black rounded-lg focus:ring focus:ring-blue-300"
                     placeholder={input.placeholder}
@@ -113,16 +120,16 @@ const calculateCalories = async (data: {
                 </div>
               ))}
 
-              <div className="flex flex-col items-start gap-4 "><div className="flex">
-                <label className="text-black mr-3 font-medium">Gender</label>
-                <div className="flex items-center gap-6">
-                  <label className="flex items-center space-x-2">
+              <div className={"flex flex-col items-start gap-4 " +  (language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse items-end ' : '')}><div className={"flex gap-4 " + (language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse  ' : '')}>
+                <label className={"text-black  font-medium " + (language == "arabic" ? 'text-right  ' : '')}>{content.gender}</label>
+                <div className={(language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse ' : '') + "flex items-center gap-3"}>
+                  <label className={"flex items-center "  +  (language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse items-end ' : '')}>
                     <input type="radio" {...register("sex")} value="male" className="accent-[#928c6b]" />
-                    <span>Male</span>
+                    <span className="mx-2">{content.male}</span>
                   </label>
-                  <label className="flex items-center space-x-2">
+                  <label className={"flex items-center " +  (language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse items-end ' : '')}>
                     <input type="radio" {...register("sex")} value="female" className="accent-[#928c6b]" />
-                    <span>Female</span>
+                    <span className="mx-2">{content.female}</span>
                   </label>
                 </div>
                 </div>
@@ -134,15 +141,12 @@ const calculateCalories = async (data: {
 
             {/* Activity Level */}
             <div className="space-y-4 h-full">
-              <h3 className="text-lg font-semibold text-gray-800">Activity Level</h3>
+              <h3 className={(language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse' : '' )+" text-lg font-semibold text-gray-800"}>{content.activityLevel}</h3>
               <div className="flex flex-col h-full justify-between gap-3">
-                {[{ label: "Inactive", value: "inactive", description: "Never or rarely include physical activity in your day." },
-                  { label: "Somewhat active", value: "somewhat-active", description: "Include light or moderate activity about 2-3 times a week." },
-                  { label: "Active", value: "active", description: "Include at least 30 min of moderate activity most days or 20 min of vigorous activity 3 times a week." },
-                  { label: "Very active", value: "very-active", description: "Include large amounts of moderate or vigorous activity in your day." }].map((option) => (
-                  <label key={option.value} className="flex items-center space-x-3 cursor-pointer">
+                {content.activities.map((option) => (
+                  <label key={option.value} className={(language == "arabic" ? 'text-right flex-row-reverse rtl:flex-row-reverse' : '' )+ " flex items-center  cursor-pointer"}>
                     <input type="radio" {...register("activity")} value={option.value} className="accent-[#928c6b]" />
-                    <span>
+                    <span className="mx-3">
                       <span className="font-semibold text-gray-800">{option.label}:</span>
                       <span className="text-gray-900"> {option.description}</span>
                     </span>
