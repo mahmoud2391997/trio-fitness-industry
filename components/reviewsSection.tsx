@@ -15,7 +15,7 @@ const reviews: Review[] = [
 
 const ReviewsSection: React.FC = () => {
     return (
-        <section className='bg-black text-white p-4'>
+        <section id={"reviews"} className='bg-black text-white p-4'>
             <h2>Customer Reviews</h2>
             <ul>
                 {reviews.map(review => (

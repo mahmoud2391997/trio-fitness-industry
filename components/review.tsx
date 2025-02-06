@@ -85,7 +85,7 @@ const ReviewsComponent: React.FC<React.HTMLProps<HTMLDivElement>> = ({ ref }) =>
   }, [dispatch]);
   const reviews = useSelector((state: RootState) => state.reviews.reviews);
   return (
-    <div ref={ref} className="w-full bg-transparent p-9 ">
+    <div ref={ref} id={"reviews"} className="w-full bg-transparent p-9 ">
       <h2 className=" text-2xl w-[200px] lg:w-[500px] mx-auto md:text-4xl lg:text-5xl  rounded-md bg-black p-4 text-center font-bold text-[#928c6b] mb-8">
          Clients Reviews
         </h2>

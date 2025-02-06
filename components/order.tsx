@@ -50,6 +50,7 @@ const content = language === "arabic" ? arabicContent : englishContent;
     <div className="mt-[20vh] text-black w-full px-1">
         <div  className="w-auto border  border-black p-2 bg-gray-100"> 
           <h1 className="text-center text-2xl sm:text-3xl font-bold">! {content.caution} !</h1>
+        <p className="text-center my-2 text-base sm:text-2xl text-gray-700">* It's applicable to pay by EGP or USD *</p>
           <p className="text-center my-2 text-base sm:text-2xl text-green-600">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -143,11 +144,29 @@ const content = language === "arabic" ? arabicContent : englishContent;
           </tr>  :
           <tr >
             <td className="border border-black text-base sm:text-2xl font-bold px-4 py-2">{content.orderPrice}</td>
-            <td className="border border-black  text-base sm:text-2xl font-extrabold  px-4 py-2">
-              {packageDetails.offers && offerIndex !== null
+            <td className="border border-black  text-base sm:text-2xl font-extrabold  p-0">
+              <table className="w-full h-full">
+                <thead className="w-full border-b border-black">
+                  <tr >
+                    <td className=" border-r border-black">Price In EGP</td>
+                    <td>Price In USD</td>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className=" border-r border-black">
+                    {packageDetails.offers && offerIndex !== null
                 ? language === "arabic" ?   packageDetails.offers[offerIndex].discount.after.arabic + " جنيه" : packageDetails.offers[offerIndex].discount.after.english + " EGP"
                 : language === "arabic" ? packageDetails.price.arabic  : packageDetails.price.english }
-            </td>
+                    </td>
+                    <td>
+                      20 USD
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+           </td>           
           </tr> }
         </tbody>
       </table>

@@ -83,6 +83,9 @@ const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
           <Link href="#reviews" className="hover:text-white">
             {content.reviews}
           </Link>
+          <Link href="#FAQs" className="hover:text-white">
+            {language !== "arabic" ? "FAQs" : "اسئلة"}
+          </Link>
         </div>
             </div>
 
