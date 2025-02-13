@@ -22,7 +22,6 @@ const PackageCard: React.FC<PackageComponentProps> = ({
   id,
   packageName,
   price,
-  packageDetails,
 }) => {
   const { language } = useLanguage();
   return (
