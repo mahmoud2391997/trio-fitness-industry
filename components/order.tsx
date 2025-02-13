@@ -47,39 +47,8 @@ const {language} = useLanguage();
 const content = language === "arabic" ? arabicContent : englishContent;
 
   return (
-    <div className="mt-[20vh] text-black w-full px-1">
-        <div  className="w-auto border  border-black p-2 bg-gray-100"> 
-          <h1 className="text-center text-2xl sm:text-3xl font-bold">! {content.caution} !</h1>
-        <p className="text-center my-2 text-base sm:text-2xl text-gray-700">* It is applicable to pay by EGP or USD *</p>
-          <p className="text-center my-2 text-base sm:text-2xl text-green-600">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="2"
-    stroke="green"
-    className="w-6 h-6 inline-block"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-  {content.payment}
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="2"
-    stroke="green"
-    className="w-6 h-6 inline-block"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-</p>
-
-<p className="text-center my-2 text-base sm:text-2xl text-yellow-500">⚠️ {content.advancePayment} ⚠️</p>
-<p className="text-center my-2 text-base sm:text-2xl text-red-600">❌ {content.paymentCondition} ❌</p>
-
-
-          </div>
+    <div className=" text-black w-full px-1">
+       
       <table className="table-auto w-full text-center text-base sm:text-lg">
         <tbody className="w-full">
             { language === "arabic" ? 
@@ -170,6 +139,37 @@ const content = language === "arabic" ? arabicContent : englishContent;
           </tr> }
         </tbody>
       </table>
+      <div  className="w-auto border  border-black p-2 bg-gray-100"> 
+          <h1 className="text-center text-2xl sm:text-3xl font-bold">! {content.caution} !</h1>
+          <p className="text-center my-2 text-base sm:text-2xl text-green-600">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="2"
+    stroke="green"
+    className="w-6 h-6 inline-block"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+  </svg>
+  {content.payment}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="2"
+    stroke="green"
+    className="w-6 h-6 inline-block"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+  </svg>
+</p>
+
+<p className="text-center my-2 text-base sm:text-2xl text-yellow-500">⚠️ {content.advancePayment} ⚠️</p>
+<p className="text-center my-2 text-base sm:text-2xl text-red-600">❌ {content.paymentCondition} ❌</p>
+
+
+          </div>
     </div>
   );
 }

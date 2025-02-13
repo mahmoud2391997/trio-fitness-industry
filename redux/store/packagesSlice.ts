@@ -21,6 +21,8 @@ interface offer {
 
 interface Package {
   _id: string;
+  icon:string
+  description:string;
   title: {
     english: string;
     arabic: string;
@@ -34,6 +36,7 @@ interface Package {
     arabic: string;
   }[];
   offers?: offer[];
+  img:string
 }
 // Define types
 interface PackageState {

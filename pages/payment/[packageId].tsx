@@ -6,6 +6,7 @@ import { RootState, AppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
 import Order from "@/components/order";
 import PaymentMethod from "@/components/paymentMethod";
+import DietPlanSection from "@/components/packageDescription";
 
 const PaymentPage = () => {
   const router = useRouter();
@@ -28,7 +29,9 @@ const PaymentPage = () => {
   }, [packageId]);
 
   return (
-    <div className=" bg-gray-100 w-full sm:w-[95%] py-1 sm:py-2 sm:px-5 m-auto">
+    
+    <div className=" bg-gray-100 w-full mt-[20vh] sm:w-[95%] py-1 sm:py-2 sm:px-5 m-auto">
+      <DietPlanSection packagee={packageDetails} />
       <div className=" w-full ">
         {packageDetails ? (
           <Order
