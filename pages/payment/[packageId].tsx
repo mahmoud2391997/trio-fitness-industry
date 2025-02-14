@@ -30,9 +30,9 @@ const PaymentPage = () => {
 
   return (
     
-    <div className=" bg-gray-100 w-full mt-[20vh] sm:w-[95%] py-1 sm:py-2 sm:px-5 m-auto">
+    <div className=" bg-gray-100 w-full mt-[20vh]  sm:w-[95%] px-[10vw] py-[5vh]  sm:py-2 sm:px-5 m-auto">
       <DietPlanSection packagee={packageDetails} />
-      <div className=" w-full ">
+      <div className=" w-full  ">
         {packageDetails ? (
           <Order
             packageDetails={packageDetails}
