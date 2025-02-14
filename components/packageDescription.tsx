@@ -29,14 +29,14 @@ const DietPlanSection: React.FC<DietPlanProps> = ({ packagee }) => {
           <img
             src={packagee?.img}
             alt="Diet Plan"
-            className="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            className="w-full h-[50vh] md:h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
           />
         </div>
 
         {/* Overlay Content */}
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col h-full items-center justify-center  p-[20%] text-white text-center ">
-          <img src={packagee?.icon} />
-          <h2 className="text-2xl font-bold mt-2">
+          <img src={packagee?.icon} className="md:h-auto  h-[50px]"  />
+          <h2 className="text-lg md:text-2xl font-bold mt-2">
             {packagee?.title?.english}
           </h2>
         </div>
