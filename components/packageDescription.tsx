@@ -23,13 +23,13 @@ const DietPlanSection: React.FC<DietPlanProps> = ({ packagee }) => {
   return (
     <section className="flex flex-col md:flex-row bg-gray-100 lg:px-[4vw]  md:py-[10vh]  rounded-lg ">
       {/* Left Side - Image Card */}
-      <div className="md:w-1/2 bg-white rounded-lg overflow-hidden shadow-md relative group">
+      <div className="md:w-1/2 bg-white rounded-lg h-[35vh] md:h-[70vh] overflow-hidden shadow-md relative group">
         {/* Image Container with Zoom Effect */}
         <div className="overflow-hidden h-full">
           <img
             src={packagee?.img}
             alt="Diet Plan"
-            className="w-full h-[50vh] md:h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            className="w-full h-[35vh] md:h-[70vh] object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
           />
         </div>
 
@@ -42,13 +42,12 @@ const DietPlanSection: React.FC<DietPlanProps> = ({ packagee }) => {
         </div>
       </div>
 
-      <div className="md:w-1/2 p-6">
-        <p className="md:text-xl lg:text-2xl">{packagee?.description}</p>
+      <div className="md:w-1/2 pl-6 md:px-6">
         {/* Right Side - Text Content */}
 
-        <ul className="list-disc mt-4 pl-5 text-gray-700">
+        <ul className="list-disc md:pl-5 mt-4  mb-10 md:m-0 text-black">
           {packagee?.details?.map((item, index) => (
-            <li className="md:text-xl lg:text-2xl my-4" key={index}>
+            <li className="md:text-xl lg:text-2xl mb-4" key={index}>
               {item.english}
             </li>
           ))}
