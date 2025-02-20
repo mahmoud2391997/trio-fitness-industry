@@ -40,7 +40,7 @@ const LimitedOffersSection: React.FC<LimitedOffersSectionProps> = ({
 
   const content = language === "arabic" ? arabicContent : englishContent;
   return (
-    <div
+    <div id="packages"
       className="w-full bg-black text-white pt-9 sm:p-7"
       style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}
     >

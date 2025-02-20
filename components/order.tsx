@@ -139,34 +139,35 @@ const content = language === "arabic" ? arabicContent : englishContent;
           </tr> }
         </tbody>
       </table>
-      <div  className="w-auto border  border-black p-2 bg-gray-100"> 
-          <h1 className="text-center text-2xl sm:text-3xl font-bold">! {content.caution} !</h1>
-          <p className="text-center my-2 text-base sm:text-2xl text-green-600">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="2"
-    stroke="green"
-    className="w-6 h-6 inline-block"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
+      <div  className="w-auto   p-2 bg-black"> 
+          <h1 className="text-center text-2xl sm:text-3xl mb-2 underline text-white font-bold">Payment Terms And Policy</h1>
+          <h1 className="text-center text-2xl sm:text-3xl font-bold text-yellow-500">⚠️<br/>Caution</h1>
+          <p className="text-center my-2 text-base sm:text-2xl text-white"> {content.advancePayment}</p>
+          <h1 className="text-center text-2xl sm:text-3xl font-bold text-red-500">❌<br/>Attention</h1>
+          <p className="text-center my-2 text-base sm:text-2xl text-white"> {content.paymentCondition}</p>
+          <h1 className="text-center text-2xl sm:text-3xl font-bold text-green-500 flex flex-col items-center">
+  <span className="flex items-center justify-center rounded-full h-12 w-12 bg-green-500 mb-2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="white"
+      className="w-6 h-6"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  </span>
+  Successful Fees Transfer
+</h1>
+
+
+          <p className="text-center my-2 text-base sm:text-2xl text-white">
+  
   {content.payment}
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="2"
-    stroke="green"
-    className="w-6 h-6 inline-block"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
+  
 </p>
 
-<p className="text-center my-2 text-base sm:text-2xl text-yellow-500">⚠️ {content.advancePayment} ⚠️</p>
-<p className="text-center my-2 text-base sm:text-2xl text-red-600">❌ {content.paymentCondition} ❌</p>
 
 
           </div>

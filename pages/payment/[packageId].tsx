@@ -27,6 +27,7 @@ const PaymentPage = () => {
       }
     }
   }, [packageId]);
+console.log(packageDetails?.details);
 
   return (
     

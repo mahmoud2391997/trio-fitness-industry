@@ -46,19 +46,19 @@ const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
           isOpen ? "block" : "hidden"
         } md:hidden absolute top-24 z-50 left-0 w-full bg-white text-center`}
             >
-        <Link href="#home" className="block py-2 hover:text-white">
+        <Link href="/#home" className="block py-2 hover:text-white">
           {content.home}
         </Link>
-        <Link href="#about" className="block py-2 hover:text-white">
+        <Link href="/#about" className="block py-2 hover:text-white">
           {content.about}
         </Link>
-        <Link href="#transformations" className="block py-2 hover:text-white">
+        <Link href="/#transformations" className="block py-2 hover:text-white">
           {content.transformations}
         </Link>
-        <Link href="#packages" className="block py-2 hover:text-white">
+        <Link href="/#packages" className="block py-2 hover:text-white">
           {content.packages}
         </Link>
-        <Link href="#reviews" className="block py-2 hover:text-white">
+        <Link href="/#reviews" className="block py-2 hover:text-white">
           {content.reviews}
         </Link>
       </div>
@@ -71,19 +71,19 @@ const NavBar: React.FC<NavBarProps> = ({ navBg }) => {
           <Link href="/" className="hover:text-white">
             {content.home}
           </Link>
-          <Link href="#about" className="hover:text-white">
+          <Link href="/#about" className="hover:text-white">
             {content.about}
           </Link>
-          <Link href="#transformations" className="hover:text-white">
+          <Link href="/#transformations" className="hover:text-white">
             {content.transformations}
           </Link>
-          <Link href="#packages" className="hover:text-white">
+          <Link href="/#packages" className="hover:text-white">
             {content.packages}
           </Link>
-          <Link href="#reviews" className="hover:text-white">
+          <Link href="/#reviews" className="hover:text-white">
             {content.reviews}
           </Link>
-          <Link href="#FAQs" className="hover:text-white">
+          <Link href="/#FAQs" className="hover:text-white">
             {language !== "arabic" ? "FAQs" : "اسئلة"}
           </Link>
         </div>
