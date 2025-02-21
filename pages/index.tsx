@@ -347,9 +347,12 @@ const Home: React.FC = () => {
           <h2 className=" text-xl md:text-5xl my-5 text-center md:text-left font-bold text-[#928c6b]">
             {content.aboutUsTitle}
           </h2>
-          <p className=" text-md md:text-2xl text-center ">
-            {content.aboutUsCaption}
-          </p>
+          <p 
+  className={`max-w-3xl mx-auto text-md md:text-2xl text-center leading-relaxed px-4 ${language === "arabic" ? "rtl" : "ltr"}`}
+>
+  {content.aboutUsCaption}
+</p>
+
         </div>
       </section>
       <section

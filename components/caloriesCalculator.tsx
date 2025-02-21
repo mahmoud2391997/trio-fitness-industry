@@ -160,7 +160,7 @@ const calculateCalories = async (data: {
           </div>
 
           <button type="submit" className="w-full bg-[#928c6b] text-white py-2 rounded-lg  transition">
-            Calculate
+            {content.calculate}
           </button>
 
           {/* Show Calories Result */}

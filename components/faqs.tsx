@@ -78,7 +78,7 @@ const {language} = useLanguage()
                             className={(language === 'arabic' ? "flex-row-reverse "  : "") + "flex justify-between items-center cursor-pointer" }
                             onClick={() => handleToggle(index)}
                         >
-                            <h3 className="text-xl font-medium text-gray-800">{faq.question}</h3>
+                            <h3 className={"text-xl font-medium text-gray-800" + (language === 'arabic' ? "rtl text-right ": "" )}>{faq.question}</h3>
                             <span className="text-lg text-gray-600">{activeIndex === index ? '−' : '+'}</span>
                         </div>
                         {activeIndex === index && (

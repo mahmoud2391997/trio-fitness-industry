@@ -3,7 +3,7 @@ import { FaInstagram, FaPhone, FaWhatsapp } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white"  style={{ background: "url(/aboutbg.jpeg)", backgroundSize: "cover" }}>
       <div className="container mx-auto px-4 py-6">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row items-center justify-between">
