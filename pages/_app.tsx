@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-58LD0GNSMY"
+          src="https://www.googletagmanager.com/gtag/js?id=G-JD7TJTST0M"
         />
         <Script
           id="google-analytics"
@@ -41,7 +41,9 @@ export default function App({ Component, pageProps }: AppProps) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-58LD0GNSMY', { page_path: window.location.pathname });
+              gtag('config', 'G-JD7TJTST0M', {
+                page_path: window.location.pathname,
+              });
             `,
           }}
         />
@@ -51,7 +53,7 @@ export default function App({ Component, pageProps }: AppProps) {
           className={`${
             language === "arabic" ? cairoFont.variable : geistSans.variable
           } ${geistMono.variable} relative`}
-          style={{ visibility: showSplash ? "hidden" : "visible" }} 
+          style={{ visibility: showSplash ? "hidden" : "visible" }}
         >
           <SocialMedia />
           <NavBar navBg={"bg-black"} />
