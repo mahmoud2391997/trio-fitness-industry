@@ -7,29 +7,20 @@ import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import Footer from "@/components/footer";
 import LanguageProvider, { useLanguage } from "../context/LanguageContext";
-import SplashScreen from "../components/splashScreen"; // Import SplashScreen
-import { Cairo } from "next/font/google"; // Import Cairo font for Arabic
+import SplashScreen from "../components/splashScreen";
+import { Cairo } from "next/font/google";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script"; // Import Next.js Script
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-const cairoFont = Cairo({
-  variable: "--font-cairo",
-  subsets: ["arabic"],
-});
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const cairoFont = Cairo({ variable: "--font-cairo", subsets: ["arabic"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   const { language } = useLanguage();
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    // Set a timeout to hide the splash screen after 3 seconds
     const timer = setTimeout(() => setShowSplash(false), 3000);
     return () => clearTimeout(timer);
   }, []);
@@ -37,12 +28,30 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <LanguageProvider>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-58LD0GNSMY"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-58LD0GNSMY', { page_path: window.location.pathname });
+            `,
+          }}
+        />
+
         {/* Preload the entire App but keep it hidden under the Splash Screen */}
         <div
           className={`${
             language === "arabic" ? cairoFont.variable : geistSans.variable
           } ${geistMono.variable} relative`}
-          style={{ visibility: showSplash ? "hidden" : "visible" }} // Hide app content initially
+          style={{ visibility: showSplash ? "hidden" : "visible" }} 
         >
           <SocialMedia />
           <NavBar navBg={"bg-black"} />
