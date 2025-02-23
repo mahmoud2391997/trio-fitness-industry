@@ -24,7 +24,7 @@ const DietPlanSection: React.FC<DietPlanProps> = ({ packagee }) => {
   return (
     <section className="flex flex-col md:flex-row bg-gray-100 h-auto lg:px-[4vw] md:py-[10vh] rounded-lg">
       {/* Left Side - Image Card */}
-      <div className="md:w-1/2 bg-white rounded-lg max-h-[50vh] overflow-hidden shadow-md relative group flex-shrink-0">
+      <div className="md:w-1/2 bg-white rounded-lg  overflow-hidden shadow-md relative group flex-shrink-0">
         {/* Image Container with Zoom Effect */}
         <div className="overflow-hidden h-full">
           <img

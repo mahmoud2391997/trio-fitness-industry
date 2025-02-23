@@ -47,7 +47,7 @@ const LimitedOffersSection: React.FC<LimitedOffersSectionProps> = ({
       <h2 className="xl:text-5xl w-[70%] lg:w-[50%] m-auto lg:text-5xl md:text-4xl sm:text-3xl text-2xl text-center font-bold my-11 text-[#928c6b]">
 {content.offersHeader}  
       </h2>
-      <div className="packages w-[95%] max-w-[400px] sm:w-[70%] md:w-[90%] md:max-w-screen-md xl:w-[60%] lg:max-w-screen-xl lg:w-[80%] grid grid-cols-1 md:grid-cols-2 h-auto gap-4 m-auto">
+      <div className="packages w-[95%]   grid grid-cols-1 md:grid-cols-2 h-auto gap-4 m-auto">
         {offers.map((offer) => (
           <PackageComponent
             key={offer.id}

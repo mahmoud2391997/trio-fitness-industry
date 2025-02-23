@@ -44,7 +44,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
             : packageName.english + " Plan"}
         </h2>
       </div>
-
+    
       <div className="h-auto w-[85%] flex flex-col justify-between m-2">
         {packageDescription.map((packagee, index) => {
           return (
@@ -78,11 +78,7 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
                   </span>
                 </div>
               </h3>
-              <Link href={`/payment/${id}?offerIndex=${index}&details=true`}>
-                <button className="bg-[#928c6b] text-white py-3 font-bold w-56 rounded-lg text-center  text-xl m-auto mt-5 h-16">
-                  {language === "arabic" ? "اشترك الان" : "SEE DETAILS"}
-                </button>
-              </Link>
+              
               <Link href={`/payment/${id}?offerIndex=${index}`}>
                 <button className="bg-[#928c6b] text-white py-3 font-bold w-56 text-center  text-xl my-3 rounded-lg m-auto h-16">
                   {language === "arabic" ? "اشترك الان" : "SUBSCRIBE NOW"}
