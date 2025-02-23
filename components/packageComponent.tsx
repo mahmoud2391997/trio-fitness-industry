@@ -44,18 +44,19 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
             : packageName.english + " Plan"}
         </h2>
       </div>
+
       <div className="h-auto w-[85%] flex flex-col justify-between m-2">
         {packageDescription.map((packagee, index) => {
           return (
             <div
               key={index}
-              className="flex flex-col justify-center items-center my-5 rounded-lg w-full"
+              className="flex flex-col justify-center items-center my-5 p-5 rounded-lg w-full"
               style={{
                 background: "url(/aboutbg.jpeg)",
                 backgroundSize: "cover",
               }}
             >
-              <h3 className="text-sm rounded-lg  mt-2 lg:text-lg p-2 sm:p-4 list-disc sm:text-base text-center m-auto w-full relative text-[#928c6b] font-semibold ">
+              <h3 className="text-sm bg-white w-auto rounded-lg  mt-2 lg:text-lg p-2 sm:p-4 list-disc sm:text-base text-center m-auto  relative text-[#928c6b] font-semibold ">
                 <div className="text-xl sm:text-3xl ">
                   {" "}
                   {language === "arabic"
@@ -77,8 +78,13 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
                   </span>
                 </div>
               </h3>
+              <Link href={`/payment/${id}?offerIndex=${index}&details=true`}>
+                <button className="bg-[#928c6b] text-white py-3 font-bold w-56 rounded-lg text-center  text-xl m-auto mt-5 h-16">
+                  {language === "arabic" ? "اشترك الان" : "SEE DETAILS"}
+                </button>
+              </Link>
               <Link href={`/payment/${id}?offerIndex=${index}`}>
-                <button className="bg-[#928c6b] text-white py-3 font-bold w-48 text-center mt-2 text-xl mb-4 m-auto h-16">
+                <button className="bg-[#928c6b] text-white py-3 font-bold w-56 text-center  text-xl my-3 rounded-lg m-auto h-16">
                   {language === "arabic" ? "اشترك الان" : "SUBSCRIBE NOW"}
                 </button>
               </Link>

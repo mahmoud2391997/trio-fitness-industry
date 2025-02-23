@@ -11,7 +11,6 @@ import SplashScreen from "../components/splashScreen";
 import { Cairo } from "next/font/google";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script"; // Import Next.js Script
-import useScrollRestoration from "@/components/restoringScrolling";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const cairoFont = Cairo({ variable: "--font-cairo", subsets: ["arabic"] });
