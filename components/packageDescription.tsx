@@ -1,3 +1,4 @@
+import { useLanguage } from "@/context/LanguageContext";
 import React from "react";
 
 interface Package {
@@ -18,37 +19,44 @@ interface DietPlanProps {
 }
 
 const DietPlanSection: React.FC<DietPlanProps> = ({ packagee }) => {
-  console.log(packagee);
+  const { language } = useLanguage();
 
   return (
-    <section className="flex flex-col md:flex-row bg-gray-100 lg:px-[4vw]  md:py-[10vh]  rounded-lg ">
+    <section className="flex flex-col md:flex-row bg-gray-100 h-auto lg:px-[4vw] md:py-[10vh] rounded-lg">
       {/* Left Side - Image Card */}
-      <div className="md:w-1/2 bg-white rounded-lg h-[35vh] md:h-[70vh] overflow-hidden shadow-md relative group">
+      <div className="md:w-1/2 bg-white rounded-lg overflow-hidden shadow-md relative group flex-shrink-0">
         {/* Image Container with Zoom Effect */}
         <div className="overflow-hidden h-full">
           <img
             src={packagee?.img}
             alt="Diet Plan"
-            className="w-full h-[35vh] md:h-[70vh] object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            className="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+            style={{ maxHeight: "100%", height: "100%" }} // Constrain image height
           />
         </div>
 
         {/* Overlay Content */}
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col h-full items-center justify-center  p-[20%] text-white text-center ">
-          <img src={packagee?.icon} className="md:h-auto  h-[50px]"  />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col h-full items-center justify-center p-[20%] text-white text-center">
+          <img src={packagee?.icon} className="md:h-auto h-[50px]" />
           <h2 className="text-lg md:text-2xl font-bold mt-2">
-            {packagee?.title?.english}
+            {language === "arabic"
+              ? "نظام " + packagee?.title?.arabic
+              : packagee?.title?.english + " Plan"}
           </h2>
         </div>
       </div>
 
-      <div className="md:w-1/2 pl-6 md:px-6">
-        {/* Right Side - Text Content */}
-
-        <ul className="list-disc md:pl-5 mt-4  mb-10 md:m-0 text-black">
+      {/* Right Side - Text Content */}
+      <div className="md:w-1/2 h-full pl-6 md:px-6 flex flex-col justify-start">
+        <ul className="list-disc md:pl-5 h-full mt-4 mb-10 md:m-0 text-black">
           {packagee?.details?.map((item, index) => (
-            <li className="md:text-xl lg:text-2xl mb-4" key={index}>
-              {item.english}
+            <li
+              className={`md:text-xl lg:text-2xl mb-4 ${
+                language === "arabic" ? "rtl text-right list-item-arabic" : ""
+              }`}
+              key={index}
+            >
+              {language === "arabic" ? item.arabic : item.english}
             </li>
           ))}
         </ul>
