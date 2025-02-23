@@ -28,10 +28,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <LanguageProvider>
-        {/* Google Analytics */}
+        {/* Google Analytics Scripts */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-JD7TJTST0M"
+        />
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-DJ4WVZ92N2"
         />
         <Script
           id="google-analytics"
@@ -41,7 +45,12 @@ export default function App({ Component, pageProps }: AppProps) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
+
               gtag('config', 'G-JD7TJTST0M', {
+                page_path: window.location.pathname,
+              });
+
+              gtag('config', 'G-DJ4WVZ92N2', {
                 page_path: window.location.pathname,
               });
             `,
