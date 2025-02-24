@@ -159,8 +159,8 @@ const content = language === "arabic" ? arabicContent : englishContent;
           </thead>
           <tbody>
             <tr>
-            <td>Price In USD</td>
-            <td>
+            <td className="border-r border-black">Price In USD</td>
+            <td className="border-l border-black">
                 {packageDetails.offers && offerIndex !== null
                   ? packageDetails.offers[offerIndex].dollarPrice
                   : packageDetails.dollarPrice}
