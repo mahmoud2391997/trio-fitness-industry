@@ -21,7 +21,7 @@ export default function Document() {
   <meta property="og:title" content="Trio Fitness Industry - Personalized Training with Hassan Mohamed" />
   <meta property="og:description" content="Achieve your fitness goals with expert guidance from certified coach Hassan Mohamed. Personalized workout plans tailored to your needs." />
   <meta property="og:image" content="/image.png" />
-  <meta property="og:url" content="https://tiofitnessindustry.com" />
+  <meta property="og:url" content="https://tiofitnessindustry.vercel.app" />
   <meta property="og:type" content="website" />
   
 
