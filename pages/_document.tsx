@@ -21,14 +21,10 @@ export default function Document() {
   <meta property="og:title" content="Trio Fitness Industry - Personalized Training with Hassan Mohamed" />
   <meta property="og:description" content="Achieve your fitness goals with expert guidance from certified coach Hassan Mohamed. Personalized workout plans tailored to your needs." />
   <meta property="og:image" content="/image.png" />
-  <meta property="og:url" content="https://yourwebsite.com" />
+  <meta property="og:url" content="https://tiofitnessindustry.com" />
   <meta property="og:type" content="website" />
   
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Trio Fitness Industry - Personalized Training with Hassan Mohamed" />
-  <meta name="twitter:description" content="Join Trio Fitness Industry for a customized fitness journey with expert personal trainer Hassan Mohamed." />
-  <meta name="twitter:image" content="/image.png" />
-  <meta name="twitter:site" content="@YourTwitterHandle" />
+
 
   <meta name="geo.region" content="EG" />
   <meta name="geo.placename" content="Cairo, Egypt" />
