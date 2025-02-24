@@ -111,7 +111,11 @@ const content = language === "arabic" ? arabicContent : englishContent;
         <table className="w-full h-full">
           <thead className="w-full border-b border-black">
             <tr>
-              <td>السعر للأجانب</td>
+              <td >
+                {packageDetails.offers && offerIndex !== null
+                  ? packageDetails.offers[offerIndex].discount.after.arabic + " جنيه"
+                  : packageDetails.price.arabic}
+              </td>
               <td className="border-l  border-black">السعر بالجنيه</td>
             </tr>
           </thead>
@@ -122,11 +126,8 @@ const content = language === "arabic" ? arabicContent : englishContent;
                   ? packageDetails.offers[offerIndex].dollarPrice
                   : packageDetails.dollarPrice}
               </td>
-              <td className="border-l border-black">
-                {packageDetails.offers && offerIndex !== null
-                  ? packageDetails.offers[offerIndex].discount.after.arabic + " جنيه"
-                  : packageDetails.price.arabic}
-              </td>
+              <td className="border-l border-black">السعر بالدولار</td>
+
             </tr>
           </tbody>
         </table>
@@ -149,21 +150,22 @@ const content = language === "arabic" ? arabicContent : englishContent;
           <thead className="w-full border-b border-black">
             <tr>
               <td className="border-r border-black">Price In EGP</td>
-              <td>Price For Foreigners</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border-r border-black">
+              <td className="border-l border-black">
                 {packageDetails.offers && offerIndex !== null
                   ? packageDetails.offers[offerIndex].discount.after.english + " EGP"
                   : packageDetails.price.english}
               </td>
-              <td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td>Price For Foreigners</td>
+            <td>
                 {packageDetails.offers && offerIndex !== null
                   ? packageDetails.offers[offerIndex].dollarPrice
                   : packageDetails.dollarPrice}
-              </td>
+              </td> 
+              
             </tr>
           </tbody>
         </table>
@@ -179,38 +181,51 @@ const content = language === "arabic" ? arabicContent : englishContent;
 )}
         </tbody>
       </table>
-      <div  className="w-auto   p-2 bg-black"> 
-          <h1 className="text-center text-2xl sm:text-3xl mb-2 underline text-white font-bold">Payment Terms And Policy</h1>
-          <h1 className="text-center text-2xl sm:text-3xl font-bold text-yellow-500">⚠️<br/>Caution</h1>
-          <p className="text-center my-2 text-base sm:text-2xl text-white"> {content.advancePayment}</p>
-          <h1 className="text-center text-2xl sm:text-3xl font-bold text-red-500">❌<br/>Attention</h1>
-          <p className="text-center my-2 text-base sm:text-2xl text-white"> {content.paymentCondition}</p>
-          <h1 className="text-center text-2xl sm:text-3xl font-bold text-green-500 flex flex-col items-center">
-  <span className="flex items-center justify-center rounded-full h-12 w-12 bg-green-500 mb-2">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="white"
-      className="w-6 h-6"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-    </svg>
-  </span>
-  Successful Fees Transfer
-</h1>
+    
+    <div className="w-auto p-2 bg-black">
+      <h1 className="text-center text-2xl sm:text-3xl mb-2 underline text-white font-bold">
+        {language === "arabic" ? "شروط وسياسة الدفع" : "Payment Terms And Policy"}
+      </h1>
+
+      <h1 className="text-center text-2xl sm:text-3xl font-bold text-yellow-500">
+        ⚠️<br />
+        {language === "arabic" ? "تحذير" : "Caution"}
+      </h1>
+      <p className="text-center my-2 text-base sm:text-2xl text-white">
+        { content.advancePayment}
+      </p>
+
+      <h1 className="text-center text-2xl sm:text-3xl font-bold text-red-500">
+        ❌<br />
+        {language === "arabic"? "انتباه" : "Attention"}
+      </h1>
+      <p className="text-center my-2 text-base sm:text-2xl text-white">
+        { content.paymentCondition}
+      </p>
+
+      <h1 className="text-center text-2xl sm:text-3xl font-bold text-green-500 flex flex-col items-center">
+        <span className="flex items-center justify-center rounded-full h-12 w-12 bg-green-500 mb-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="white"
+            className="w-6 h-6"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+        {language === "arabic" ? "تحويل الرسوم ناجح" : "Successful Fees Transfer"}
+      </h1>
+
+      <p className="text-center my-2 text-base sm:text-2xl text-white">
+        { content.payment}
+      </p>
+    </div>
+ 
 
 
-          <p className="text-center my-2 text-base sm:text-2xl text-white">
-  
-  {content.payment}
-  
-</p>
-
-
-
-          </div>
     </div>
   );
 }
