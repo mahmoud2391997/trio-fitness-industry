@@ -45,7 +45,7 @@ const PackageCard: React.FC<PackageComponentProps> = ({
       <div className="w-64 m-auto justify-center my-[10%] bg-white py-3  flex rounded-lg flex-col items-center">
         <Link href={`/payment/${id}?details=true`}>
           <button className="bg-[#928c6b] text-white py-3 font-bold w-56 rounded-lg text-center mt-2 text-xl mb-4 m-auto h-16">
-            {language === "arabic" ? "اشترك الان" : "SEE DETAILS"}
+            {language === "arabic" ? "عرض التفاصيل" : "VIEW DETAILS"}
           </button>
         </Link>
         <Link

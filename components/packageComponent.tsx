@@ -78,12 +78,18 @@ const PackageComponent: React.FC<PackageComponentProps> = ({
                   </span>
                 </div>
               </h3>
-              
+            <div className="mt-4  flex flex-col">
+              <Link href={`/payment/${id}?offerIndex=${index}&details=true`}>
+          <button className="bg-[#928c6b] text-white py-3 font-bold w-56 rounded-lg text-center mt-2 text-xl mb-4 m-auto h-16">
+            {language === "arabic" ? "عرض التفاصيل" : "VIEW DETAILS"}
+          </button>
+        </Link>
               <Link href={`/payment/${id}?offerIndex=${index}`}>
-                <button className="bg-[#928c6b] text-white py-3 font-bold w-56 text-center  text-xl my-3 rounded-lg m-auto h-16">
+                <button className="bg-[#928c6b] text-white py-3 font-bold w-56 text-center  text-xl  rounded-lg m-auto h-16">
                   {language === "arabic" ? "اشترك الان" : "SUBSCRIBE NOW"}
                 </button>
               </Link>
+              </div>
             </div>
           );
         })}

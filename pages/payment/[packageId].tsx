@@ -34,7 +34,7 @@ const PaymentPage = () => {
   console.log(details);
 
   return (
-    <div className=" bg-gray-100 w-full mt-[20vh] flex flex-col items-center sm:w-[95%] px-[10vw] py-[5vh]  sm:py-2 sm:px-5 m-auto">
+    <div className=" bg-gray-100 w-full mt-[10vh] flex flex-col items-center sm:w-[95%] py-[5vh]  sm:py-2 m-auto">
       <DietPlanSection packagee={packageDetails} />
       {!details || subscribe ? (
         <>

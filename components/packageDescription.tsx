@@ -22,7 +22,7 @@ const DietPlanSection: React.FC<DietPlanProps> = ({ packagee }) => {
   const { language } = useLanguage();
 
   return (
-    <section className="flex flex-col md:flex-row bg-gray-100 h-auto lg:px-[4vw] md:py-[10vh] rounded-lg">
+    <section className="flex flex-col md:flex-row bg-gray-100 h-auto py-[1vh] md:px-0 px-[2vw] md:py-[7vh] rounded-lg">
       {/* Left Side - Image Card */}
       <div className="md:w-1/2 bg-white rounded-lg  overflow-hidden shadow-md relative group flex-shrink-0">
         {/* Image Container with Zoom Effect */}
