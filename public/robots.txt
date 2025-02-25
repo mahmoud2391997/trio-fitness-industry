@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://triofitnessindustry.vercel.app/sitemap.xml

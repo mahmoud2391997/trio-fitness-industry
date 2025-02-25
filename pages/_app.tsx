@@ -61,7 +61,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <div
           className={`${
             language === "arabic" ? cairoFont.variable : geistSans.variable
-          } ${geistMono.variable} relative`}
+          } ${geistMono.variable} relative pb-[18vh] min-h-[90vh]`}
           style={{ visibility: showSplash ? "hidden" : "visible" }}
         >
           <SocialMedia />
