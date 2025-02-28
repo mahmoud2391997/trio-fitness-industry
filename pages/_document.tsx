@@ -1,29 +1,67 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Document() {
   return (
-    <Html lang="en"> {/* Default to English */}
+    <Html lang="en">
+      {" "}
+      {/* Default to English */}
       <Head>
         {/* Canonical URL */}
         <link rel="canonical" href="https://triofitnessindustry.vercel.app" />
 
         {/* Basic Meta Tags */}
         <meta charSet="UTF-8" />
-        <title>Trio Fitness Industry - Personalized Training with Hassan Mohamed</title>
+        <title>
+          Trio Fitness Industry - Personalized Training with Hassan Mohamed
+        </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Join Trio Fitness Industry for a personalized training experience with certified coach Hassan Mohamed. Achieve your fitness goals with customized workout plans." />
-        <meta name="keywords" content="fitness, personal training, workout plans, weight loss, muscle gain, Hassan Mohamed, online coaching, gym, strength training, personal trainer, home workouts" />
+        <meta
+          name="description"
+          content="Join Trio Fitness Industry for a personalized training experience with certified coach Hassan Mohamed. Achieve your fitness goals with customized workout plans."
+        />
+        <meta
+          name="keywords"
+          content="fitness, personal training, workout plans, weight loss, muscle gain, Hassan Mohamed, online coaching, gym, strength training, personal trainer, home workouts"
+        />
         <meta name="author" content="Trio Fitness Industry" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
 
         {/* OpenGraph Meta Tags */}
-        <meta property="og:title" content="Trio Fitness Industry - Personalized Training with Hassan Mohamed" />
-        <meta property="og:description" content="Achieve your fitness goals with expert guidance from certified coach Hassan Mohamed. Personalized workout plans tailored to your needs." />
+        <meta
+          property="og:title"
+          content="Trio Fitness Industry - Personalized Training with Hassan Mohamed"
+        />
+        <meta
+          property="og:description"
+          content="Achieve your fitness goals with expert guidance from certified coach Hassan Mohamed. Personalized workout plans tailored to your needs."
+        />
         <meta property="og:image" content="/image.png" />
-        <meta property="og:url" content="https://triofitnessindustry.vercel.app" />
+        <meta
+          property="og:url"
+          content="https://triofitnessindustry.vercel.app"
+        />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Trio Fitness Industry" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Trio Fitness Industry - Personalized Training with Hassan Mohamed"
+        />
+        <meta
+          name="twitter:description"
+          content="Achieve your fitness goals with expert guidance from certified coach Hassan Mohamed. Personalized workout plans tailored to your needs."
+        />
+        <meta
+          name="twitter:image"
+          content="https://triofitnessindustry.vercel.app/image.png"
+        />
+        <meta name="twitter:site" content="@triofitness" />
+        <meta name="twitter:creator" content="@hassanmohamed" />
 
         {/* Geo Meta Tags */}
         <meta name="geo.region" content="EG" />
@@ -56,7 +94,6 @@ export default function Document() {
           `}
         </script>
       </Head>
-
       <body className="antialiased">
         <Main />
         <NextScript />
